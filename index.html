@@ -117,7 +117,7 @@
     }
 
     /* ─── NAV ─── */
-    nav {
+    nav#nav {
       position: fixed;
       top: 0;
       left: 0;
@@ -133,7 +133,7 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
 
-    nav.scrolled {
+    nav#nav.scrolled {
       padding: 14px 40px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.1);
     }
@@ -1182,7 +1182,7 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      nav { position: relative; }
+      nav#nav { position: relative; }
       .hero { padding-top: 32px; min-height: auto; }
       .hero-inner {
         grid-template-columns: 1fr;
@@ -1201,7 +1201,7 @@
     }
 
     @media (max-width: 600px) {
-      nav { padding: 16px 16px; position: relative; }
+      nav#nav { padding: 16px 16px; position: relative; }
       .nav-links a:not(.nav-cta) { display: none; }
       .hero { padding: 32px 20px 60px; min-height: auto; }
       .features { padding: 60px 20px; }
