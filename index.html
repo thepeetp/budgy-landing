@@ -118,24 +118,14 @@
 
     /* ─── NAV ─── */
     nav#nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
+      position: relative;
       padding: 18px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: #FFFFFF;
       border-bottom: 2px solid #E5E7EB;
-      transition: all 0.3s ease;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-
-    nav#nav.scrolled {
-      padding: 14px 40px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
     }
 
     .nav-logo {
@@ -196,7 +186,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 120px 32px 80px;
+      padding: 40px 32px 80px;
       position: relative;
       overflow: hidden;
     }
@@ -1182,7 +1172,6 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      nav#nav { position: relative; }
       .hero { padding-top: 32px; min-height: auto; }
       .hero-inner {
         grid-template-columns: 1fr;
@@ -1201,7 +1190,7 @@
     }
 
     @media (max-width: 600px) {
-      nav#nav { padding: 16px 16px; position: relative; }
+      nav#nav { padding: 16px 16px; }
       .nav-links a:not(.nav-cta) { display: none; }
       .hero { padding: 32px 20px 60px; min-height: auto; }
       .features { padding: 60px 20px; }
@@ -1480,10 +1469,6 @@
   </footer>
 
   <script>
-    // Nav scroll effect
-    window.addEventListener('scroll', () => {
-      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
 
     // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
