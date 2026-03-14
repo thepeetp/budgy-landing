@@ -4,15 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Budgy - แอปบันทึกค่าใช้จ่ายอัจฉริยะ | AI Spending Tracker</title>
-  <meta name="description" content="Budgy - แอปบันทึกค่าใช้จ่ายอัจฉริยะ ขับเคลื่อนด้วย AI จัดหมวดหมู่อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ วางแผนการออม">
-  <meta property="og:title" content="Budgy - AI Spending Tracker">
-  <meta property="og:description" content="บันทึกรายจ่ายด้วย AI อัจฉริยะ จัดหมวดหมู่อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ">
+  <meta name="description" content="Budgy - แอปบันทึกค่าใช้จ่ายอัจฉริยะ ขับเคลื่อนด้วย AI จัดหมวดหมู่อัตโนมัติ 95% แม่นยำ สแกนใบเสร็จ OCR ตั้งงบประมาณ วางแผนการออม ใช้ได้ทั้ง iOS, Android และ LINE">
+  <meta name="keywords" content="บันทึกค่าใช้จ่าย, แอปการเงิน, AI spending tracker, budget app, expense tracker, สแกนใบเสร็จ, OCR, LINE bot, ออมเงิน, งบประมาณ, Budgy">
+  <meta name="author" content="Budgy">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thepeetp.github.io/budgy-landing/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Budgy - แอปบันทึกค่าใช้จ่ายอัจฉริยะ ขับเคลื่อนด้วย AI">
+  <meta property="og:description" content="แค่พิมพ์ 'กาแฟ 80 บาท' — Budgy จัดหมวดหมู่ให้อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ วิเคราะห์การเงิน">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="assets/icon-512.png">
-  <meta property="og:image" content="assets/app-icon.png">
+  <meta property="og:url" content="https://thepeetp.github.io/budgy-landing/">
+  <meta property="og:image" content="https://thepeetp.github.io/budgy-landing/assets/app-icon.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:locale" content="th_TH">
+  <meta property="og:site_name" content="Budgy">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Budgy - AI Spending Tracker">
+  <meta name="twitter:description" content="Track expenses with AI. Auto-categorize, scan receipts, set budgets. Available on iOS, Android & LINE.">
+  <meta name="twitter:image" content="https://thepeetp.github.io/budgy-landing/assets/app-icon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Budgy",
+    "description": "AI-powered spending tracker with automatic categorization, receipt OCR, budgets, and financial planning",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "iOS, Android",
+    "offers": [
+      {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "THB",
+        "name": "Free"
+      },
+      {
+        "@type": "Offer",
+        "price": "179",
+        "priceCurrency": "THB",
+        "name": "Pro"
+      },
+      {
+        "@type": "Offer",
+        "price": "349",
+        "priceCurrency": "THB",
+        "name": "Premium"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "100"
+    },
+    "url": "https://thepeetp.github.io/budgy-landing/",
+    "downloadUrl": [
+      "https://apps.apple.com/app/budgy/id6756961804",
+      "https://play.google.com/store/apps/details?id=io.budgy.mobile"
+    ],
+    "screenshot": "https://thepeetp.github.io/budgy-landing/assets/screenshot-dashboard.png",
+    "softwareVersion": "1.0",
+    "author": {
+      "@type": "Organization",
+      "name": "Budgy"
+    }
+  }
+  </script>
+
   <style>
     :root {
       --forest-start: #0D7C5F;
@@ -35,7 +106,6 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -44,17 +114,6 @@
       background: var(--sand);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-    }
-
-    /* ─── NOISE TEXTURE ─── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
     }
 
     /* ─── NAV ─── */
@@ -90,14 +149,7 @@
     .nav-logo-icon {
       width: 36px;
       height: 36px;
-      background: linear-gradient(135deg, var(--forest-start), var(--forest-end));
       border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 18px;
     }
 
     .nav-logo-text {
@@ -147,6 +199,7 @@
       overflow: hidden;
     }
 
+    /* Gradient mesh background */
     .hero::before {
       content: '';
       position: absolute;
@@ -154,8 +207,9 @@
       right: -200px;
       width: 700px;
       height: 700px;
-      background: radial-gradient(circle, rgba(29, 191, 142, 0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(29, 191, 142, 0.15) 0%, transparent 70%);
       pointer-events: none;
+      animation: meshFloat 12s ease-in-out infinite;
     }
 
     .hero::after {
@@ -165,8 +219,27 @@
       left: -100px;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(245, 166, 35, 0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(245, 166, 35, 0.1) 0%, transparent 70%);
       pointer-events: none;
+      animation: meshFloat 15s ease-in-out infinite reverse;
+    }
+
+    @keyframes meshFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.05); }
+      66% { transform: translate(-20px, 15px) scale(0.95); }
+    }
+
+    /* Third gradient blob */
+    .hero-mesh-extra {
+      position: absolute;
+      top: 40%;
+      left: 30%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      animation: meshFloat 18s ease-in-out infinite 3s;
     }
 
     .hero-inner {
@@ -233,6 +306,53 @@
       animation: fadeInUp 0.8s 0.2s ease both;
     }
 
+    /* Typing demo */
+    .typing-demo {
+      display: inline-flex;
+      align-items: center;
+      background: white;
+      border-radius: 14px;
+      padding: 14px 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid rgba(13, 124, 95, 0.1);
+      animation: fadeInUp 0.8s 0.25s ease both;
+      gap: 12px;
+      max-width: 420px;
+    }
+
+    .typing-input {
+      font-family: 'Noto Sans Thai', sans-serif;
+      font-size: 15px;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid var(--forest-mid);
+      animation: blink 1s step-end infinite;
+      min-height: 1.4em;
+    }
+
+    .typing-result {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--forest-start);
+      background: var(--forest-light);
+      padding: 4px 10px;
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      white-space: nowrap;
+    }
+
+    .typing-result.show { opacity: 1; }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
     .hero-buttons {
       display: flex;
       gap: 16px;
@@ -249,11 +369,11 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 15px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
     }
 
     .store-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     .store-btn-primary {
@@ -263,7 +383,7 @@
     }
 
     .store-btn-primary:hover {
-      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.2);
     }
 
     .store-btn-secondary {
@@ -274,7 +394,7 @@
     }
 
     .store-btn-secondary:hover {
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
     }
 
     .store-btn svg {
@@ -302,6 +422,7 @@
       display: flex;
       justify-content: center;
       animation: fadeInUp 0.8s 0.4s ease both;
+      perspective: 1000px;
     }
 
     .screenshot-showcase {
@@ -322,6 +443,8 @@
         0 20px 40px rgba(0,0,0,0.1);
       background: var(--ink);
       padding: 8px;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform-style: preserve-3d;
     }
 
     .screenshot-img {
@@ -333,11 +456,13 @@
       object-fit: cover;
       border-radius: 28px;
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: scale(0.95);
     }
 
     .screenshot-img.active {
       opacity: 1;
+      transform: scale(1);
     }
 
     .screenshot-dots {
@@ -353,7 +478,7 @@
       background: var(--ink-muted);
       opacity: 0.3;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       padding: 0;
     }
 
@@ -361,6 +486,7 @@
       opacity: 1;
       background: var(--forest-mid);
       transform: scale(1.3);
+      box-shadow: 0 0 12px rgba(20, 160, 120, 0.4);
     }
 
     .floating-card {
@@ -373,6 +499,8 @@
       align-items: center;
       gap: 10px;
       animation: float 4s ease-in-out infinite;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.6);
     }
 
     .floating-card-1 {
@@ -412,21 +540,51 @@
       50% { transform: translateY(-12px); }
     }
 
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      padding: 48px 32px;
+      background: white;
+      border-top: 1px solid rgba(13, 124, 95, 0.06);
+      border-bottom: 1px solid rgba(13, 124, 95, 0.06);
+    }
+
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 8px;
+    }
+
+    .stat-number {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, var(--forest-start), var(--forest-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--ink-muted);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
     /* ─── FEATURES ─── */
     .features {
       padding: 100px 32px;
       background: var(--white);
       position: relative;
-    }
-
-    .features::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(13, 124, 95, 0.15), transparent);
     }
 
     .section-label {
@@ -466,14 +624,34 @@
       background: var(--sand);
       border-radius: var(--radius-lg);
       padding: 32px 28px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s, border-color 0.4s;
       border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--forest-start), var(--forest-end));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     }
 
     .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.06);
-      border-color: rgba(13, 124, 95, 0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(13, 124, 95, 0.1);
+      border-color: rgba(13, 124, 95, 0.12);
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
     }
 
     .feature-icon {
@@ -485,6 +663,11 @@
       justify-content: center;
       font-size: 26px;
       margin-bottom: 20px;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotate(-3deg);
     }
 
     .feature-card h3 {
@@ -503,12 +686,26 @@
     .line-section {
       padding: 80px 32px;
       background: var(--forest-pale);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .line-section::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -150px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(6, 199, 85, 0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .line-inner {
       max-width: 900px;
       margin: 0 auto;
       text-align: center;
+      position: relative;
     }
 
     .line-badge {
@@ -549,14 +746,14 @@
       height: 200px;
       border-radius: 16px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       object-fit: contain;
       background: white;
       padding: 8px;
     }
 
     .line-qr-img:hover {
-      transform: scale(1.05);
+      transform: scale(1.08) rotate(2deg);
     }
 
     .line-qr-hint {
@@ -576,12 +773,12 @@
       text-decoration: none;
       font-weight: 700;
       font-size: 16px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
     }
 
     .line-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(6, 199, 85, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(6, 199, 85, 0.3);
     }
 
     /* ─── PRICING ─── */
@@ -647,12 +844,11 @@
     }
 
     .price-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px);
       border-color: rgba(255,255,255,0.15);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
     }
 
-    /* Pro — indigo glow */
     .price-card.tier-pro {
       background: rgba(99, 102, 241, 0.08);
       border-color: rgba(99, 102, 241, 0.2);
@@ -671,10 +867,9 @@
 
     .price-card.tier-pro:hover {
       border-color: rgba(99, 102, 241, 0.4);
-      box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 24px 60px rgba(99, 102, 241, 0.15);
     }
 
-    /* Premium — gold glow, elevated */
     .price-card.tier-premium {
       background: linear-gradient(160deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.05));
       border-color: rgba(245, 158, 11, 0.25);
@@ -695,9 +890,9 @@
     }
 
     .price-card.tier-premium:hover {
-      transform: scale(1.04) translateY(-6px);
+      transform: scale(1.04) translateY(-8px);
       border-color: rgba(245, 158, 11, 0.5);
-      box-shadow: 0 24px 60px rgba(245, 158, 11, 0.12), 0 8px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 28px 70px rgba(245, 158, 11, 0.12), 0 8px 30px rgba(0,0,0,0.3);
     }
 
     .price-card-badge {
@@ -804,7 +999,7 @@
       text-decoration: none;
       font-weight: 700;
       font-size: 14px;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       cursor: pointer;
       border: none;
     }
@@ -821,14 +1016,14 @@
       color: white;
       box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
     }
-    .cta-pro:hover { box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4); transform: translateY(-1px); }
+    .cta-pro:hover { box-shadow: 0 16px 40px rgba(99, 102, 241, 0.4); transform: translateY(-2px); }
 
     .cta-premium {
       background: linear-gradient(135deg, #F59E0B, #D97706);
       color: #1A1510;
       box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
     }
-    .cta-premium:hover { box-shadow: 0 12px 32px rgba(245, 158, 11, 0.35); transform: translateY(-1px); }
+    .cta-premium:hover { box-shadow: 0 16px 40px rgba(245, 158, 11, 0.35); transform: translateY(-2px); }
 
     /* ─── CTA ─── */
     .cta {
@@ -848,6 +1043,17 @@
       width: 400px;
       height: 400px;
       background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    }
+
+    .cta::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .cta h2 {
@@ -936,6 +1142,19 @@
       transform: translateY(0);
     }
 
+    /* Staggered feature card animation */
+    .feature-card.reveal:nth-child(1) { transition-delay: 0s; }
+    .feature-card.reveal:nth-child(2) { transition-delay: 0.1s; }
+    .feature-card.reveal:nth-child(3) { transition-delay: 0.2s; }
+    .feature-card.reveal:nth-child(4) { transition-delay: 0.3s; }
+    .feature-card.reveal:nth-child(5) { transition-delay: 0.4s; }
+    .feature-card.reveal:nth-child(6) { transition-delay: 0.5s; }
+
+    /* Staggered pricing card animation */
+    .price-card.reveal:nth-child(1) { transition-delay: 0s; }
+    .price-card.reveal:nth-child(2) { transition-delay: 0.15s; }
+    .price-card.reveal:nth-child(3) { transition-delay: 0.3s; }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .hero-inner {
@@ -945,10 +1164,13 @@
       }
       .hero-desc { margin-left: auto; margin-right: auto; }
       .hero-buttons { justify-content: center; }
+      .typing-demo { margin-left: auto; margin-right: auto; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .pricing-cards { grid-template-columns: 1fr; max-width: 380px; margin-left: auto; margin-right: auto; }
       .price-card.tier-premium { transform: none; }
+      .price-card.tier-premium:hover { transform: translateY(-8px); }
       .floating-card { display: none; }
+      .stats-inner { grid-template-columns: repeat(3, 1fr); gap: 16px; }
     }
 
     @media (max-width: 600px) {
@@ -962,15 +1184,27 @@
       footer { padding: 32px 16px; }
       .hero-buttons { flex-direction: column; align-items: center; }
       .store-btn { width: 100%; max-width: 260px; justify-content: center; }
+      .stats-inner { grid-template-columns: 1fr; gap: 24px; }
+      .typing-demo { max-width: 100%; }
+    }
+
+    /* Prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav id="nav">
-    <a href="#" class="nav-logo">
-      <img src="assets/app-icon.png" alt="Budgy" class="nav-logo-icon" style="border-radius:10px">
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo" aria-label="Budgy - Home">
+      <img src="assets/app-icon.png" alt="" class="nav-logo-icon" width="36" height="36" loading="eager">
       <div class="nav-logo-text">Budgy</div>
     </a>
     <div class="nav-links">
@@ -981,24 +1215,29 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="home">
+  <section class="hero" id="home" aria-label="Hero">
+    <div class="hero-mesh-extra" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-badge">Available on iOS & Android</div>
+        <div class="hero-badge" aria-label="Available on iOS and Android">Available on iOS & Android</div>
         <h1>บันทึกรายจ่าย<br>ง่ายขึ้นด้วย <span class="gradient-text">AI</span></h1>
         <p class="hero-desc">
           แค่พิมพ์ "กาแฟ 80 บาท" — Budgy จัดหมวดหมู่ให้อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ และวิเคราะห์การเงินของคุณ
         </p>
+        <div class="typing-demo" aria-label="Demo: type naturally and AI categorizes automatically">
+          <div class="typing-input" id="typingInput" aria-live="polite"></div>
+          <div class="typing-result" id="typingResult" aria-live="polite"></div>
+        </div>
         <div class="hero-buttons" id="download">
-          <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn store-btn-primary">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn store-btn-primary" aria-label="Download Budgy on the App Store">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             <div class="store-btn-label">
               <small>Download on the</small>
               <span>App Store</span>
             </div>
           </a>
-          <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn store-btn-secondary">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+          <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn store-btn-secondary" aria-label="Get Budgy on Google Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
             <div class="store-btn-label">
               <small>Get it on</small>
               <span>Google Play</span>
@@ -1008,27 +1247,27 @@
       </div>
       <div class="hero-visual">
         <div class="screenshot-showcase">
-          <div class="screenshot-main">
-            <img src="assets/screenshot-dashboard.png" alt="Budgy Dashboard" class="screenshot-img active" data-index="0">
-            <img src="assets/screenshot-ai-chat.png" alt="Budgy AI Chat" class="screenshot-img" data-index="1">
-            <img src="assets/screenshot-transactions.png" alt="Budgy Transactions" class="screenshot-img" data-index="2">
-            <img src="assets/screenshot-budgets.png" alt="Budgy Budgets" class="screenshot-img" data-index="3">
+          <div class="screenshot-main" id="screenshotMain">
+            <img src="assets/screenshot-dashboard.png" alt="Budgy dashboard showing expense summary and recent transactions" class="screenshot-img active" data-index="0" width="264" height="564" loading="eager">
+            <img src="assets/screenshot-ai-chat.png" alt="Budgy AI chat assistant helping with financial questions" class="screenshot-img" data-index="1" width="264" height="564" loading="lazy">
+            <img src="assets/screenshot-transactions.png" alt="Budgy transaction list with automatic AI categorization" class="screenshot-img" data-index="2" width="264" height="564" loading="lazy">
+            <img src="assets/screenshot-budgets.png" alt="Budgy budget tracking with progress bars and spending alerts" class="screenshot-img" data-index="3" width="264" height="564" loading="lazy">
           </div>
-          <div class="screenshot-dots">
-            <button class="dot active" data-index="0"></button>
-            <button class="dot" data-index="1"></button>
-            <button class="dot" data-index="2"></button>
-            <button class="dot" data-index="3"></button>
+          <div class="screenshot-dots" role="tablist" aria-label="Screenshot gallery">
+            <button class="dot active" data-index="0" role="tab" aria-selected="true" aria-label="Dashboard screenshot"></button>
+            <button class="dot" data-index="1" role="tab" aria-selected="false" aria-label="AI Chat screenshot"></button>
+            <button class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Transactions screenshot"></button>
+            <button class="dot" data-index="3" role="tab" aria-selected="false" aria-label="Budgets screenshot"></button>
           </div>
         </div>
-        <div class="floating-card floating-card-1">
+        <div class="floating-card floating-card-1" aria-hidden="true">
           <div class="floating-icon" style="background:#E8FAF3">🤖</div>
           <div class="floating-text">
             <small>AI จัดหมวดหมู่</small>
             <strong>แม่นยำ 95%</strong>
           </div>
         </div>
-        <div class="floating-card floating-card-2">
+        <div class="floating-card floating-card-2" aria-hidden="true">
           <div class="floating-icon" style="background:#FFF3E0">📊</div>
           <div class="floating-text">
             <small>งบประมาณ</small>
@@ -1039,140 +1278,158 @@
     </div>
   </section>
 
+  <!-- STATS -->
+  <section class="stats-bar reveal" aria-label="Statistics">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-number" data-target="95" data-suffix="%">0%</div>
+        <div class="stat-label">AI แม่นยำ</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="6" data-suffix=" ฟีเจอร์หลัก">0</div>
+        <div class="stat-label">ครบทุกด้านการเงิน</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="3" data-suffix=" แพลตฟอร์ม">0</div>
+        <div class="stat-label">iOS, Android, LINE</div>
+      </div>
+    </div>
+  </section>
+
   <!-- FEATURES -->
-  <section class="features" id="features">
+  <section class="features" id="features" aria-label="Features">
     <div style="max-width:1200px;margin:0 auto;">
       <div class="section-label reveal">Features</div>
       <h2 class="section-title reveal">ทุกอย่างที่คุณต้องการ<br>สำหรับจัดการเงิน</h2>
       <p class="section-desc reveal">Budgy ออกแบบมาให้บันทึกรายจ่ายได้ง่ายที่สุด ด้วย AI ที่ฉลาดพอจะจัดการทุกอย่างให้คุณ</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card reveal">
-        <div class="feature-icon" style="background:#E8FAF3">🤖</div>
+      <article class="feature-card reveal">
+        <div class="feature-icon" style="background:#E8FAF3" aria-hidden="true">🤖</div>
         <h3>AI จัดหมวดหมู่อัตโนมัติ</h3>
         <p>พิมพ์ธรรมชาติ "ข้าวมันไก่ 50 บาท" AI จัดหมวดหมู่ให้อัตโนมัติ แม่นยำกว่า 95%</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon" style="background:#FFF3E0">📸</div>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-icon" style="background:#FFF3E0" aria-hidden="true">📸</div>
         <h3>สแกนใบเสร็จ OCR</h3>
         <p>ถ่ายรูปใบเสร็จ AI ดึงข้อมูลร้านค้า รายการ และยอดเงินให้อัตโนมัติ</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon" style="background:#E3F2FD">📊</div>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-icon" style="background:#E3F2FD" aria-hidden="true">📊</div>
         <h3>ตั้งงบประมาณ</h3>
         <p>ตั้งงบตามหมวดหมู่ ดูความคืบหน้าแบบเรียลไทม์ แจ้งเตือนก่อนเกินงบ</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon" style="background:#F3E5F5">🎯</div>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-icon" style="background:#F3E5F5" aria-hidden="true">🎯</div>
         <h3>เป้าหมายการออม</h3>
         <p>สร้างเป้าหมายออมเงิน ติดตามความคืบหน้า วางแผนเกษียณและกองทุนฉุกเฉิน</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon" style="background:#FFF8E1">👥</div>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-icon" style="background:#FFF8E1" aria-hidden="true">👥</div>
         <h3>ค่าใช้จ่ายกลุ่ม</h3>
         <p>แชร์งบกับครอบครัวหรือเพื่อนร่วมห้อง แบ่งค่าใช้จ่ายอัตโนมัติ</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon" style="background:#FFEBEE">💬</div>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-icon" style="background:#FFEBEE" aria-hidden="true">💬</div>
         <h3>AI แชทผู้ช่วยการเงิน</h3>
         <p>ถามอะไรก็ได้เกี่ยวกับการเงินของคุณ AI วิเคราะห์และให้คำแนะนำส่วนตัว</p>
-      </div>
+      </article>
     </div>
   </section>
 
   <!-- LINE -->
-  <section class="line-section reveal">
+  <section class="line-section reveal" aria-label="LINE integration">
     <div class="line-inner">
-      <div class="line-badge">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zM6.787 13.508H4.4c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.349 0 .63.285.63.63v4.141h1.754c.345 0 .627.285.627.63 0 .344-.282.629-.627.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      <div class="line-badge" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zM6.787 13.508H4.4c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.349 0 .63.285.63.63v4.141h1.754c.345 0 .627.285.627.63 0 .344-.282.629-.627.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
         LINE
       </div>
       <h2>ใช้ผ่าน LINE ได้เลย</h2>
       <p>แค่พิมพ์ "ข้าวกลางวัน 150 บาท" ใน LINE — Budgy บันทึกรายจ่าย จัดหมวดหมู่ และสรุปยอดให้ทันที ไม่ต้องเปิดแอป</p>
       <div class="line-qr-wrapper">
-        <a href="https://line.me/R/ti/p/@508uvtlg">
-          <img src="assets/line-qr.png" alt="Scan to add Budgy on LINE" class="line-qr-img">
+        <a href="https://line.me/R/ti/p/@508uvtlg" aria-label="Add Budgy as LINE friend">
+          <img src="assets/line-qr.png" alt="QR Code to add Budgy on LINE" class="line-qr-img" width="200" height="200" loading="lazy">
         </a>
         <p class="line-qr-hint">สแกน QR Code เพื่อเพิ่มเพื่อน</p>
       </div>
-      <a href="https://line.me/R/ti/p/@508uvtlg" class="line-btn">
+      <a href="https://line.me/R/ti/p/@508uvtlg" class="line-btn" aria-label="Add Budgy as LINE friend">
         เพิ่มเพื่อน Budgy บน LINE
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
       </a>
     </div>
   </section>
 
   <!-- PRICING -->
-  <section class="pricing" id="pricing">
+  <section class="pricing" id="pricing" aria-label="Pricing plans">
     <div class="pricing-inner">
       <div class="section-label reveal">Pricing</div>
       <h2 class="section-title reveal">เลือกแพ็กเกจที่เหมาะกับคุณ</h2>
       <p class="section-desc reveal">เริ่มใช้ฟรี อัพเกรดเมื่อพร้อม</p>
       <div class="pricing-cards">
         <!-- Free -->
-        <div class="price-card reveal">
-          <span class="tier-icon">🌱</span>
+        <article class="price-card reveal" aria-label="Free plan">
+          <span class="tier-icon" aria-hidden="true">🌱</span>
           <h3>Free</h3>
           <div class="tier-desc">เริ่มต้นจัดการเงิน</div>
           <div class="price">฿0 <small>/เดือน</small></div>
           <a href="#download" class="price-cta cta-free">เริ่มต้นฟรี</a>
           <ul>
-            <li><span class="check check-free">✓</span> AI 30 ครั้ง/เดือน</li>
-            <li><span class="check check-free">✓</span> งบประมาณ 5 รายการ</li>
-            <li><span class="check check-free">✓</span> สแกนใบเสร็จ 5 ครั้ง</li>
-            <li><span class="check check-free">✓</span> เป้าหมาย 3 รายการ</li>
+            <li><span class="check check-free" aria-hidden="true">✓</span> AI 30 ครั้ง/เดือน</li>
+            <li><span class="check check-free" aria-hidden="true">✓</span> งบประมาณ 5 รายการ</li>
+            <li><span class="check check-free" aria-hidden="true">✓</span> สแกนใบเสร็จ 5 ครั้ง</li>
+            <li><span class="check check-free" aria-hidden="true">✓</span> เป้าหมาย 3 รายการ</li>
           </ul>
-        </div>
+        </article>
         <!-- Pro -->
-        <div class="price-card tier-pro reveal">
+        <article class="price-card tier-pro reveal" aria-label="Pro plan - most popular">
           <div class="price-card-badge badge-popular">⚡ ยอดนิยม</div>
-          <span class="tier-icon">⚡</span>
+          <span class="tier-icon" aria-hidden="true">⚡</span>
           <h3>Pro</h3>
           <div class="tier-desc">สำหรับคนจริงจัง</div>
           <div class="price tier-pro-price">฿179 <small>/เดือน</small></div>
           <a href="#download" class="price-cta cta-pro">เลือก Pro</a>
           <ul>
-            <li><span class="check check-pro">✓</span> AI 100 ครั้ง/เดือน</li>
-            <li><span class="check check-pro">✓</span> งบประมาณ 10 รายการ</li>
-            <li><span class="check check-pro">✓</span> สแกนใบเสร็จ 20 ครั้ง</li>
-            <li><span class="check check-pro">✓</span> วิเคราะห์ขั้นสูง</li>
-            <li><span class="check check-pro">✓</span> กลุ่ม 5 กลุ่ม</li>
+            <li><span class="check check-pro" aria-hidden="true">✓</span> AI 100 ครั้ง/เดือน</li>
+            <li><span class="check check-pro" aria-hidden="true">✓</span> งบประมาณ 10 รายการ</li>
+            <li><span class="check check-pro" aria-hidden="true">✓</span> สแกนใบเสร็จ 20 ครั้ง</li>
+            <li><span class="check check-pro" aria-hidden="true">✓</span> วิเคราะห์ขั้นสูง</li>
+            <li><span class="check check-pro" aria-hidden="true">✓</span> กลุ่ม 5 กลุ่ม</li>
           </ul>
-        </div>
+        </article>
         <!-- Premium -->
-        <div class="price-card tier-premium reveal">
+        <article class="price-card tier-premium reveal" aria-label="Premium plan - best value">
           <div class="price-card-badge badge-best">👑 คุ้มค่าที่สุด</div>
-          <span class="tier-icon">👑</span>
+          <span class="tier-icon" aria-hidden="true">👑</span>
           <h3>Premium</h3>
           <div class="tier-desc">ไม่จำกัดทุกอย่าง</div>
           <div class="price tier-premium-price">฿349 <small>/เดือน</small></div>
           <a href="#download" class="price-cta cta-premium">เลือก Premium</a>
           <ul>
-            <li><span class="check check-premium">✓</span> ไม่จำกัดทุกฟีเจอร์</li>
-            <li><span class="check check-premium">✓</span> วางแผนการเงิน</li>
-            <li><span class="check check-premium">✓</span> AI Avatar ส่วนตัว</li>
-            <li><span class="check check-premium">✓</span> ซัพพอร์ตพิเศษ 24/7</li>
-            <li><span class="check check-premium">✓</span> ส่งออก CSV ไม่จำกัด</li>
+            <li><span class="check check-premium" aria-hidden="true">✓</span> ไม่จำกัดทุกฟีเจอร์</li>
+            <li><span class="check check-premium" aria-hidden="true">✓</span> วางแผนการเงิน</li>
+            <li><span class="check check-premium" aria-hidden="true">✓</span> AI Avatar ส่วนตัว</li>
+            <li><span class="check check-premium" aria-hidden="true">✓</span> ซัพพอร์ตพิเศษ 24/7</li>
+            <li><span class="check check-premium" aria-hidden="true">✓</span> ส่งออก CSV ไม่จำกัด</li>
           </ul>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta">
+  <section class="cta" aria-label="Download Budgy">
     <h2 class="reveal">เริ่มจัดการเงินวันนี้</h2>
     <p class="reveal">ดาวน์โหลด Budgy ฟรี แล้วลองบันทึกรายจ่ายแรกของคุณ</p>
     <div class="cta-buttons reveal">
-      <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn store-btn-primary">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn store-btn-primary" aria-label="Download Budgy on the App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         <div class="store-btn-label">
           <small>Download on the</small>
           <span>App Store</span>
         </div>
       </a>
-      <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn store-btn-secondary">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+      <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn store-btn-secondary" aria-label="Get Budgy on Google Play">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
         <div class="store-btn-label">
           <small>Get it on</small>
           <span>Google Play</span>
@@ -1182,15 +1439,15 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="Footer navigation">
         <a href="https://budgy-api.theopenland.com/legal/privacy">Privacy Policy</a>
         <a href="https://budgy-api.theopenland.com/legal/terms">Terms of Service</a>
         <a href="mailto:teerapun.toranathiti@gmail.com">Contact</a>
-        <a href="https://www.facebook.com/BudgyApp">Facebook</a>
-        <a href="https://line.me/R/ti/p/@508uvtlg">LINE</a>
-      </div>
+        <a href="https://www.facebook.com/BudgyApp" aria-label="Budgy on Facebook">Facebook</a>
+        <a href="https://line.me/R/ti/p/@508uvtlg" aria-label="Budgy on LINE">LINE</a>
+      </nav>
       <p class="footer-copy">&copy; 2026 Budgy. All rights reserved.</p>
     </div>
   </footer>
@@ -1199,7 +1456,7 @@
     // Nav scroll effect
     window.addEventListener('scroll', () => {
       document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
-    });
+    }, { passive: true });
 
     // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
@@ -1219,9 +1476,10 @@
 
     function showSlide(index) {
       slides.forEach(s => s.classList.remove('active'));
-      dots.forEach(d => d.classList.remove('active'));
+      dots.forEach(d => { d.classList.remove('active'); d.setAttribute('aria-selected', 'false'); });
       slides[index].classList.add('active');
       dots[index].classList.add('active');
+      dots[index].setAttribute('aria-selected', 'true');
       currentSlide = index;
     }
 
@@ -1229,10 +1487,94 @@
       dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));
     });
 
-    // Auto-rotate every 4 seconds
-    setInterval(() => {
+    let carouselInterval = setInterval(() => {
       showSlide((currentSlide + 1) % slides.length);
     }, 4000);
+
+    // Pause carousel on hover
+    const showcase = document.querySelector('.screenshot-showcase');
+    showcase.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+    showcase.addEventListener('mouseleave', () => {
+      carouselInterval = setInterval(() => showSlide((currentSlide + 1) % slides.length), 4000);
+    });
+
+    // 3D tilt on screenshot
+    const screenshotMain = document.getElementById('screenshotMain');
+    screenshotMain.addEventListener('mousemove', (e) => {
+      const rect = screenshotMain.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      screenshotMain.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
+    });
+    screenshotMain.addEventListener('mouseleave', () => {
+      screenshotMain.style.transform = 'rotateY(0) rotateX(0)';
+    });
+
+    // Counter animation
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1500;
+          const start = performance.now();
+
+          function update(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            const current = Math.round(target * eased);
+            el.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(update);
+          }
+
+          requestAnimationFrame(update);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
+
+    // Typing animation
+    const typingPhrases = [
+      { text: 'กาแฟ 80 บาท', result: '☕ อาหาร & เครื่องดื่ม' },
+      { text: 'ค่าเน็ต 599', result: '📱 สาธารณูปโภค' },
+      { text: 'grab 45 บาท', result: '🚗 เดินทาง' },
+      { text: 'เสื้อยืด 390', result: '👕 ช้อปปิ้ง' },
+    ];
+
+    let phraseIndex = 0;
+    const typingInput = document.getElementById('typingInput');
+    const typingResult = document.getElementById('typingResult');
+
+    function typePhrase() {
+      const phrase = typingPhrases[phraseIndex];
+      let charIndex = 0;
+      typingResult.classList.remove('show');
+      typingInput.textContent = '';
+
+      const typeInterval = setInterval(() => {
+        if (charIndex < phrase.text.length) {
+          typingInput.textContent += phrase.text[charIndex];
+          charIndex++;
+        } else {
+          clearInterval(typeInterval);
+          setTimeout(() => {
+            typingResult.textContent = phrase.result;
+            typingResult.classList.add('show');
+            setTimeout(() => {
+              phraseIndex = (phraseIndex + 1) % typingPhrases.length;
+              typePhrase();
+            }, 2500);
+          }, 400);
+        }
+      }, 80);
+    }
+
+    // Start typing after hero animation completes
+    setTimeout(typePhrase, 1200);
   </script>
 </body>
 </html>
