@@ -540,6 +540,31 @@
       margin-right: auto;
     }
 
+    .line-qr-wrapper {
+      margin-bottom: 28px;
+    }
+
+    .line-qr-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+      object-fit: contain;
+      background: white;
+      padding: 8px;
+    }
+
+    .line-qr-img:hover {
+      transform: scale(1.05);
+    }
+
+    .line-qr-hint {
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-top: 10px;
+    }
+
     .line-btn {
       display: inline-flex;
       align-items: center;
@@ -910,6 +935,12 @@
       </div>
       <h2>ใช้ผ่าน LINE ได้เลย</h2>
       <p>แค่พิมพ์ "ข้าวกลางวัน 150 บาท" ใน LINE — Budgy บันทึกรายจ่าย จัดหมวดหมู่ และสรุปยอดให้ทันที ไม่ต้องเปิดแอป</p>
+      <div class="line-qr-wrapper">
+        <a href="https://line.me/R/ti/p/@508uvtlg">
+          <img src="assets/line-qr.png" alt="Scan to add Budgy on LINE" class="line-qr-img">
+        </a>
+        <p class="line-qr-hint">สแกน QR Code เพื่อเพิ่มเพื่อน</p>
+      </div>
       <a href="https://line.me/R/ti/p/@508uvtlg" class="line-btn">
         เพิ่มเพื่อน Budgy บน LINE
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
