@@ -8,7 +8,8 @@
   <meta property="og:title" content="Budgy - AI Spending Tracker">
   <meta property="og:description" content="บันทึกรายจ่ายด้วย AI อัจฉริยะ จัดหมวดหมู่อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="assets/icon-512.png">
+  <meta property="og:image" content="assets/app-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -295,7 +296,7 @@
       line-height: 1.2;
     }
 
-    /* Hero phone mockup */
+    /* Hero screenshot showcase */
     .hero-visual {
       position: relative;
       display: flex;
@@ -303,112 +304,63 @@
       animation: fadeInUp 0.8s 0.4s ease both;
     }
 
-    .phone-frame {
-      width: 280px;
-      height: 580px;
-      background: linear-gradient(160deg, var(--forest-start), var(--forest-mid), var(--forest-end));
-      border-radius: 40px;
-      padding: 12px;
-      box-shadow:
-        0 40px 80px rgba(13, 124, 95, 0.2),
-        0 20px 40px rgba(0,0,0,0.1),
-        inset 0 1px 0 rgba(255,255,255,0.2);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      background: var(--white);
-      border-radius: 30px;
-      overflow: hidden;
+    .screenshot-showcase {
       display: flex;
       flex-direction: column;
-    }
-
-    .phone-header {
-      background: linear-gradient(135deg, var(--forest-start), var(--forest-mid));
-      padding: 40px 20px 24px;
-      color: white;
-    }
-
-    .phone-header-greeting {
-      font-size: 13px;
-      opacity: 0.8;
-      margin-bottom: 4px;
-    }
-
-    .phone-header-name {
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .phone-header-balance {
-      margin-top: 16px;
-      font-size: 11px;
-      opacity: 0.7;
-    }
-
-    .phone-header-amount {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -1px;
-    }
-
-    .phone-body {
-      padding: 16px;
-      flex: 1;
-      background: #F8FAFC;
-    }
-
-    .phone-card {
-      background: white;
-      border-radius: 14px;
-      padding: 14px;
-      margin-bottom: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    .phone-card-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--ink-soft);
-      margin-bottom: 10px;
-    }
-
-    .phone-transaction {
-      display: flex;
       align-items: center;
+      gap: 20px;
+    }
+
+    .screenshot-main {
+      position: relative;
+      width: 280px;
+      height: 580px;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow:
+        0 40px 80px rgba(13, 124, 95, 0.2),
+        0 20px 40px rgba(0,0,0,0.1);
+      background: var(--ink);
+      padding: 8px;
+    }
+
+    .screenshot-img {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: calc(100% - 16px);
+      height: calc(100% - 16px);
+      object-fit: cover;
+      border-radius: 28px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .screenshot-img.active {
+      opacity: 1;
+    }
+
+    .screenshot-dots {
+      display: flex;
       gap: 10px;
-      padding: 6px 0;
     }
 
-    .phone-tx-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: var(--ink-muted);
+      opacity: 0.3;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
     }
 
-    .phone-tx-name {
-      flex: 1;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .phone-tx-cat {
-      font-size: 10px;
-      color: var(--ink-muted);
-    }
-
-    .phone-tx-amount {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent-coral);
+    .dot.active {
+      opacity: 1;
+      background: var(--forest-mid);
+      transform: scale(1.3);
     }
 
     .floating-card {
@@ -839,7 +791,7 @@
   <!-- NAV -->
   <nav id="nav">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-icon">B</div>
+      <img src="assets/app-icon.png" alt="Budgy" class="nav-logo-icon" style="border-radius:10px">
       <div class="nav-logo-text">Budgy</div>
     </a>
     <div class="nav-links">
@@ -876,43 +828,18 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <div class="phone-header">
-              <div class="phone-header-greeting">สวัสดี</div>
-              <div class="phone-header-name">Teerapun</div>
-              <div class="phone-header-balance">ยอดใช้จ่ายเดือนนี้</div>
-              <div class="phone-header-amount">฿12,450</div>
-            </div>
-            <div class="phone-body">
-              <div class="phone-card">
-                <div class="phone-card-title">วันนี้</div>
-                <div class="phone-transaction">
-                  <div class="phone-tx-icon" style="background:#FFF3E0">🍜</div>
-                  <div>
-                    <div class="phone-tx-name">ข้าวมันไก่</div>
-                    <div class="phone-tx-cat">อาหาร • AI จัดหมวดหมู่</div>
-                  </div>
-                  <div class="phone-tx-amount">-฿50</div>
-                </div>
-                <div class="phone-transaction">
-                  <div class="phone-tx-icon" style="background:#E8F5E9">🚌</div>
-                  <div>
-                    <div class="phone-tx-name">BTS สีลม</div>
-                    <div class="phone-tx-cat">เดินทาง • AI จัดหมวดหมู่</div>
-                  </div>
-                  <div class="phone-tx-amount">-฿44</div>
-                </div>
-                <div class="phone-transaction">
-                  <div class="phone-tx-icon" style="background:#FFF8E1">☕</div>
-                  <div>
-                    <div class="phone-tx-name">กาแฟ Starbucks</div>
-                    <div class="phone-tx-cat">อาหาร • สแกนใบเสร็จ</div>
-                  </div>
-                  <div class="phone-tx-amount">-฿165</div>
-                </div>
-              </div>
-            </div>
+        <div class="screenshot-showcase">
+          <div class="screenshot-main">
+            <img src="assets/screenshot-dashboard.png" alt="Budgy Dashboard" class="screenshot-img active" data-index="0">
+            <img src="assets/screenshot-ai-chat.png" alt="Budgy AI Chat" class="screenshot-img" data-index="1">
+            <img src="assets/screenshot-transactions.png" alt="Budgy Transactions" class="screenshot-img" data-index="2">
+            <img src="assets/screenshot-budgets.png" alt="Budgy Budgets" class="screenshot-img" data-index="3">
+          </div>
+          <div class="screenshot-dots">
+            <button class="dot active" data-index="0"></button>
+            <button class="dot" data-index="1"></button>
+            <button class="dot" data-index="2"></button>
+            <button class="dot" data-index="3"></button>
           </div>
         </div>
         <div class="floating-card floating-card-1">
@@ -1085,6 +1012,28 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Screenshot carousel
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.screenshot-img');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentSlide = index;
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));
+    });
+
+    // Auto-rotate every 4 seconds
+    setInterval(() => {
+      showSlide((currentSlide + 1) % slides.length);
+    }, 4000);
   </script>
 </body>
 </html>
