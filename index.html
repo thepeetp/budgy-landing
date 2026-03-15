@@ -651,20 +651,23 @@
     }
 
     .feature-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
       margin-bottom: 20px;
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
     }
 
-    .feature-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 14px;
-    }
+    .feature-icon-ai { background: linear-gradient(135deg, #8B5CF6, #6366F1); }
+    .feature-icon-ocr { background: linear-gradient(135deg, #F97316, #EF4444); }
+    .feature-icon-budget { background: linear-gradient(135deg, #10B981, #06B6D4); }
+    .feature-icon-savings { background: linear-gradient(135deg, #EC4899, #F59E0B); }
+    .feature-icon-group { background: linear-gradient(135deg, #3B82F6, #8B5CF6); }
+    .feature-icon-chat { background: linear-gradient(135deg, #6366F1, #EC4899); }
 
     .feature-card:hover .feature-icon {
       transform: scale(1.1) rotate(-3deg);
@@ -1487,32 +1490,32 @@
     </div>
     <div class="features-grid">
       <article class="feature-card reveal">
-        <div class="feature-icon" aria-hidden="true"><img src="assets/icon-ai-categorize.png" alt="" width="52" height="52" loading="lazy"></div>
+        <div class="feature-icon feature-icon-ai" aria-hidden="true">🧠</div>
         <h3>AI จัดหมวดหมู่อัตโนมัติ</h3>
         <p>พิมพ์ธรรมชาติ "ข้าวมันไก่ 50 บาท" AI จัดหมวดหมู่ให้อัตโนมัติ แม่นยำกว่า 95%</p>
       </article>
       <article class="feature-card reveal">
-        <div class="feature-icon" aria-hidden="true"><img src="assets/icon-receipt-ocr.png" alt="" width="52" height="52" loading="lazy"></div>
+        <div class="feature-icon feature-icon-ocr" aria-hidden="true">🧾</div>
         <h3>สแกนใบเสร็จ OCR</h3>
         <p>ถ่ายรูปใบเสร็จ AI ดึงข้อมูลร้านค้า รายการ และยอดเงินให้อัตโนมัติ</p>
       </article>
       <article class="feature-card reveal">
-        <div class="feature-icon" aria-hidden="true"><img src="assets/icon-budget.png" alt="" width="52" height="52" loading="lazy"></div>
+        <div class="feature-icon feature-icon-budget" aria-hidden="true">📊</div>
         <h3>ตั้งงบประมาณ</h3>
         <p>ตั้งงบตามหมวดหมู่ ดูความคืบหน้าแบบเรียลไทม์ แจ้งเตือนก่อนเกินงบ</p>
       </article>
       <article class="feature-card reveal">
-        <div class="feature-icon" aria-hidden="true"><img src="assets/icon-savings-goal.png" alt="" width="52" height="52" loading="lazy"></div>
+        <div class="feature-icon feature-icon-savings" aria-hidden="true">🎯</div>
         <h3>เป้าหมายการออม</h3>
         <p>สร้างเป้าหมายออมเงิน ติดตามความคืบหน้า วางแผนเกษียณและกองทุนฉุกเฉิน</p>
       </article>
       <article class="feature-card reveal">
-        <div class="feature-icon" aria-hidden="true"><img src="assets/icon-group-expense.png" alt="" width="52" height="52" loading="lazy"></div>
+        <div class="feature-icon feature-icon-group" aria-hidden="true">👥</div>
         <h3>ค่าใช้จ่ายกลุ่ม</h3>
         <p>แชร์งบกับครอบครัวหรือเพื่อนร่วมห้อง แบ่งค่าใช้จ่ายอัตโนมัติ</p>
       </article>
       <article class="feature-card reveal">
-        <div class="feature-icon" aria-hidden="true"><img src="assets/icon-ai-chat.png" alt="" width="52" height="52" loading="lazy"></div>
+        <div class="feature-icon feature-icon-chat" aria-hidden="true">💬</div>
         <h3>AI แชทผู้ช่วยการเงิน</h3>
         <p>ถามอะไรก็ได้เกี่ยวกับการเงินของคุณ AI วิเคราะห์และให้คำแนะนำส่วนตัว</p>
       </article>
