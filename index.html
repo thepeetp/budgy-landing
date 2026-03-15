@@ -781,6 +781,168 @@
       box-shadow: 0 16px 40px rgba(6, 199, 85, 0.3);
     }
 
+    /* ─── BETA TESTER ─── */
+    .beta-tester {
+      padding: 80px 32px;
+      background: linear-gradient(135deg, #0D7C5F 0%, #10B981 50%, #34D399 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .beta-tester::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .beta-tester::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -100px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .beta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .beta-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    .beta-tester h2 {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .beta-tester > div > p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    .beta-steps {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .beta-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .beta-step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .beta-step-text {
+      color: rgba(255,255,255,0.95);
+      font-size: 15px;
+      text-align: left;
+    }
+
+    .beta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .beta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .beta-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .beta-btn-primary {
+      background: white;
+      color: var(--forest-start);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .beta-btn-primary:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    .beta-btn-secondary {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    .beta-btn-secondary:hover {
+      background: rgba(255,255,255,0.25);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 600px) {
+      .beta-steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .beta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .beta-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+
     /* ─── PRICING ─── */
     .pricing {
       padding: 100px 32px;
@@ -1376,6 +1538,39 @@
         เพิ่มเพื่อน Budgy บน LINE
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
       </a>
+    </div>
+  </section>
+
+  <!-- BETA TESTER -->
+  <section class="beta-tester reveal" id="beta" aria-label="Join Beta Testing">
+    <div class="beta-inner">
+      <div class="beta-badge">🚀 Beta Testing</div>
+      <h2>ร่วมเป็นผู้ทดสอบกลุ่มแรก!</h2>
+      <p>เรากำลังมองหาผู้ทดสอบสำหรับ Budgy บน Android ก่อนเปิดตัวอย่างเป็นทางการ ใช้ฟรี ให้ฟีดแบ็ค แล้วช่วยเราทำแอปให้ดียิ่งขึ้น</p>
+      <div class="beta-steps">
+        <div class="beta-step">
+          <div class="beta-step-num">1</div>
+          <div class="beta-step-text">กด Join Group เพื่อเข้าร่วมกลุ่มทดสอบ</div>
+        </div>
+        <div class="beta-step">
+          <div class="beta-step-num">2</div>
+          <div class="beta-step-text">กด Become a Tester บน Google Play</div>
+        </div>
+        <div class="beta-step">
+          <div class="beta-step-num">3</div>
+          <div class="beta-step-text">ดาวน์โหลดแอปแล้วเริ่มใช้งานได้เลย!</div>
+        </div>
+      </div>
+      <div class="beta-buttons">
+        <a href="https://groups.google.com/g/budgy-testers" class="beta-btn beta-btn-primary" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          Join Tester Group
+        </a>
+        <a href="https://play.google.com/apps/testing/io.budgy.mobile" class="beta-btn beta-btn-secondary" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 1.36L13.2 12 3.18 22.64a1 1 0 01-.18-.56V1.92c0-.2.06-.38.18-.56zM14.46 13.26l2.76 1.6-3.56 3.56-2.76-1.6 3.56-3.56zm3.56-2.12L14.46 10.74 10.9 7.18l2.76-1.6 4.36 2.52v3.04zM21.24 11.34l-2.52-1.46-3.46 2-3.46-2-2.52 1.46c-.36.2-.58.58-.58 1v.32c0 .42.22.8.58 1l2.52 1.46 3.46-2 3.46 2 2.52-1.46c.36-.2.58-.58.58-1v-.32c0-.42-.22-.8-.58-1z"/></svg>
+          Become a Tester
+        </a>
+      </div>
     </div>
   </section>
 
