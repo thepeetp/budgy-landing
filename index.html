@@ -835,8 +835,8 @@
       overflow: hidden;
       color: var(--ink-soft);
       box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-rows: 48px auto auto auto auto auto 1fr;
     }
 
     .price-card::before {
@@ -930,6 +930,7 @@
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      height: 28px;
       margin-bottom: 20px;
     }
 
@@ -984,9 +985,9 @@
 
     .price-card ul {
       list-style: none;
-      margin-top: auto;
       padding-top: 24px;
       border-top: 1px solid rgba(0,0,0,0.06);
+      align-self: end;
     }
 
     .price-card ul li {
@@ -1396,7 +1397,7 @@
       <div class="pricing-cards">
         <!-- Free -->
         <article class="price-card reveal" aria-label="Free plan">
-          <div class="price-card-badge" style="visibility:hidden">placeholder</div>
+          <div class="price-card-badge" style="visibility:hidden" aria-hidden="true">&nbsp;</div>
           <span class="tier-icon" aria-hidden="true">🌱</span>
           <h3>Free</h3>
           <div class="tier-desc">เริ่มต้นจัดการเงิน</div>
