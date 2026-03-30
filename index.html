@@ -885,6 +885,7 @@
     }
 
     .price-card.tier-pro:hover {
+      transform: translateY(-8px);
       border-color: rgba(99, 102, 241, 0.3);
       box-shadow: 0 24px 60px rgba(99, 102, 241, 0.12);
     }
@@ -892,9 +893,6 @@
     .price-card.tier-premium {
       background: white;
       border-color: rgba(245, 158, 11, 0.2);
-      transform: scale(1.04);
-      padding-top: 44px;
-      padding-bottom: 44px;
       box-shadow: 0 4px 24px rgba(245, 158, 11, 0.08);
     }
 
@@ -915,7 +913,7 @@
     }
 
     .price-card.tier-premium:hover {
-      transform: scale(1.04) translateY(-8px);
+      transform: translateY(-8px);
       border-color: rgba(245, 158, 11, 0.35);
       box-shadow: 0 28px 70px rgba(245, 158, 11, 0.1), 0 8px 30px rgba(0,0,0,0.06);
     }
@@ -1194,7 +1192,6 @@
       .typing-demo { margin-left: auto; margin-right: auto; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .pricing-cards { grid-template-columns: 1fr; max-width: 380px; margin-left: auto; margin-right: auto; }
-      .price-card.tier-premium { transform: none; }
       .price-card.tier-premium:hover { transform: translateY(-8px); }
       .floating-card { display: none; }
       .stats-inner { grid-template-columns: repeat(3, 1fr); gap: 16px; }
