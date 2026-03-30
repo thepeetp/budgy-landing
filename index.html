@@ -847,19 +847,13 @@
       right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--forest-start), var(--forest-end));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
+      transform: scaleX(1);
     }
 
     .price-card:hover {
       transform: translateY(-8px);
       border-color: rgba(13, 124, 95, 0.15);
       box-shadow: 0 24px 60px rgba(0,0,0,0.08);
-    }
-
-    .price-card:hover::before {
-      transform: scaleX(1);
     }
 
     .price-card.tier-pro {
