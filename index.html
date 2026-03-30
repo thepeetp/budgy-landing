@@ -850,7 +850,7 @@
       transform: scaleX(1);
     }
 
-    .price-card.revealed:hover {
+    .price-card:hover {
       transform: translateY(-8px);
       border-color: rgba(13, 124, 95, 0.15);
       box-shadow: 0 24px 60px rgba(0,0,0,0.08);
@@ -878,7 +878,7 @@
       pointer-events: none;
     }
 
-    .price-card.tier-pro.revealed:hover {
+    .price-card.tier-pro:hover {
       transform: translateY(-8px);
       border-color: rgba(99, 102, 241, 0.3);
       box-shadow: 0 24px 60px rgba(99, 102, 241, 0.12);
@@ -906,7 +906,7 @@
       pointer-events: none;
     }
 
-    .price-card.tier-premium.revealed:hover {
+    .price-card.tier-premium:hover {
       transform: translateY(-8px);
       border-color: rgba(245, 158, 11, 0.35);
       box-shadow: 0 28px 70px rgba(245, 158, 11, 0.1), 0 8px 30px rgba(0,0,0,0.06);
@@ -1157,16 +1157,7 @@
 
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal.revealed {
-      transition: none;
-    }
-
-    .price-card.revealed {
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
-      transition-delay: 0s !important;
+      transform: none;
     }
 
     /* Staggered feature card animation */
@@ -1493,14 +1484,7 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => {
-      observer.observe(el);
-      el.addEventListener('transitionend', () => {
-        if (el.classList.contains('visible')) {
-          el.classList.add('revealed');
-        }
-      }, { once: true });
-    });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // Screenshot carousel
     let currentSlide = 0;
