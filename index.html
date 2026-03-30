@@ -1160,6 +1160,14 @@
       transform: translateY(0);
     }
 
+    .reveal.revealed {
+      transition: none;
+    }
+
+    .price-card.revealed {
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
     /* Staggered feature card animation */
     .feature-card.reveal:nth-child(1) { transition-delay: 0s; }
     .feature-card.reveal:nth-child(2) { transition-delay: 0.1s; }
@@ -1484,7 +1492,14 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+      el.addEventListener('transitionend', () => {
+        if (el.classList.contains('visible')) {
+          el.classList.add('revealed');
+        }
+      }, { once: true });
+    });
 
     // Screenshot carousel
     let currentSlide = 0;
