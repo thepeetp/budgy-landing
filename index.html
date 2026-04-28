@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <title>Budgy - แอปบันทึกค่าใช้จ่ายอัจฉริยะ | AI Spending Tracker</title>
-  <meta name="description" content="Budgy - แอปบันทึกค่าใช้จ่ายอัจฉริยะ ขับเคลื่อนด้วย AI จัดหมวดหมู่อัตโนมัติ 95% แม่นยำ สแกนใบเสร็จ OCR ตั้งงบประมาณ วางแผนการออม ใช้ได้ทั้ง iOS, Android และ LINE">
-  <meta name="keywords" content="บันทึกค่าใช้จ่าย, แอปการเงิน, AI spending tracker, budget app, expense tracker, สแกนใบเสร็จ, OCR, LINE bot, ออมเงิน, งบประมาณ, Budgy">
+  <meta name="description" content="Budgy - แอปบันทึกค่าใช้จ่ายอัจฉริยะ ขับเคลื่อนด้วย AI จัดหมวดหมู่อัตโนมัติ 95% แม่นยำ สแกนใบเสร็จ สแกนสลิปอัตโนมัติ ตั้งงบประมาณ วางแผนการเงิน ใช้ได้ทั้ง iOS, Android และ LINE">
+  <meta name="keywords" content="บันทึกค่าใช้จ่าย, แอปการเงิน, AI spending tracker, budget app, expense tracker, สแกนใบเสร็จ, สแกนสลิป, OCR, LINE bot, ออมเงิน, งบประมาณ, วางแผนการเงิน, Budgy">
   <meta name="author" content="Budgy">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://thepeetp.github.io/budgy-landing/">
+  <meta name="theme-color" content="#A855F7">
+  <link rel="canonical" href="https://budgy.life/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Budgy - แอปบันทึกค่าใช้จ่ายอัจฉริยะ ขับเคลื่อนด้วย AI">
-  <meta property="og:description" content="แค่พิมพ์ 'กาแฟ 80 บาท' — Budgy จัดหมวดหมู่ให้อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ วิเคราะห์การเงิน">
+  <meta property="og:description" content="แค่พิมพ์ 'กาแฟ 80 บาท' — Budgy จัดหมวดหมู่ให้อัตโนมัติ สแกนใบเสร็จ สแกนสลิปจากแกลเลอรี ตั้งงบประมาณ วางแผนการเงินครบจบในแอปเดียว">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thepeetp.github.io/budgy-landing/">
-  <meta property="og:image" content="https://thepeetp.github.io/budgy-landing/assets/app-icon.png">
+  <meta property="og:url" content="https://budgy.life/">
+  <meta property="og:image" content="https://budgy.life/assets/app-icon.png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
   <meta property="og:locale" content="th_TH">
@@ -27,8 +25,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Budgy - AI Spending Tracker">
-  <meta name="twitter:description" content="Track expenses with AI. Auto-categorize, scan receipts, set budgets. Available on iOS, Android & LINE.">
-  <meta name="twitter:image" content="https://thepeetp.github.io/budgy-landing/assets/app-icon.png">
+  <meta name="twitter:description" content="Track expenses with AI. Auto-categorize, scan receipts and bank slips, set budgets, plan finances. Available on iOS, Android & LINE.">
+  <meta name="twitter:image" content="https://budgy.life/assets/app-icon.png">
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -38,7 +36,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -46,1552 +44,1541 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Budgy",
-    "description": "AI-powered spending tracker with automatic categorization, receipt OCR, budgets, and financial planning",
+    "description": "AI-powered spending tracker with automatic categorization, receipt OCR, auto-detect bank-slip scanning, budgets, and financial planning",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "iOS, Android",
     "offers": [
-      {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "THB",
-        "name": "Free"
-      },
-      {
-        "@type": "Offer",
-        "price": "179",
-        "priceCurrency": "THB",
-        "name": "Pro"
-      },
-      {
-        "@type": "Offer",
-        "price": "349",
-        "priceCurrency": "THB",
-        "name": "Premium"
-      }
+      { "@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free" },
+      { "@type": "Offer", "price": "4.99", "priceCurrency": "USD", "name": "Pro" },
+      { "@type": "Offer", "price": "9.99", "priceCurrency": "USD", "name": "Premium" }
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
       "ratingCount": "100"
     },
-    "url": "https://thepeetp.github.io/budgy-landing/",
+    "url": "https://budgy.life/",
     "downloadUrl": [
       "https://apps.apple.com/app/budgy/id6756961804",
       "https://play.google.com/store/apps/details?id=io.budgy.mobile"
     ],
-    "screenshot": "https://thepeetp.github.io/budgy-landing/assets/screenshot-dashboard.png",
-    "softwareVersion": "1.0",
-    "author": {
-      "@type": "Organization",
-      "name": "Budgy"
-    }
+    "softwareVersion": "1.1",
+    "author": { "@type": "Organization", "name": "Budgy" }
   }
   </script>
 
-  <style>
-    :root {
-      --forest-start: #0D7C5F;
-      --forest-mid: #14A078;
-      --forest-end: #1DBF8E;
-      --forest-light: #E8FAF3;
-      --forest-pale: #F0FDF7;
-      --ink: #1A2B2A;
-      --ink-soft: #3D5654;
-      --ink-muted: #6B8A87;
-      --sand: #FAFBFC;
-      --sand-warm: #F5F6F8;
-      --white: #FFFFFF;
-      --accent-coral: #FF6B5A;
-      --accent-gold: #F5A623;
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Noto Sans Thai', 'Instrument Sans', sans-serif;
-      color: var(--ink);
-      background: var(--sand);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ─── NAV ─── */
-    nav#nav {
-      position: relative;
-      padding: 18px 40px;
-      padding-top: calc(18px + env(safe-area-inset-top, 0px));
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #FFFFFF;
-      border-bottom: 2px solid #E5E7EB;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--ink);
-    }
-
-    .nav-logo-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .nav-logo-text {
-      font-family: 'Instrument Sans', sans-serif;
-      font-weight: 700;
-      font-size: 24px;
-      letter-spacing: -0.5px;
-      color: var(--ink);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--ink);
-      font-size: 15px;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--forest-start); }
-
-    .nav-cta {
-      background: linear-gradient(135deg, var(--forest-start), var(--forest-mid));
-      color: white !important;
-      padding: 10px 22px;
-      border-radius: 100px;
-      font-weight: 600;
-      transition: transform 0.2s, box-shadow 0.2s !important;
-    }
-
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(13, 124, 95, 0.3);
-    }
-
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 160px 32px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Gradient mesh background */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(29, 191, 142, 0.15) 0%, transparent 70%);
-      pointer-events: none;
-      animation: meshFloat 12s ease-in-out infinite;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -100px;
-      left: -100px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(245, 166, 35, 0.1) 0%, transparent 70%);
-      pointer-events: none;
-      animation: meshFloat 15s ease-in-out infinite reverse;
-    }
-
-    @keyframes meshFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -20px) scale(1.05); }
-      66% { transform: translate(-20px, 15px) scale(0.95); }
-    }
-
-    /* Third gradient blob */
-    .hero-mesh-extra {
-      position: absolute;
-      top: 40%;
-      left: 30%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
-      pointer-events: none;
-      animation: meshFloat 18s ease-in-out infinite 3s;
-    }
-
-    .hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      position: relative;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--forest-light);
-      color: var(--forest-start);
-      padding: 8px 16px;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 24px;
-      border: 1px solid rgba(13, 124, 95, 0.15);
-      animation: fadeInUp 0.8s ease both;
-    }
-
-    .hero-badge::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background: var(--forest-mid);
-      border-radius: 50%;
-      animation: pulse-dot 2s infinite;
-    }
-
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 5vw, 58px);
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
-      animation: fadeInUp 0.8s 0.1s ease both;
-    }
-
-    .hero h1 .gradient-text {
-      background: linear-gradient(135deg, var(--forest-start), var(--forest-end));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-desc {
-      font-size: 18px;
-      line-height: 1.7;
-      color: var(--ink-soft);
-      margin-bottom: 36px;
-      max-width: 480px;
-      animation: fadeInUp 0.8s 0.2s ease both;
-    }
-
-    /* Typing demo */
-    .typing-demo {
-      display: inline-flex;
-      align-items: center;
-      background: white;
-      border-radius: 14px;
-      padding: 14px 20px;
-      margin-bottom: 28px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      border: 1px solid rgba(13, 124, 95, 0.1);
-      animation: fadeInUp 0.8s 0.25s ease both;
-      gap: 12px;
-      max-width: 420px;
-    }
-
-    .typing-input {
-      font-family: 'Noto Sans Thai', sans-serif;
-      font-size: 15px;
-      color: var(--ink);
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid var(--forest-mid);
-      animation: blink 1s step-end infinite;
-      min-height: 1.4em;
-    }
-
-    .typing-result {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--forest-start);
-      background: var(--forest-light);
-      padding: 4px 10px;
-      border-radius: 8px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      white-space: nowrap;
-    }
-
-    .typing-result.show { opacity: 1; }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      animation: fadeInUp 0.8s 0.3s ease both;
-    }
-
-    .store-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 28px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
-    }
-
-    .store-btn:hover {
-      transform: translateY(-3px);
-    }
-
-    .store-btn-primary {
-      background: var(--ink);
-      color: white;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    }
-
-    .store-btn-primary:hover {
-      box-shadow: 0 16px 48px rgba(0,0,0,0.2);
-    }
-
-    .store-btn-secondary {
-      background: white;
-      color: var(--ink);
-      border: 1.5px solid rgba(0,0,0,0.1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-
-    .store-btn-secondary:hover {
-      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
-    }
-
-    .store-btn svg {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-    }
-
-    .store-btn-label small {
-      display: block;
-      font-size: 11px;
-      font-weight: 400;
-      opacity: 0.7;
-      line-height: 1;
-    }
-
-    .store-btn-label span {
-      display: block;
-      line-height: 1.2;
-    }
-
-    /* Hero screenshot showcase */
-    .hero-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      animation: fadeInUp 0.8s 0.4s ease both;
-      perspective: 1000px;
-    }
-
-    .screenshot-showcase {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .screenshot-main {
-      position: relative;
-      width: 280px;
-      height: 580px;
-      border-radius: 36px;
-      overflow: hidden;
-      box-shadow:
-        0 40px 80px rgba(13, 124, 95, 0.2),
-        0 20px 40px rgba(0,0,0,0.1);
-      background: var(--ink);
-      padding: 8px;
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      transform-style: preserve-3d;
-    }
-
-    .screenshot-img {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      width: calc(100% - 16px);
-      height: calc(100% - 16px);
-      object-fit: cover;
-      border-radius: 28px;
-      opacity: 0;
-      transition: opacity 0.6s ease, transform 0.6s ease;
-      transform: scale(0.95);
-    }
-
-    .screenshot-img.active {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .screenshot-dots {
-      display: flex;
-      gap: 10px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: none;
-      background: var(--ink-muted);
-      opacity: 0.3;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      padding: 0;
-    }
-
-    .dot.active {
-      opacity: 1;
-      background: var(--forest-mid);
-      transform: scale(1.3);
-      box-shadow: 0 0 12px rgba(20, 160, 120, 0.4);
-    }
-
-    .floating-card {
-      position: absolute;
-      background: white;
-      border-radius: 16px;
-      padding: 14px 18px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      animation: float 4s ease-in-out infinite;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.6);
-    }
-
-    .floating-card-1 {
-      top: 60px;
-      right: -30px;
-      animation-delay: 0s;
-    }
-
-    .floating-card-2 {
-      bottom: 100px;
-      left: -40px;
-      animation-delay: 2s;
-    }
-
-    .floating-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-
-    .floating-text small {
-      font-size: 10px;
-      color: var(--ink-muted);
-    }
-
-    .floating-text strong {
-      display: block;
-      font-size: 14px;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    /* ─── STATS BAR ─── */
-    .stats-bar {
-      padding: 48px 32px;
-      background: white;
-      border-top: 1px solid rgba(13, 124, 95, 0.06);
-      border-bottom: 1px solid rgba(13, 124, 95, 0.06);
-    }
-
-    .stats-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      text-align: center;
-    }
-
-    .stat-item {
-      padding: 8px;
-    }
-
-    .stat-number {
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: clamp(32px, 4vw, 44px);
-      font-weight: 800;
-      letter-spacing: -1px;
-      background: linear-gradient(135deg, var(--forest-start), var(--forest-end));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.1;
-    }
-
-    .stat-label {
-      font-size: 14px;
-      color: var(--ink-muted);
-      margin-top: 6px;
-      font-weight: 500;
-    }
-
-    /* ─── FEATURES ─── */
-    .features {
-      padding: 100px 32px;
-      background: var(--white);
-      position: relative;
-    }
-
-    .section-label {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--forest-start);
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
-    }
-
-    .section-desc {
-      font-size: 17px;
-      color: var(--ink-soft);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 60px;
-    }
-
-    .features-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .feature-card {
-      background: var(--sand);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s, border-color 0.4s;
-      border: 1px solid transparent;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--forest-start), var(--forest-end));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(13, 124, 95, 0.1);
-      border-color: rgba(13, 124, 95, 0.12);
-    }
-
-    .feature-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .feature-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      margin-bottom: 20px;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-    }
-
-    .feature-icon-ai { background: linear-gradient(135deg, #8B5CF6, #6366F1); }
-    .feature-icon-ocr { background: linear-gradient(135deg, #F97316, #EF4444); }
-    .feature-icon-budget { background: linear-gradient(135deg, #10B981, #06B6D4); }
-    .feature-icon-savings { background: linear-gradient(135deg, #EC4899, #F59E0B); }
-    .feature-icon-group { background: linear-gradient(135deg, #3B82F6, #8B5CF6); }
-    .feature-icon-chat { background: linear-gradient(135deg, #6366F1, #EC4899); }
-
-    .feature-card:hover .feature-icon {
-      transform: scale(1.1) rotate(-3deg);
-    }
-
-    .feature-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .feature-card p {
-      font-size: 14px;
-      color: var(--ink-soft);
-      line-height: 1.6;
-    }
-
-    /* ─── LINE SECTION ─── */
-    .line-section {
-      padding: 80px 32px;
-      background: var(--forest-pale);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .line-section::before {
-      content: '';
-      position: absolute;
-      top: -150px;
-      right: -150px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(6, 199, 85, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .line-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-    }
-
-    .line-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #06C755;
-      color: white;
-      padding: 8px 20px;
-      border-radius: 100px;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .line-inner h2 {
-      font-size: clamp(26px, 3.5vw, 38px);
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .line-inner p {
-      font-size: 17px;
-      color: var(--ink-soft);
-      line-height: 1.7;
-      margin-bottom: 32px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .line-qr-wrapper {
-      margin-bottom: 28px;
-    }
-
-    .line-qr-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      object-fit: contain;
-      background: white;
-      padding: 8px;
-    }
-
-    .line-qr-img:hover {
-      transform: scale(1.08) rotate(2deg);
-    }
-
-    .line-qr-hint {
-      font-size: 13px;
-      color: var(--ink-muted);
-      margin-top: 10px;
-    }
-
-    .line-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #06C755;
-      color: white;
-      padding: 16px 32px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
-    }
-
-    .line-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(6, 199, 85, 0.3);
-    }
-
-    /* ─── PRICING ─── */
-    .pricing {
-      padding: 100px 32px;
-      background: var(--sand);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pricing::before {
-      content: '';
-      position: absolute;
-      top: -300px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(13, 124, 95, 0.05) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .pricing .section-label { color: var(--forest-start); }
-    .pricing .section-title { color: var(--ink); }
-    .pricing .section-desc { color: var(--ink-soft); margin-left: auto; margin-right: auto; }
-
-    .pricing-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-    }
-
-    .pricing-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 48px;
-      align-items: stretch;
-    }
-
-    .price-card {
-      background: white;
-      border-radius: var(--radius-lg);
-      padding: 36px 28px;
-      text-align: left;
-      border: 1px solid rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      position: relative;
-      overflow: hidden;
-      color: var(--ink-soft);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-      display: grid;
-      grid-template-rows: 48px auto auto auto auto auto 1fr;
-    }
-
-    .price-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--forest-start), var(--forest-end));
-      transform: scaleX(1);
-    }
-
-    .price-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(13, 124, 95, 0.15);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.08);
-    }
-
-    .price-card.tier-pro {
-      background: white;
-      border-color: rgba(99, 102, 241, 0.2);
-      box-shadow: 0 4px 24px rgba(99, 102, 241, 0.08);
-    }
-
-    .price-card.tier-pro::before {
-      background: linear-gradient(90deg, #6366F1, #8B5CF6);
-      transform: scaleX(1);
-    }
-
-    .price-card.tier-pro::after {
-      content: '';
-      position: absolute;
-      bottom: -50%;
-      left: -20%;
-      width: 140%;
-      height: 100%;
-      background: radial-gradient(ellipse, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .price-card.tier-pro:hover {
-      transform: translateY(-8px);
-      border-color: rgba(99, 102, 241, 0.3);
-      box-shadow: 0 24px 60px rgba(99, 102, 241, 0.12);
-    }
-
-    .price-card.tier-premium {
-      background: white;
-      border-color: rgba(245, 158, 11, 0.2);
-      box-shadow: 0 4px 24px rgba(245, 158, 11, 0.08);
-    }
-
-    .price-card.tier-premium::before {
-      background: linear-gradient(90deg, #F59E0B, #D97706);
-      transform: scaleX(1);
-    }
-
-    .price-card.tier-premium::after {
-      content: '';
-      position: absolute;
-      top: -30%;
-      right: -20%;
-      width: 140%;
-      height: 100%;
-      background: radial-gradient(ellipse, rgba(245, 158, 11, 0.03) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .price-card.tier-premium:hover {
-      transform: translateY(-8px);
-      border-color: rgba(245, 158, 11, 0.35);
-      box-shadow: 0 28px 70px rgba(245, 158, 11, 0.1), 0 8px 30px rgba(0,0,0,0.06);
-    }
-
-    .price-card-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 5px 14px;
-      border-radius: 100px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      height: 28px;
-      margin-bottom: 20px;
-    }
-
-    .badge-popular {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
-      color: #6366F1;
-      border: 1px solid rgba(99, 102, 241, 0.2);
-    }
-
-    .badge-best {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.1));
-      color: #D97706;
-      border: 1px solid rgba(245, 158, 11, 0.2);
-    }
-
-    .price-card .tier-icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .price-card h3 {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      color: var(--ink);
-    }
-
-    .price-card .tier-desc {
-      font-size: 13px;
-      color: var(--ink-muted);
-      margin-bottom: 16px;
-    }
-
-    .price-card .price {
-      font-size: 40px;
-      font-weight: 800;
-      margin: 16px 0;
-      font-family: 'Instrument Sans', sans-serif;
-      color: var(--ink);
-      letter-spacing: -1px;
-    }
-
-    .price-card .price small {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--ink-muted);
-    }
-
-    .price-card .tier-pro-price { color: #6366F1; }
-    .price-card .tier-premium-price { color: #D97706; }
-
-    .price-card ul {
-      list-style: none;
-      padding-top: 24px;
-      border-top: 1px solid rgba(0,0,0,0.06);
-      align-self: end;
-    }
-
-    .price-card ul li {
-      padding: 7px 0;
-      font-size: 13.5px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--ink-soft);
-    }
-
-    .price-card ul li .check {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .check-free { background: rgba(13, 124, 95, 0.1); color: var(--forest-start); }
-    .check-pro { background: rgba(99, 102, 241, 0.1); color: #6366F1; }
-    .check-premium { background: rgba(245, 158, 11, 0.1); color: #D97706; }
-
-    .price-cta {
-      display: block;
-      width: 100%;
-      margin-top: 28px;
-      padding: 14px;
-      border-radius: 12px;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      cursor: pointer;
-      border: none;
-    }
-
-    .cta-free {
-      background: var(--sand);
-      color: var(--ink-soft);
-      border: 1px solid rgba(0,0,0,0.1);
-    }
-    .cta-free:hover { background: var(--forest-light); color: var(--forest-start); border-color: rgba(13, 124, 95, 0.2); }
-
-    .cta-pro {
-      background: linear-gradient(135deg, #6366F1, #8B5CF6);
-      color: white;
-      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
-    }
-    .cta-pro:hover { box-shadow: 0 16px 40px rgba(99, 102, 241, 0.4); transform: translateY(-2px); }
-
-    .cta-premium {
-      background: linear-gradient(135deg, #F59E0B, #D97706);
-      color: #1A1510;
-      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
-    }
-    .cta-premium:hover { box-shadow: 0 16px 40px rgba(245, 158, 11, 0.35); transform: translateY(-2px); }
-
-    /* ─── CTA ─── */
-    .cta {
-      padding: 100px 32px;
-      background: linear-gradient(160deg, var(--forest-start), var(--forest-mid));
-      text-align: center;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-    }
-
-    .cta::after {
-      content: '';
-      position: absolute;
-      bottom: -150px;
-      left: -100px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .cta h2 {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700;
-      margin-bottom: 16px;
-      position: relative;
-    }
-
-    .cta p {
-      font-size: 17px;
-      opacity: 0.85;
-      max-width: 500px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      position: relative;
-    }
-
-    .cta .store-btn-primary {
-      background: white;
-      color: var(--ink);
-    }
-
-    .cta .store-btn-secondary {
-      background: rgba(255,255,255,0.15);
-      color: white;
-      border-color: rgba(255,255,255,0.25);
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      padding: 48px 32px;
-      background: var(--ink);
-      color: rgba(255,255,255,0.6);
-      text-align: center;
-    }
-
-    .footer-inner {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: white; }
-
-    .footer-copy {
-      font-size: 13px;
-      opacity: 0.5;
-    }
-
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* Staggered feature card animation */
-    .feature-card.reveal:nth-child(1) { transition-delay: 0s; }
-    .feature-card.reveal:nth-child(2) { transition-delay: 0.1s; }
-    .feature-card.reveal:nth-child(3) { transition-delay: 0.2s; }
-    .feature-card.reveal:nth-child(4) { transition-delay: 0.3s; }
-    .feature-card.reveal:nth-child(5) { transition-delay: 0.4s; }
-    .feature-card.reveal:nth-child(6) { transition-delay: 0.5s; }
-
-    /* Staggered pricing card animation */
-    .price-card.reveal:nth-child(1) { transition-delay: 0s; }
-    .price-card.reveal:nth-child(2) { transition-delay: 0.15s; }
-    .price-card.reveal:nth-child(3) { transition-delay: 0.3s; }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      .hero { padding-top: 60px; min-height: auto; }
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 48px;
-        text-align: center;
-      }
-      .hero-desc { margin-left: auto; margin-right: auto; }
-      .hero-buttons { justify-content: center; }
-      .typing-demo { margin-left: auto; margin-right: auto; }
-      .features-grid { grid-template-columns: 1fr 1fr; }
-      .pricing-cards { grid-template-columns: 1fr; max-width: 380px; margin-left: auto; margin-right: auto; }
-      .price-card.tier-premium:hover { transform: translateY(-8px); }
-      .floating-card { display: none; }
-      .stats-inner { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    }
-
-    @media (max-width: 600px) {
-      nav#nav { padding: 16px 16px; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .hero { padding: 60px 20px 60px; min-height: auto; }
-      .features { padding: 60px 20px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .pricing { padding: 60px 20px; }
-      .cta { padding: 60px 20px; }
-      footer { padding: 32px 16px; }
-      .hero-buttons { flex-direction: column; align-items: center; }
-      .store-btn { width: 100%; max-width: 260px; justify-content: center; }
-      .stats-inner { grid-template-columns: 1fr; gap: 24px; }
-      .typing-demo { max-width: 100%; }
-    }
-
-    /* Prefers reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      html { scroll-behavior: auto; }
-    }
-  </style>
+<style>
+  :root {
+    --teal: #14B8A6;
+    --teal-d: #0D9488;
+    --gold: #F5A623;
+    --gold-d: #D97706;
+    --purple: #A855F7;
+    --purple-d: #7C3AED;
+    --pink: #EC4899;
+    --cyan: #06B6D4;
+    --ink: #0F172A;
+    --ink-soft: #334155;
+    --ink-mute: #64748B;
+    --bg: #F8FAFC;
+    --line: #E2E8F0;
+
+    /* ── Layered shadows for depth ── */
+    --sh-1: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.04);
+    --sh-2: 0 4px 8px rgba(15, 23, 42, 0.04), 0 4px 16px rgba(15, 23, 42, 0.06);
+    --sh-3: 0 8px 16px rgba(15, 23, 42, 0.06), 0 16px 40px rgba(15, 23, 42, 0.08);
+    --sh-4: 0 16px 32px rgba(15, 23, 42, 0.08), 0 24px 60px rgba(15, 23, 42, 0.12);
+    --sh-glow-purple: 0 8px 24px rgba(168, 85, 247, 0.18);
+    --sh-glow-teal: 0 8px 24px rgba(20, 184, 166, 0.18);
+    --sh-glow-gold: 0 8px 24px rgba(245, 166, 35, 0.18);
+
+    /* Top highlight (pseudo-3D card lift) */
+    --highlight-top: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 30%);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  svg { flex-shrink: 0; }
+
+  /* ── Subtle dotted noise overlay (adds texture) ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    z-index: 1; pointer-events: none;
+    opacity: 0.4;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.025) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mix-blend-mode: multiply;
+  }
+
+  /* ── Reveal-on-scroll ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+  .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; }
+  .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; }
+  .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; }
+  .reveal-stagger.visible > * {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* ── NAV (Glassmorphic + scroll-aware) ── */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.70);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.4);
+    padding: 14px 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background 0.3s, box-shadow 0.3s, border-color 0.3s, padding 0.25s;
+  }
+  nav.scrolled {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border-bottom-color: rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+    padding: 10px 28px;
+  }
+  .logo { display: flex; gap: 12px; align-items: center; text-decoration: none; transition: transform 0.2s; }
+  .logo:active { transform: scale(0.97); }
+  .logo img {
+    width: 42px; height: 42px;
+    filter: drop-shadow(0 4px 12px rgba(168, 85, 247, 0.25));
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s;
+  }
+  .logo:hover img { transform: rotate(-8deg) scale(1.06); filter: drop-shadow(0 6px 16px rgba(168, 85, 247, 0.35)); }
+  .logo-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 24px;
+    letter-spacing: -0.6px;
+    color: var(--ink);
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 15px; transition: color 0.2s; position: relative; }
+  .nav-links a:not(.nav-cta)::after {
+    content: ''; position: absolute; bottom: -6px; left: 50%;
+    width: 0; height: 2px; background: linear-gradient(90deg, var(--teal), var(--purple));
+    transition: width 0.3s, left 0.3s;
+  }
+  .nav-links a:not(.nav-cta):hover { color: var(--ink); }
+  .nav-links a:not(.nav-cta):hover::after { width: 100%; left: 0; }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--teal), var(--purple));
+    color: white !important; padding: 10px 22px; border-radius: 100px;
+    font-size: 14px; font-weight: 600;
+    box-shadow: var(--sh-glow-purple);
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(168, 85, 247, 0.35); filter: brightness(1.05); }
+  .nav-cta:active { transform: translateY(0) scale(0.97); }
+  @media (max-width: 720px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 88px 28px 96px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero-mesh-1, .hero-mesh-2, .hero-mesh-3 {
+    position: absolute; border-radius: 50%;
+    filter: blur(90px); z-index: -1; pointer-events: none;
+    will-change: transform;
+  }
+  .hero-mesh-1 {
+    width: 540px; height: 540px;
+    background: var(--teal); opacity: 0.32;
+    top: -140px; left: -100px;
+    animation: blob 18s ease-in-out infinite;
+  }
+  .hero-mesh-2 {
+    width: 460px; height: 460px;
+    background: var(--purple); opacity: 0.30;
+    top: 60px; right: -80px;
+    animation: blob 22s ease-in-out infinite -3s;
+  }
+  .hero-mesh-3 {
+    width: 420px; height: 420px;
+    background: var(--gold); opacity: 0.24;
+    bottom: -120px; left: 28%;
+    animation: blob 16s ease-in-out infinite -7s;
+  }
+  @keyframes blob {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(50px, -40px) scale(1.1); }
+    66% { transform: translate(-40px, 50px) scale(0.92); }
+  }
+  .hero-inner {
+    max-width: 1140px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px;
+    align-items: center;
+  }
+  @media (max-width: 880px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 56px; text-align: center; }
+  }
+
+  .hero-badge {
+    display: inline-flex; gap: 8px; align-items: center;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--line);
+    padding: 7px 14px; border-radius: 100px;
+    font-size: 12px; font-weight: 600; color: var(--ink-soft);
+    margin-bottom: 22px;
+    box-shadow: var(--sh-2);
+    position: relative;
+  }
+  .hero-badge svg { color: var(--purple); animation: sparkle 2.5s ease-in-out infinite; }
+  @keyframes sparkle {
+    0%,100% { transform: scale(1) rotate(0); opacity: 1; }
+    50% { transform: scale(1.2) rotate(15deg); opacity: 0.7; }
+  }
+  .hero h1 {
+    font-size: clamp(40px, 5.8vw, 60px);
+    line-height: 1.05; font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: 22px;
+    color: var(--ink);
+  }
+  .hero h1 .grad {
+    background: linear-gradient(120deg, var(--teal), var(--gold), var(--purple), var(--teal));
+    background-size: 300% 300%;
+    animation: gradShift 5s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+  @keyframes gradShift {
+    0%,100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .hero p.lead {
+    font-size: 17px; color: var(--ink-soft); margin-bottom: 28px;
+    max-width: 520px; line-height: 1.65;
+  }
+  @media (max-width: 880px) { .hero p.lead { margin-left: auto; margin-right: auto; } }
+
+  /* ── Typing demo (cycles phrases) ── */
+  .typing-demo {
+    display: inline-flex; flex-direction: column; gap: 10px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    box-shadow: var(--sh-3);
+    text-align: left;
+    min-width: 280px;
+    background-image: var(--highlight-top);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .typing-demo .input-row {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .typing-demo .input-icon {
+    width: 24px; height: 24px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--teal), var(--cyan));
+    display: flex; align-items: center; justify-content: center;
+    color: white; flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
+  }
+  .typing-demo .input-icon svg { width: 12px; height: 12px; }
+  .typing-demo .input { color: var(--ink); font-size: 15px; font-weight: 500; min-height: 18px; }
+  .typing-demo .input-cursor::after { content: '|'; animation: blink 0.8s steps(1) infinite; color: var(--teal); margin-left: 2px; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .typing-demo .arrow {
+    width: 14px; height: 14px; color: var(--ink-mute);
+    margin-left: 7px;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .typing-demo .result {
+    background: linear-gradient(135deg, #ECFDF5, #DBEAFE);
+    border-radius: 10px; padding: 8px 14px;
+    font-size: 13px; font-weight: 600; color: var(--teal-d);
+    align-self: flex-start;
+    display: inline-flex; gap: 10px; align-items: center;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .typing-demo .result.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .result-tag {
+    width: 22px; height: 22px; border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; flex-shrink: 0;
+    background: linear-gradient(135deg, #FB923C, var(--gold));
+  }
+  .result-tag svg { width: 12px; height: 12px; }
+
+  .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+  @media (max-width: 880px) { .hero-buttons { justify-content: center; } }
+  .store-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ink); color: white; padding: 12px 20px;
+    border-radius: 14px; text-decoration: none; min-width: 178px;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .store-btn::before {
+    content: ''; position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    transition: left 0.55s;
+  }
+  .store-btn:hover { transform: translateY(-3px); box-shadow: var(--sh-3); }
+  .store-btn:hover::before { left: 100%; }
+  .store-btn:active { transform: translateY(-1px) scale(0.98); }
+  .store-btn svg { width: 22px; height: 22px; position: relative; z-index: 1; }
+  .store-btn small { font-size: 10px; opacity: 0.8; display: block; position: relative; z-index: 1; }
+  .store-btn strong { font-size: 15px; font-weight: 600; position: relative; z-index: 1; }
+
+  /* ── PHONE MOCKUP (3D tilt-ready) ── */
+  .phone-wrap {
+    position: relative;
+    display: flex; justify-content: center;
+    perspective: 1200px;
+  }
+  .phone {
+    position: relative;
+    width: 290px; aspect-ratio: 9/19;
+    border-radius: 38px;
+    background: linear-gradient(180deg, #1E293B, #0F172A);
+    padding: 10px;
+    box-shadow:
+      0 50px 100px rgba(20, 184, 166, 0.25),
+      0 20px 50px rgba(168, 85, 247, 0.20),
+      0 8px 16px rgba(15, 23, 42, 0.10),
+      inset 0 0 0 2px #0a0f1c;
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+  .phone-screen {
+    width: 100%; height: 100%;
+    border-radius: 30px;
+    overflow: hidden; position: relative;
+    background: var(--bg);
+  }
+  .phone-screen::before {
+    content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+    width: 100px; height: 28px; background: black; border-radius: 100px;
+    z-index: 10;
+  }
+  .phone-header {
+    height: 200px;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 50%, var(--gold) 100%);
+    background-size: 200% 200%;
+    animation: gradShift 8s ease infinite;
+    border-radius: 0 0 22px 22px;
+    padding: 50px 18px 18px;
+    color: white; position: relative;
+  }
+  .phone-header::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 25% 20%, rgba(255,255,255,0.18), transparent 50%);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  .phone-greeting {
+    font-size: 11px; opacity: 0.85; margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .phone-name {
+    font-size: 14px; font-weight: 700; margin-bottom: 14px;
+  }
+  .phone-balance-label {
+    font-size: 10px; opacity: 0.85; margin-bottom: 4px;
+  }
+  .phone-balance {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px; font-weight: 800;
+    letter-spacing: -0.8px;
+    margin-bottom: 8px;
+  }
+  .phone-stats {
+    display: flex; gap: 14px;
+    font-size: 9px;
+  }
+  .phone-stats .badge {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    padding: 3px 7px;
+    border-radius: 100px; font-weight: 600;
+  }
+
+  .phone-body {
+    padding: 14px 14px 0;
+    background: white;
+    position: relative;
+    margin-top: -30px;
+    border-radius: 22px 22px 0 0;
+    height: calc(100% - 200px + 30px);
+  }
+  .phone-section-title {
+    font-size: 11px; font-weight: 700; color: var(--ink);
+    margin: 12px 4px 8px;
+    display: flex; justify-content: space-between;
+  }
+  .phone-section-title small { color: var(--purple-d); font-size: 10px; font-weight: 600; }
+
+  .phone-budget-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: var(--sh-1);
+  }
+  .phone-budget-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; margin-bottom: 6px;
+  }
+  .phone-budget-row strong { font-weight: 700; }
+  .phone-bar {
+    height: 6px; background: #F1F5F9; border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+  .phone-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--purple));
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .phone-bar-fill.fill { width: 68%; }
+
+  .phone-tx-list {
+    margin-top: 10px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--sh-1);
+  }
+  .phone-tx {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 11px;
+  }
+  .phone-tx:last-child { border-bottom: none; }
+  .phone-tx-icon {
+    width: 28px; height: 28px; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  }
+  .phone-tx-icon svg { width: 14px; height: 14px; }
+  .phone-tx-icon.tx-food { background: linear-gradient(135deg, #F97316, var(--gold)); }
+  .phone-tx-icon.tx-trans { background: linear-gradient(135deg, var(--cyan), #3B82F6); }
+  .phone-tx-icon.tx-shop { background: linear-gradient(135deg, var(--purple), var(--pink)); }
+  .phone-tx-meta { flex: 1; min-width: 0; }
+  .phone-tx-name {
+    font-weight: 600; color: var(--ink);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .phone-tx-cat { font-size: 9px; color: var(--ink-mute); }
+  .phone-tx-amt {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; color: var(--ink); font-size: 11px;
+  }
+
+  /* Floating badges */
+  .float-badge {
+    position: absolute;
+    background: white;
+    box-shadow: var(--sh-4);
+    border-radius: 16px; padding: 10px 14px;
+    display: flex; gap: 10px; align-items: center;
+    font-size: 12px;
+    animation: bob 4s ease-in-out infinite;
+    z-index: 5;
+    background-image: var(--highlight-top);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .float-badge.b1 { top: 60px; right: -30px; }
+  .float-badge.b2 { bottom: 80px; left: -40px; animation-delay: -2s; }
+  @media (max-width: 880px) {
+    .float-badge.b1 { right: 4px; top: 30px; }
+    .float-badge.b2 { left: 4px; bottom: 60px; }
+  }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .float-badge .ic {
+    width: 34px; height: 34px; border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  }
+  .float-badge.b1 .ic { background: linear-gradient(135deg, var(--purple), var(--pink)); }
+  .float-badge.b2 .ic { background: linear-gradient(135deg, var(--teal), var(--cyan)); }
+  .float-badge svg { width: 18px; height: 18px; }
+  .float-badge small { color: var(--ink-mute); font-size: 10px; line-height: 1.2; }
+  .float-badge strong { font-size: 13px; line-height: 1.3; }
+
+  /* ── STATS BAR (counter animation) ── */
+  .stats-bar {
+    max-width: 1140px;
+    margin: -40px auto 0;
+    padding: 0 28px;
+    position: relative;
+    z-index: 2;
+  }
+  .stats-inner {
+    background: white;
+    border-radius: 24px;
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    box-shadow: var(--sh-3);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    background-image: var(--highlight-top);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  @media (max-width: 720px) { .stats-inner { grid-template-columns: 1fr; } }
+  .stat-item { text-align: center; }
+  .stat-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 36px; font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, var(--teal), var(--purple), var(--gold));
+    background-size: 200% 200%;
+    animation: gradShift 6s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 13px; color: var(--ink-mute); font-weight: 500;
+  }
+
+  /* ── TRUST PILLARS ── */
+  .trust { padding: 64px 28px 32px; max-width: 1140px; margin: 0 auto; }
+  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 720px) { .trust-grid { grid-template-columns: 1fr; } }
+
+  .pillar {
+    background: white;
+    border-radius: 24px;
+    padding: 32px 28px;
+    border: 1px solid var(--line);
+    position: relative; overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    box-shadow: var(--sh-1);
+    background-image: var(--highlight-top);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .pillar:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sh-4);
+  }
+  .pillar::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--c1), var(--c2));
+  }
+  .pillar.cloud { --c1: var(--teal); --c2: var(--cyan); }
+  .pillar.ai { --c1: var(--purple); --c2: var(--pink); }
+  .pillar.priv { --c1: var(--gold); --c2: #FB923C; }
+  .pillar-icon {
+    width: 60px; height: 60px; border-radius: 18px;
+    background: linear-gradient(135deg, var(--c1), var(--c2));
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 0 0 4px rgba(255,255,255,0.4);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .pillar:hover .pillar-icon { transform: scale(1.08) rotate(-4deg); }
+  .pillar-icon svg { width: 28px; height: 28px; }
+  .pillar h4 { font-size: 19px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
+  .pillar p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.65; }
+  .pillar .micro {
+    display: inline-flex; gap: 6px; align-items: center;
+    margin-top: 16px;
+    padding: 6px 12px; background: #F1F5F9; border-radius: 100px;
+    font-size: 12px; color: var(--ink-soft); font-weight: 500;
+  }
+  .pillar .micro svg { width: 12px; height: 12px; color: var(--c1); }
+
+  /* ── FEATURES ── */
+  .features-section { padding: 56px 28px; max-width: 1140px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px; letter-spacing: 2.5px; font-weight: 700;
+    color: var(--purple-d); margin-bottom: 12px; text-transform: uppercase;
+  }
+  .section-title {
+    font-size: clamp(30px, 4.2vw, 44px);
+    font-weight: 800; letter-spacing: -1.2px;
+    margin-bottom: 14px; line-height: 1.1;
+  }
+  .section-desc { color: var(--ink-soft); font-size: 16px; max-width: 540px; margin-bottom: 44px; line-height: 1.6; }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+  @media (max-width: 720px) { .features-grid { grid-template-columns: 1fr; } }
+
+  .feat-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 32px;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s, border-color 0.3s;
+    box-shadow: var(--sh-1);
+    background-image: var(--highlight-top);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  .feat-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, var(--c1), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+  .feat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sh-4);
+    border-color: var(--c1);
+  }
+  .feat-card:hover::after { opacity: 0.06; }
+  .feat-card:hover .feat-icon { transform: scale(1.1) rotate(-5deg); }
+  .feat-card.new::after-badge {}
+  .feat-card.new .new-badge {
+    position: absolute; top: 18px; right: 18px;
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: white;
+    font-size: 11px; font-weight: 700;
+    padding: 4px 11px; border-radius: 100px;
+    box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4);
+    z-index: 2;
+    animation: badgePulse 2.4s ease-in-out infinite;
+  }
+  @keyframes badgePulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4); }
+    50% { transform: scale(1.06); box-shadow: 0 8px 22px rgba(168, 85, 247, 0.55); }
+  }
+  .feat-icon {
+    width: 60px; height: 60px; border-radius: 18px;
+    background: linear-gradient(135deg, var(--c1), var(--c2));
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 0 0 4px rgba(255,255,255,0.4);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative; z-index: 1;
+  }
+  .feat-icon svg { width: 28px; height: 28px; }
+  .feat-card.f1 { --c1: var(--purple); --c2: var(--pink); }
+  .feat-card.f2 { --c1: #F97316; --c2: #FB923C; }
+  .feat-card.f3 { --c1: var(--teal); --c2: var(--cyan); }
+  .feat-card.f4 { --c1: #6366F1; --c2: #8B5CF6; }
+  .feat-card h3 { font-size: 20px; margin-bottom: 10px; font-weight: 700; letter-spacing: -0.3px; position: relative; z-index: 1; }
+  .feat-card p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; position: relative; z-index: 1; }
+
+  .more-features {
+    text-align: center;
+    padding: 36px 32px;
+    background: white;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    box-shadow: var(--sh-1);
+    background-image: var(--highlight-top);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .more-features .more-label {
+    font-size: 13px; letter-spacing: 1.5px; font-weight: 700; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 18px;
+  }
+  .more-features .pills {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 9px;
+  }
+  .more-features .pill {
+    background: #F8FAFC;
+    border: 1px solid var(--line);
+    padding: 8px 14px;
+    border-radius: 100px;
+    font-size: 13px; color: var(--ink-soft); font-weight: 500;
+    display: inline-flex; align-items: center; gap: 7px;
+    transition: transform 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .more-features .pill:hover {
+    background: white; border-color: var(--purple);
+    transform: translateY(-2px);
+    box-shadow: var(--sh-glow-purple);
+  }
+  .more-features .pill svg { width: 14px; height: 14px; color: var(--purple); transition: transform 0.2s; }
+  .more-features .pill:hover svg { transform: rotate(-12deg) scale(1.1); }
+
+  /* ── LINE ── */
+  .line-section {
+    margin: 56px 28px;
+    max-width: 1140px;
+    margin-left: auto; margin-right: auto;
+    background: linear-gradient(135deg, #06C755, #04a142);
+    border-radius: 32px;
+    padding: 56px 32px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 30px 70px rgba(6, 199, 85, 0.30);
+    position: relative; overflow: hidden;
+  }
+  .line-section::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.20), transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.10), transparent 50%);
+  }
+  .line-badge-top {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 12px; font-weight: 700;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .line-section h2 { font-size: 34px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.7px; position: relative; }
+  .line-section p { font-size: 16px; opacity: 0.95; margin-bottom: 24px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.65; position: relative; }
+  .line-btn {
+    display: inline-flex; gap: 8px; align-items: center;
+    background: white; color: #04a142;
+    padding: 14px 28px; border-radius: 100px;
+    font-weight: 700; font-size: 15px;
+    text-decoration: none;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+    position: relative;
+    transition: transform 0.25s, box-shadow 0.25s;
+    overflow: hidden;
+  }
+  .line-btn::before {
+    content: ''; position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(6, 199, 85, 0.10), transparent);
+    transition: left 0.6s;
+  }
+  .line-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(0,0,0,0.22); }
+  .line-btn:hover::before { left: 100%; }
+  .line-btn:hover svg { transform: translateX(4px); }
+  .line-btn:active { transform: translateY(-1px) scale(0.98); }
+  .line-btn svg { width: 16px; height: 16px; transition: transform 0.25s; position: relative; z-index: 1; }
+  .line-btn span { position: relative; z-index: 1; }
+
+  /* ── PRICING ── */
+  .pricing { padding: 56px 28px; max-width: 1140px; margin: 0 auto; }
+  .currency-toggle {
+    display: inline-flex;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 4px;
+    box-shadow: var(--sh-1);
+    margin-top: 8px;
+    position: relative;
+  }
+  .currency-toggle button {
+    border: none;
+    background: transparent;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink-mute);
+    cursor: pointer;
+    transition: color 0.25s;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+  }
+  .currency-toggle button.active { color: white; }
+  .currency-toggle .slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: calc(50% - 4px);
+    border-radius: 100px;
+    background: linear-gradient(135deg, var(--teal), var(--purple));
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+  }
+  .currency-toggle.usd .slider { transform: translateX(100%); }
+  .price-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    margin-top: 44px;
+  }
+  @media (max-width: 880px) { .price-grid { grid-template-columns: 1fr; } }
+  .price-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 40px 28px 32px;
+    position: relative;
+    display: flex; flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    box-shadow: var(--sh-1);
+    background-image: var(--highlight-top);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .price-card:hover { transform: translateY(-4px); box-shadow: var(--sh-3); }
+  .price-card.popular {
+    border: 2px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(135deg, var(--purple), var(--pink));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 24px 60px rgba(168, 85, 247, 0.20);
+    transform: scale(1.03);
+  }
+  .price-card.popular:hover { transform: scale(1.03) translateY(-4px); box-shadow: 0 30px 70px rgba(168, 85, 247, 0.28); }
+  .price-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: white;
+    font-size: 11px; font-weight: 700;
+    padding: 6px 16px; border-radius: 100px;
+    text-transform: uppercase; letter-spacing: 1.2px;
+    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+    animation: badgePulse 2.4s ease-in-out infinite;
+  }
+  .tier-mark {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; color: white;
+    background: linear-gradient(135deg, var(--c1), var(--c2));
+    box-shadow: 0 12px 24px rgba(0,0,0,0.10), 0 0 0 4px rgba(255,255,255,0.5);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .price-card:hover .tier-mark { transform: scale(1.08) rotate(-4deg); }
+  .price-card.tier-free .tier-mark { --c1: var(--teal); --c2: #34D399; }
+  .price-card.popular .tier-mark { --c1: var(--purple); --c2: var(--pink); }
+  .price-card.premium .tier-mark { --c1: var(--gold); --c2: #FB923C; }
+  .tier-mark svg { width: 24px; height: 24px; }
+  .price-card h3 { font-size: 24px; margin-bottom: 4px; font-weight: 800; letter-spacing: -0.4px; }
+  .price-card .tier-desc { color: var(--ink-mute); font-size: 14px; margin-bottom: 20px; }
+  .price-amt { font-family: 'Inter', sans-serif; font-size: 40px; font-weight: 800; letter-spacing: -1.5px; }
+  .price-amt small { font-family: 'Noto Sans Thai', sans-serif; font-size: 14px; font-weight: 500; color: var(--ink-mute); letter-spacing: 0; }
+  .price-cta {
+    display: block; width: 100%; padding: 14px;
+    border: none; border-radius: 14px;
+    background: var(--ink); color: white;
+    font-weight: 700; font-size: 15px;
+    margin: 22px 0 26px; cursor: pointer;
+    text-decoration: none; text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .price-cta::before {
+    content: ''; position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    transition: left 0.55s;
+  }
+  .price-cta:hover { transform: translateY(-3px); filter: brightness(1.05); }
+  .price-cta:hover::before { left: 100%; }
+  .price-cta:active { transform: translateY(-1px) scale(0.98); }
+  .price-card.popular .price-cta {
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    box-shadow: 0 12px 28px rgba(168, 85, 247, 0.35);
+  }
+  .price-card.popular .price-cta:hover { box-shadow: 0 18px 40px rgba(168, 85, 247, 0.45); }
+  .price-card.premium .price-cta {
+    background: linear-gradient(135deg, var(--gold), #FB923C);
+    box-shadow: 0 12px 28px rgba(245, 166, 35, 0.35);
+  }
+  .price-card.premium .price-cta:hover { box-shadow: 0 18px 40px rgba(245, 166, 35, 0.45); }
+  .price-card ul { list-style: none; }
+  .price-card li {
+    padding: 8px 0; font-size: 14.5px; color: var(--ink-soft);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .price-card li svg { width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; margin-top: 1px; }
+  .price-card.popular li svg { color: var(--purple); }
+  .price-card.premium li svg { color: var(--gold-d); }
+
+  /* ── CTA ── */
+  .cta-final {
+    margin: 56px 28px 88px;
+    max-width: 1140px;
+    margin-left: auto; margin-right: auto;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 60%, var(--gold) 100%);
+    background-size: 200% 200%;
+    animation: gradShift 8s ease infinite;
+    border-radius: 32px;
+    padding: 64px 32px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 30px 70px rgba(168, 85, 247, 0.32);
+    position: relative; overflow: hidden;
+  }
+  .cta-final::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(255,255,255,0.10), transparent 50%);
+  }
+  .cta-final h2 { font-size: 38px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.7px; position: relative; }
+  .cta-final p { font-size: 17px; opacity: 0.95; margin-bottom: 30px; position: relative; }
+  .cta-final .hero-buttons { position: relative; }
+
+  /* ── FOOTER ── */
+  footer { padding: 36px 28px; border-top: 1px solid var(--line); color: var(--ink-mute); font-size: 13px; text-align: center; background: white; position: relative; z-index: 2; }
+  footer .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; margin-bottom: 16px; }
+  footer a { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  footer a:hover { color: var(--purple-d); }
+
+  .preview-banner {
+    background: linear-gradient(90deg, var(--purple), var(--pink));
+    color: white; padding: 8px 16px; text-align: center;
+    font-size: 13px; font-weight: 600;
+  }
+
+  /* Make sure content stays above background noise */
+  nav, .hero > *:not(.hero-mesh-1):not(.hero-mesh-2):not(.hero-mesh-3),
+  .stats-bar, .trust, .features-section, .line-section, .pricing, .cta-final, footer {
+    position: relative;
+    z-index: 2;
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="nav" role="navigation" aria-label="Main navigation">
-    <a href="#" class="nav-logo" aria-label="Budgy - Home">
-      <img src="assets/app-icon.png" alt="" class="nav-logo-icon" width="36" height="36" loading="eager">
-      <div class="nav-logo-text">Budgy</div>
-    </a>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#download" class="nav-cta">Download</a>
-    </div>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home" aria-label="Hero">
-    <div class="hero-mesh-extra" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-badge" aria-label="Available on iOS and Android">Available on iOS & Android</div>
-        <h1>บันทึกรายจ่าย<br>ง่ายขึ้นด้วย <span class="gradient-text">AI</span></h1>
-        <p class="hero-desc">
-          แค่พิมพ์ "กาแฟ 80 บาท" — Budgy จัดหมวดหมู่ให้อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ และวิเคราะห์การเงินของคุณ
-        </p>
-        <div class="typing-demo" aria-label="Demo: type naturally and AI categorizes automatically">
-          <div class="typing-input" id="typingInput" aria-live="polite"></div>
-          <div class="typing-result" id="typingResult" aria-live="polite"></div>
-        </div>
-        <div class="hero-buttons" id="download">
-          <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn store-btn-primary" aria-label="Download Budgy on the App Store">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            <div class="store-btn-label">
-              <small>Download on the</small>
-              <span>App Store</span>
-            </div>
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn store-btn-secondary" aria-label="Get Budgy on Google Play">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-            <div class="store-btn-label">
-              <small>Get it on</small>
-              <span>Google Play</span>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="screenshot-showcase">
-          <div class="screenshot-main" id="screenshotMain">
-            <img src="assets/screenshot-dashboard.png" alt="Budgy dashboard showing expense summary and recent transactions" class="screenshot-img active" data-index="0" width="264" height="564" loading="eager">
-            <img src="assets/screenshot-ai-chat.png" alt="Budgy AI chat assistant helping with financial questions" class="screenshot-img" data-index="1" width="264" height="564" loading="lazy">
-            <img src="assets/screenshot-transactions.png" alt="Budgy transaction list with automatic AI categorization" class="screenshot-img" data-index="2" width="264" height="564" loading="lazy">
-            <img src="assets/screenshot-budgets.png" alt="Budgy budget tracking with progress bars and spending alerts" class="screenshot-img" data-index="3" width="264" height="564" loading="lazy">
-            <img src="assets/screenshot-analytics.png" alt="Budgy analytics with spending breakdown charts and trends" class="screenshot-img" data-index="4" width="264" height="564" loading="lazy">
-          </div>
-          <div class="screenshot-dots" role="tablist" aria-label="Screenshot gallery">
-            <button class="dot active" data-index="0" role="tab" aria-selected="true" aria-label="Dashboard screenshot"></button>
-            <button class="dot" data-index="1" role="tab" aria-selected="false" aria-label="AI Chat screenshot"></button>
-            <button class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Transactions screenshot"></button>
-            <button class="dot" data-index="3" role="tab" aria-selected="false" aria-label="Budgets screenshot"></button>
-            <button class="dot" data-index="4" role="tab" aria-selected="false" aria-label="Analytics screenshot"></button>
-          </div>
-        </div>
-        <div class="floating-card floating-card-1" aria-hidden="true">
-          <div class="floating-icon" style="background:#E8FAF3">🤖</div>
-          <div class="floating-text">
-            <small>AI จัดหมวดหมู่</small>
-            <strong>แม่นยำ 95%</strong>
-          </div>
-        </div>
-        <div class="floating-card floating-card-2" aria-hidden="true">
-          <div class="floating-icon" style="background:#FFF3E0">📊</div>
-          <div class="floating-text">
-            <small>งบประมาณ</small>
-            <strong>ใช้ไป 68%</strong>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- SVG Icon Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.5 19a4.5 4.5 0 1 0-1.5-8.7A6 6 0 0 0 4 12.5a4 4 0 0 0 4 4.5h9.5z"/>
+      <path d="M12 14v4"/>
+      <path d="M9 16l3-2 3 2"/>
+    </symbol>
+    <symbol id="i-wand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 4V2M15 10V8M11 6h2M17 6h2"/>
+      <path d="M14 7l-9 9-2-2 9-9z"/>
+      <path d="M19 14l-1 1M14 19l-1 1"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/>
+      <path d="M9 12l2 2 4-4"/>
+    </symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="5" width="14" height="14" rx="2"/>
+      <rect x="9" y="9" width="6" height="6" rx="1"/>
+      <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>
+    </symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 7V5a2 2 0 0 1 2-2h2"/>
+      <path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+      <path d="M21 17v2a2 2 0 0 1-2 2h-2"/>
+      <path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+      <path d="M3 12h18"/>
+    </symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 3v18l3-2 3 2 3-2 3 2 2-2V3z"/>
+      <path d="M9 8h6M9 12h6M9 16h4"/>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      <circle cx="9" cy="11" r="0.7" fill="currentColor"/>
+      <circle cx="13" cy="11" r="0.7" fill="currentColor"/>
+      <circle cx="17" cy="11" r="0.7" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 5v14m-7-7l7 7 7-7"/>
+    </symbol>
+    <symbol id="i-sync" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 0 1 15-6.7L21 8"/>
+      <path d="M21 3v5h-5"/>
+      <path d="M21 12a9 9 0 0 1-15 6.7L3 16"/>
+      <path d="M3 21v-5h5"/>
+    </symbol>
+    <symbol id="i-export" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3v12m-5-7l5-5 5 5"/>
+      <path d="M5 21h14"/>
+    </symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 3v18h18"/>
+      <path d="M7 14l4-4 4 4 4-6"/>
+    </symbol>
+    <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <circle cx="12" cy="12" r="6"/>
+      <circle cx="12" cy="12" r="2"/>
+    </symbol>
+    <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 17l6-6 4 4 8-8"/>
+      <path d="M14 7h7v7"/>
+    </symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/>
+    </symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="18" rx="2"/>
+      <path d="M16 2v4M8 2v4M3 10h18"/>
+    </symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2"/>
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+    </symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/>
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/>
+      <path d="M21 21l-4.35-4.35"/>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>
+    </symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 13-9 0 9-4 16-9 16z"/>
+      <path d="M2 21c4-3 7-7 9-13"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 6L9 17l-5-5"/>
+    </symbol>
+    <symbol id="i-line" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zM24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+    </symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+    </symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
+      <path d="M6 2v3M10 2v3M14 2v3"/>
+    </symbol>
+    <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 17h14M3 17V11l3-6h12l3 6v6M3 17v3M21 17v3"/>
+      <circle cx="7.5" cy="17" r="2"/>
+      <circle cx="16.5" cy="17" r="2"/>
+    </symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+      <path d="M3 6h18M16 10a4 4 0 0 1-8 0"/>
+    </symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12.55a11 11 0 0 1 14 0"/>
+      <path d="M2 8.82a15 15 0 0 1 20 0"/>
+      <path d="M8.5 16.42a6 6 0 0 1 7 0"/>
+      <line x1="12" y1="20" x2="12.01" y2="20"/>
+    </symbol>
+  </defs>
+</svg>
 
-  <!-- STATS -->
-  <section class="stats-bar reveal" aria-label="Statistics">
-    <div class="stats-inner">
-      <div class="stat-item">
-        <div class="stat-number" data-target="95" data-suffix="%">0%</div>
-        <div class="stat-label">AI แม่นยำ</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" data-target="6" data-suffix=" ฟีเจอร์หลัก">0</div>
-        <div class="stat-label">ครบทุกด้านการเงิน</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" data-target="3" data-suffix=" แพลตฟอร์ม">0</div>
-        <div class="stat-label">iOS, Android, LINE</div>
-      </div>
-    </div>
-  </section>
+<nav id="nav">
+  <a class="logo" href="#">
+    <img src="assets/budgy-logo-nav.png" alt="Budgy">
+    <span class="logo-text">Budgy</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">ฟีเจอร์</a>
+    <a href="#pricing">ราคา</a>
+    <a href="#download" class="nav-cta">ดาวน์โหลด</a>
+  </div>
+</nav>
 
-  <!-- FEATURES -->
-  <section class="features" id="features" aria-label="Features">
-    <div style="max-width:1200px;margin:0 auto;">
-      <div class="section-label reveal">Features</div>
-      <h2 class="section-title reveal">ทุกอย่างที่คุณต้องการ<br>สำหรับจัดการเงิน</h2>
-      <p class="section-desc reveal">Budgy ออกแบบมาให้บันทึกรายจ่ายได้ง่ายที่สุด ด้วย AI ที่ฉลาดพอจะจัดการทุกอย่างให้คุณ</p>
-    </div>
-    <div class="features-grid">
-      <article class="feature-card reveal">
-        <div class="feature-icon feature-icon-ai" aria-hidden="true">🧠</div>
-        <h3>AI จัดหมวดหมู่อัตโนมัติ</h3>
-        <p>พิมพ์ธรรมชาติ "ข้าวมันไก่ 50 บาท" AI จัดหมวดหมู่ให้อัตโนมัติ แม่นยำกว่า 95%</p>
-      </article>
-      <article class="feature-card reveal">
-        <div class="feature-icon feature-icon-ocr" aria-hidden="true">🧾</div>
-        <h3>สแกนใบเสร็จ OCR</h3>
-        <p>ถ่ายรูปใบเสร็จ AI ดึงข้อมูลร้านค้า รายการ และยอดเงินให้อัตโนมัติ</p>
-      </article>
-      <article class="feature-card reveal">
-        <div class="feature-icon feature-icon-budget" aria-hidden="true">📊</div>
-        <h3>ตั้งงบประมาณ</h3>
-        <p>ตั้งงบตามหมวดหมู่ ดูความคืบหน้าแบบเรียลไทม์ แจ้งเตือนก่อนเกินงบ</p>
-      </article>
-      <article class="feature-card reveal">
-        <div class="feature-icon feature-icon-savings" aria-hidden="true">🎯</div>
-        <h3>เป้าหมายการออม</h3>
-        <p>สร้างเป้าหมายออมเงิน ติดตามความคืบหน้า วางแผนเกษียณและกองทุนฉุกเฉิน</p>
-      </article>
-      <article class="feature-card reveal">
-        <div class="feature-icon feature-icon-group" aria-hidden="true">👥</div>
-        <h3>ค่าใช้จ่ายกลุ่ม</h3>
-        <p>แชร์งบกับครอบครัวหรือเพื่อนร่วมห้อง แบ่งค่าใช้จ่ายอัตโนมัติ</p>
-      </article>
-      <article class="feature-card reveal">
-        <div class="feature-icon feature-icon-chat" aria-hidden="true">💬</div>
-        <h3>AI แชทผู้ช่วยการเงิน</h3>
-        <p>ถามอะไรก็ได้เกี่ยวกับการเงินของคุณ AI วิเคราะห์และให้คำแนะนำส่วนตัว</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- LINE -->
-  <section class="line-section reveal" aria-label="LINE integration">
-    <div class="line-inner">
-      <div class="line-badge" aria-hidden="true">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zM6.787 13.508H4.4c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.349 0 .63.285.63.63v4.141h1.754c.345 0 .627.285.627.63 0 .344-.282.629-.627.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-        LINE
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-mesh-1"></div>
+  <div class="hero-mesh-2"></div>
+  <div class="hero-mesh-3"></div>
+  <div class="hero-inner">
+    <div class="reveal">
+      <div class="hero-badge">
+        <svg width="14" height="14"><use href="#i-wand"/></svg>
+        ใช้ได้แล้ว iOS · Android · LINE
       </div>
-      <h2>ใช้ผ่าน LINE ได้เลย</h2>
-      <p>แค่พิมพ์ "ข้าวกลางวัน 150 บาท" ใน LINE — Budgy บันทึกรายจ่าย จัดหมวดหมู่ และสรุปยอดให้ทันที ไม่ต้องเปิดแอป</p>
-      <div class="line-qr-wrapper">
-        <a href="https://line.me/R/ti/p/@508uvtlg" aria-label="Add Budgy as LINE friend">
-          <img src="assets/line-qr.png" alt="QR Code to add Budgy on LINE" class="line-qr-img" width="200" height="200" loading="lazy">
+      <h1>บันทึกรายจ่าย<br>ง่ายขึ้นด้วย <span class="grad">AI</span></h1>
+      <p class="lead">
+        แค่พิมพ์ "กาแฟ 80 บาท" — Budgy จัดหมวดหมู่ให้อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ และวางแผนการเงินให้คุณครบจบในแอปเดียว
+      </p>
+      <div class="typing-demo">
+        <div class="input-row">
+          <div class="input-icon"><svg><use href="#i-wand"/></svg></div>
+          <div class="input input-cursor" id="typingInput"></div>
+        </div>
+        <svg class="arrow"><use href="#i-arrow-down"/></svg>
+        <div class="result" id="typingResult">
+          <div class="result-tag" id="resultTag"><svg><use href="#i-coffee"/></svg></div>
+          <span id="resultText">อาหาร & เครื่องดื่ม · ฿85</span>
+        </div>
+      </div>
+      <div class="hero-buttons" id="download">
+        <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn" aria-label="Download Budgy on the App Store">
+          <svg><use href="#i-apple"/></svg>
+          <div><small>Download on</small><strong>App Store</strong></div>
         </a>
-        <p class="line-qr-hint">สแกน QR Code เพื่อเพิ่มเพื่อน</p>
-      </div>
-      <a href="https://line.me/R/ti/p/@508uvtlg" class="line-btn" aria-label="Add Budgy as LINE friend">
-        เพิ่มเพื่อน Budgy บน LINE
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="pricing" id="pricing" aria-label="Pricing plans">
-    <div class="pricing-inner">
-      <div class="section-label reveal">Pricing</div>
-      <h2 class="section-title reveal">เลือกแพ็กเกจที่เหมาะกับคุณ</h2>
-      <p class="section-desc reveal">เริ่มใช้ฟรี อัพเกรดเมื่อพร้อม</p>
-      <div class="pricing-cards">
-        <!-- Free -->
-        <article class="price-card reveal" aria-label="Free plan">
-          <div class="price-card-badge" style="visibility:hidden" aria-hidden="true">&nbsp;</div>
-          <span class="tier-icon" aria-hidden="true">🌱</span>
-          <h3>Free</h3>
-          <div class="tier-desc">เริ่มต้นจัดการเงิน</div>
-          <div class="price">฿0 <small>/เดือน</small></div>
-          <a href="#download" class="price-cta cta-free">เริ่มต้นฟรี</a>
-          <ul>
-            <li><span class="check check-free" aria-hidden="true">✓</span> AI 30 ครั้ง/เดือน</li>
-            <li><span class="check check-free" aria-hidden="true">✓</span> งบประมาณ 5 รายการ</li>
-            <li><span class="check check-free" aria-hidden="true">✓</span> สแกนใบเสร็จ 5 ครั้ง</li>
-            <li><span class="check check-free" aria-hidden="true">✓</span> เป้าหมาย 3 รายการ</li>
-          </ul>
-        </article>
-        <!-- Pro -->
-        <article class="price-card tier-pro reveal" aria-label="Pro plan - most popular">
-          <div class="price-card-badge badge-popular">⚡ ยอดนิยม</div>
-          <span class="tier-icon" aria-hidden="true">⚡</span>
-          <h3>Pro</h3>
-          <div class="tier-desc">สำหรับคนจริงจัง</div>
-          <div class="price tier-pro-price">฿179 <small>/เดือน</small></div>
-          <a href="#download" class="price-cta cta-pro">เลือก Pro</a>
-          <ul>
-            <li><span class="check check-pro" aria-hidden="true">✓</span> AI 100 ครั้ง/เดือน</li>
-            <li><span class="check check-pro" aria-hidden="true">✓</span> งบประมาณ 10 รายการ</li>
-            <li><span class="check check-pro" aria-hidden="true">✓</span> สแกนใบเสร็จ 20 ครั้ง</li>
-            <li><span class="check check-pro" aria-hidden="true">✓</span> วิเคราะห์ขั้นสูง</li>
-            <li><span class="check check-pro" aria-hidden="true">✓</span> กลุ่ม 5 กลุ่ม</li>
-          </ul>
-        </article>
-        <!-- Premium -->
-        <article class="price-card tier-premium reveal" aria-label="Premium plan - best value">
-          <div class="price-card-badge badge-best">👑 คุ้มค่าที่สุด</div>
-          <span class="tier-icon" aria-hidden="true">👑</span>
-          <h3>Premium</h3>
-          <div class="tier-desc">ไม่จำกัดทุกอย่าง</div>
-          <div class="price tier-premium-price">฿349 <small>/เดือน</small></div>
-          <a href="#download" class="price-cta cta-premium">เลือก Premium</a>
-          <ul>
-            <li><span class="check check-premium" aria-hidden="true">✓</span> ไม่จำกัดทุกฟีเจอร์</li>
-            <li><span class="check check-premium" aria-hidden="true">✓</span> วางแผนการเงิน</li>
-            <li><span class="check check-premium" aria-hidden="true">✓</span> AI Avatar ส่วนตัว</li>
-            <li><span class="check check-premium" aria-hidden="true">✓</span> ซัพพอร์ตพิเศษ 24/7</li>
-            <li><span class="check check-premium" aria-hidden="true">✓</span> ส่งออก CSV ไม่จำกัด</li>
-          </ul>
-        </article>
+        <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn" aria-label="Get Budgy on Google Play">
+          <svg><use href="#i-play"/></svg>
+          <div><small>Get it on</small><strong>Google Play</strong></div>
+        </a>
       </div>
     </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" aria-label="Download Budgy">
-    <h2 class="reveal">เริ่มจัดการเงินวันนี้</h2>
-    <p class="reveal">ดาวน์โหลด Budgy ฟรี แล้วลองบันทึกรายจ่ายแรกของคุณ</p>
-    <div class="cta-buttons reveal">
-      <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn store-btn-primary" aria-label="Download Budgy on the App Store">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        <div class="store-btn-label">
-          <small>Download on the</small>
-          <span>App Store</span>
+    <div class="phone-wrap reveal" id="phoneWrap">
+      <div class="phone" id="phone">
+        <div class="phone-screen">
+          <div class="phone-header">
+            <div class="phone-greeting">สวัสดีตอนเช้า</div>
+            <div class="phone-name">คุณ มิ้น · 28 เมษา</div>
+            <div class="phone-balance-label">ใช้ไปเดือนนี้</div>
+            <div class="phone-balance">฿12,450</div>
+            <div class="phone-stats">
+              <div class="badge">เหลืองบ ฿7,550</div>
+              <div class="badge">ออม 25%</div>
+            </div>
+          </div>
+          <div class="phone-body">
+            <div class="phone-budget-card">
+              <div class="phone-budget-row">
+                <span>งบกินข้าว</span>
+                <strong>฿3,400 / ฿5,000</strong>
+              </div>
+              <div class="phone-bar">
+                <div class="phone-bar-fill" id="phoneBar"></div>
+              </div>
+              <div style="font-size:9px;color:var(--ink-mute);margin-top:5px">ใช้ไป 68%</div>
+            </div>
+            <div class="phone-section-title">รายการล่าสุด <small>ดูทั้งหมด</small></div>
+            <div class="phone-tx-list">
+              <div class="phone-tx">
+                <div class="phone-tx-icon tx-food"><svg><use href="#i-coffee"/></svg></div>
+                <div class="phone-tx-meta">
+                  <div class="phone-tx-name">กาแฟลาเต้</div>
+                  <div class="phone-tx-cat">อาหาร & เครื่องดื่ม</div>
+                </div>
+                <div class="phone-tx-amt">฿85</div>
+              </div>
+              <div class="phone-tx">
+                <div class="phone-tx-icon tx-trans"><svg><use href="#i-car"/></svg></div>
+                <div class="phone-tx-meta">
+                  <div class="phone-tx-name">Grab ไปทำงาน</div>
+                  <div class="phone-tx-cat">เดินทาง</div>
+                </div>
+                <div class="phone-tx-amt">฿120</div>
+              </div>
+              <div class="phone-tx">
+                <div class="phone-tx-icon tx-shop"><svg><use href="#i-bag"/></svg></div>
+                <div class="phone-tx-meta">
+                  <div class="phone-tx-name">เสื้อยืด</div>
+                  <div class="phone-tx-cat">ช้อปปิ้ง</div>
+                </div>
+                <div class="phone-tx-amt">฿390</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn store-btn-secondary" aria-label="Get Budgy on Google Play">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-        <div class="store-btn-label">
-          <small>Get it on</small>
-          <span>Google Play</span>
-        </div>
-      </a>
+      </div>
+      <div class="float-badge b1">
+        <div class="ic"><svg><use href="#i-cpu"/></svg></div>
+        <div><small>AI จัดหมวด</small><strong>แม่นยำ 95%</strong></div>
+      </div>
+      <div class="float-badge b2">
+        <div class="ic"><svg><use href="#i-scan"/></svg></div>
+        <div><small>สแกนสลิป</small><strong>1 วินาที</strong></div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer role="contentinfo">
-    <div class="footer-inner">
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="https://budgy-api.theopenland.com/legal/privacy">Privacy Policy</a>
-        <a href="https://budgy-api.theopenland.com/legal/terms">Terms of Service</a>
-        <a href="mailto:teerapun.toranathiti@gmail.com">Contact</a>
-        <a href="https://www.facebook.com/BudgyApp" aria-label="Budgy on Facebook">Facebook</a>
-        <a href="https://line.me/R/ti/p/@508uvtlg" aria-label="Budgy on LINE">LINE</a>
-      </nav>
-      <p class="footer-copy">&copy; 2026 Budgy. All rights reserved.</p>
+<!-- STATS BAR (counter animation) -->
+<div class="stats-bar reveal">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number" data-target="95" data-suffix="%">0%</div>
+      <div class="stat-label">AI จัดหมวดแม่นยำ</div>
     </div>
-  </footer>
+    <div class="stat-item">
+      <div class="stat-number" data-target="50" data-suffix="+">0+</div>
+      <div class="stat-label">สกุลเงินที่รองรับ</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="3" data-suffix="">0</div>
+      <div class="stat-label">แพลตฟอร์ม iOS · Android · LINE</div>
+    </div>
+  </div>
+</div>
 
-  <script>
+<!-- TRUST PILLARS -->
+<section class="trust">
+  <div class="trust-grid reveal-stagger">
+    <div class="pillar cloud">
+      <div class="pillar-icon"><svg><use href="#i-cloud"/></svg></div>
+      <h4>เปลี่ยนเครื่อง ไม่ต้องเริ่มใหม่</h4>
+      <p>Login เดิม ข้อมูลครบ — รายการ งบ เป้าหมาย ตามคุณไปทุกเครื่อง ทั้ง iPhone, Android และ LINE</p>
+      <div class="micro"><svg><use href="#i-sync"/></svg> Sync อัตโนมัติ ทุกครั้ง</div>
+    </div>
+    <div class="pillar ai">
+      <div class="pillar-icon"><svg><use href="#i-wand"/></svg></div>
+      <h4>AI แนะนำ คุณตัดสินใจ</h4>
+      <p>AI จัดหมวด วิเคราะห์ ทำงานเบื้องหลังให้ — แต่ทุกการบันทึก ทุกหมวด ทุกงบ คุณปรับเอง แก้ ลบได้ตลอด</p>
+      <div class="micro"><svg><use href="#i-cpu"/></svg> ฉลาดให้ ไม่ก้าวก่าย</div>
+    </div>
+    <div class="pillar priv">
+      <div class="pillar-icon"><svg><use href="#i-shield"/></svg></div>
+      <h4>ข้อมูลของคุณ เป็นของคุณ</h4>
+      <p>ดูได้ทั้งหมด ส่งออก CSV เก็บไว้เอง ลบบัญชีเองได้ทุกเมื่อ — Budgy ไม่ใช้ข้อมูลของคุณกับโฆษณาหรือพาร์ตเนอร์</p>
+      <div class="micro"><svg><use href="#i-export"/></svg> ดูได้ · Export · ลบเอง</div>
+    </div>
+  </div>
+</section>
 
-    // Reveal on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="reveal">
+    <div class="section-label">ฟีเจอร์</div>
+    <h2 class="section-title">ทุกอย่างที่คุณต้องการ<br>สำหรับจัดการเงิน</h2>
+    <p class="section-desc">Budgy ออกแบบมาให้บันทึกรายจ่ายได้ง่ายที่สุด ด้วย AI ที่ฉลาดพอจะจัดการทุกอย่างให้</p>
+  </div>
+
+  <div class="features-grid reveal-stagger">
+    <article class="feat-card f1">
+      <div class="feat-icon"><svg><use href="#i-cpu"/></svg></div>
+      <h3>AI จัดหมวดหมู่ให้เอง</h3>
+      <p>พิมพ์ "ข้าวมันไก่ 50" — AI รู้เลยว่าเป็นค่าอาหาร ไม่ต้องเลือกหมวดเอง แม่นยำกว่า 95%</p>
+    </article>
+    <article class="feat-card f2 new">
+      <div class="new-badge">ใหม่</div>
+      <div class="feat-icon"><svg><use href="#i-scan"/></svg></div>
+      <h3>สแกนสลิปอัตโนมัติ</h3>
+      <p>โอนผ่าน PromptPay หรือแอปธนาคาร แล้วแคปสลิปไว้ — Budgy ตรวจพบจากแกลเลอรีให้เอง ดึงร้าน เลขอ้างอิง ยอดเงิน แค่กดยืนยัน</p>
+    </article>
+    <article class="feat-card f3">
+      <div class="feat-icon"><svg><use href="#i-receipt"/></svg></div>
+      <h3>สแกนใบเสร็จ</h3>
+      <p>ถ่ายรูปใบเสร็จเดียว — AI ดึงร้าน รายการ และราคาให้ครบ ใช้เวลาไม่ถึง 5 วินาที</p>
+    </article>
+    <article class="feat-card f4">
+      <div class="feat-icon"><svg><use href="#i-chat"/></svg></div>
+      <h3>AI ผู้ช่วยตอบทุกคำถาม</h3>
+      <p>"เดือนนี้ใช้กับร้านอาหารไปกี่บาท?" ถามภาษาไทย Budgy ตอบทันที พร้อมวิเคราะห์</p>
+    </article>
+  </div>
+
+  <div class="more-features reveal">
+    <div class="more-label">และอีกมากมาย</div>
+    <div class="pills">
+      <span class="pill"><svg><use href="#i-chart"/></svg> ตั้งงบประมาณ</span>
+      <span class="pill"><svg><use href="#i-target"/></svg> เป้าหมายการออม</span>
+      <span class="pill"><svg><use href="#i-trending"/></svg> วางแผนการเงินระยะยาว</span>
+      <span class="pill"><svg><use href="#i-bank"/></svg> นำเข้าสเตทเมนต์ธนาคาร</span>
+      <span class="pill"><svg><use href="#i-users"/></svg> ค่าใช้จ่ายกลุ่ม</span>
+      <span class="pill"><svg><use href="#i-calendar"/></svg> มุมมองปฏิทิน</span>
+      <span class="pill"><svg><use href="#i-trending"/></svg> วิเคราะห์การใช้จ่าย</span>
+      <span class="pill"><svg><use href="#i-briefcase"/></svg> ทรัพย์สิน & หนี้สิน</span>
+      <span class="pill"><svg><use href="#i-repeat"/></svg> รายการเกิดประจำ</span>
+      <span class="pill"><svg><use href="#i-search"/></svg> ค้นหา</span>
+      <span class="pill"><svg><use href="#i-globe"/></svg> 50+ สกุลเงิน</span>
+    </div>
+  </div>
+</section>
+
+<!-- LINE -->
+<section class="line-section reveal">
+  <div class="line-badge-top">
+    <svg width="14" height="14"><use href="#i-line"/></svg>
+    LINE
+  </div>
+  <h2>ใช้ผ่าน LINE ได้เลย</h2>
+  <p>แค่พิมพ์ "ข้าวกลางวัน 150 บาท" ใน LINE — Budgy บันทึก จัดหมวด สรุปยอดให้ทันที ไม่ต้องเปิดแอป</p>
+  <a href="https://line.me/R/ti/p/@508uvtlg" class="line-btn">
+    <span>เพิ่มเพื่อน Budgy บน LINE</span>
+    <svg><use href="#i-arrow-right"/></svg>
+  </a>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="reveal">
+    <div class="section-label">ราคา</div>
+    <h2 class="section-title">เลือกแพ็กเกจที่เหมาะกับคุณ</h2>
+    <p class="section-desc">เริ่มใช้ฟรี อัพเกรดเมื่อพร้อม</p>
+    <div class="currency-toggle" id="currencyToggle" role="tablist" aria-label="Currency">
+      <span class="slider"></span>
+      <button data-currency="THB" role="tab">THB ฿</button>
+      <button data-currency="USD" role="tab">USD $</button>
+    </div>
+  </div>
+
+  <div class="price-grid reveal-stagger">
+    <article class="price-card tier-free">
+      <div class="tier-mark"><svg><use href="#i-leaf"/></svg></div>
+      <h3>Free</h3>
+      <div class="tier-desc">เริ่มต้นจัดการเงิน</div>
+      <div class="price-amt"><span class="amt" data-thb="฿0" data-usd="$0">฿0</span> <small>/เดือน</small></div>
+      <div class="price-yearly" style="font-size:12px;color:var(--ink-mute);margin-top:-8px"
+           data-thb="ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน"
+           data-usd="ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน">ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน</div>
+      <a href="#" class="price-cta">เริ่มต้นฟรี</a>
+      <ul>
+        <li><svg><use href="#i-check"/></svg> AI 30 ครั้ง/เดือน</li>
+        <li><svg><use href="#i-check"/></svg> งบประมาณ 5 รายการ</li>
+        <li><svg><use href="#i-check"/></svg> สแกนใบเสร็จ 5 ครั้ง</li>
+        <li><svg><use href="#i-check"/></svg> เป้าหมาย 3 รายการ</li>
+        <li><svg><use href="#i-check"/></svg> รายการไม่จำกัด</li>
+        <li><svg><use href="#i-check"/></svg> ใช้บน iOS · Android · LINE</li>
+      </ul>
+    </article>
+
+    <article class="price-card popular">
+      <div class="price-badge">ยอดนิยม</div>
+      <div class="tier-mark"><svg><use href="#i-wand"/></svg></div>
+      <h3>Pro</h3>
+      <div class="tier-desc">สำหรับคนจริงจัง</div>
+      <div class="price-amt"><span class="amt" data-thb="฿179" data-usd="$4.99">฿179</span> <small>/เดือน</small></div>
+      <div class="price-yearly" style="font-size:12px;color:var(--ink-mute);margin-top:-8px"
+           data-thb="หรือ ฿1,799/ปี (ประหยัด 17%)"
+           data-usd="หรือ $49.99/ปี (ประหยัด 17%)">หรือ ฿1,799/ปี (ประหยัด 17%)</div>
+      <a href="#" class="price-cta">เลือก Pro</a>
+      <ul>
+        <li><svg><use href="#i-check"/></svg> AI 100 ครั้ง/เดือน</li>
+        <li><svg><use href="#i-check"/></svg> งบประมาณ 10 รายการ</li>
+        <li><svg><use href="#i-check"/></svg> สแกนใบเสร็จ 20 ครั้ง</li>
+        <li><svg><use href="#i-check"/></svg> วิเคราะห์ขั้นสูง</li>
+        <li><svg><use href="#i-check"/></svg> กลุ่ม 5 กลุ่ม (10 คน)</li>
+        <li><svg><use href="#i-check"/></svg> วางแผนการเงินเบื้องต้น</li>
+      </ul>
+    </article>
+
+    <article class="price-card premium">
+      <div class="tier-mark"><svg><use href="#i-trending"/></svg></div>
+      <h3>Premium</h3>
+      <div class="tier-desc">ไม่จำกัดทุกอย่าง</div>
+      <div class="price-amt"><span class="amt" data-thb="฿349" data-usd="$9.99">฿349</span> <small>/เดือน</small></div>
+      <div class="price-yearly" style="font-size:12px;color:var(--ink-mute);margin-top:-8px"
+           data-thb="หรือ ฿3,499/ปี (ประหยัด 17%)"
+           data-usd="หรือ $99.99/ปี (ประหยัด 17%)">หรือ ฿3,499/ปี (ประหยัด 17%)</div>
+      <a href="#" class="price-cta">เลือก Premium</a>
+      <ul>
+        <li><svg><use href="#i-check"/></svg> ไม่จำกัดทุกฟีเจอร์</li>
+        <li><svg><use href="#i-check"/></svg> วางแผนการเงินเต็มรูปแบบ</li>
+        <li><svg><use href="#i-check"/></svg> AI Avatar ส่วนตัว</li>
+        <li><svg><use href="#i-check"/></svg> Priority Support</li>
+        <li><svg><use href="#i-check"/></svg> Export CSV ไม่จำกัด</li>
+        <li><svg><use href="#i-check"/></svg> AI Icons สั่งสร้างเอง</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-final reveal">
+  <h2>เริ่มจัดการเงินวันนี้</h2>
+  <p>ดาวน์โหลด Budgy ฟรี แล้วลองบันทึกรายจ่ายแรกของคุณ</p>
+  <div class="hero-buttons" style="justify-content:center">
+    <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn" style="background:white;color:var(--ink)" aria-label="Download Budgy on the App Store">
+      <svg><use href="#i-apple"/></svg>
+      <div><small>Download on</small><strong>App Store</strong></div>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn" style="background:white;color:var(--ink)" aria-label="Get Budgy on Google Play">
+      <svg><use href="#i-play"/></svg>
+      <div><small>Get it on</small><strong>Google Play</strong></div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="https://budgy.life/privacy.html">Privacy</a>
+    <a href="https://budgy.life/terms.html">Terms</a>
+    <a href="mailto:teerapun.toranathiti@gmail.com">Contact</a>
+    <a href="https://www.facebook.com/BudgyApp" aria-label="Budgy on Facebook">Facebook</a>
+    <a href="https://line.me/R/ti/p/@508uvtlg" aria-label="Budgy on LINE">LINE</a>
+  </div>
+  <p>© 2026 Budgy. All rights reserved.</p>
+</footer>
+
+<script>
+  // ── Reveal-on-scroll ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => observer.observe(el));
+
+  // ── Nav blur intensify on scroll ──
+  const nav = document.getElementById('nav');
+  let scrollY = 0;
+  function onScroll() {
+    scrollY = window.scrollY;
+    if (scrollY > 24) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ── Counter animation for stats ──
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1600;
+        const start = performance.now();
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (progress < 1) requestAnimationFrame(update);
         }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Screenshot carousel
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.screenshot-img');
-    const dots = document.querySelectorAll('.dot');
-
-    function showSlide(index) {
-      slides.forEach(s => s.classList.remove('active'));
-      dots.forEach(d => { d.classList.remove('active'); d.setAttribute('aria-selected', 'false'); });
-      slides[index].classList.add('active');
-      dots[index].classList.add('active');
-      dots[index].setAttribute('aria-selected', 'true');
-      currentSlide = index;
-    }
-
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));
+        requestAnimationFrame(update);
+        counterObserver.unobserve(el);
+      }
     });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-number').forEach((el) => counterObserver.observe(el));
 
-    let carouselInterval = setInterval(() => {
-      showSlide((currentSlide + 1) % slides.length);
-    }, 4000);
-
-    // Pause carousel on hover
-    const showcase = document.querySelector('.screenshot-showcase');
-    showcase.addEventListener('mouseenter', () => clearInterval(carouselInterval));
-    showcase.addEventListener('mouseleave', () => {
-      carouselInterval = setInterval(() => showSlide((currentSlide + 1) % slides.length), 4000);
+  // ── Phone budget bar fill on scroll-into-view ──
+  const phoneBar = document.getElementById('phoneBar');
+  const phoneBarObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => phoneBar.classList.add('fill'), 400);
+        phoneBarObserver.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.3 });
+  if (phoneBar) phoneBarObserver.observe(phoneBar);
 
-    // 3D tilt on screenshot
-    const screenshotMain = document.getElementById('screenshotMain');
-    screenshotMain.addEventListener('mousemove', (e) => {
-      const rect = screenshotMain.getBoundingClientRect();
+  // ── 3D phone tilt on mouse ──
+  const phoneWrap = document.getElementById('phoneWrap');
+  const phone = document.getElementById('phone');
+  if (phoneWrap && phone && window.matchMedia('(min-width: 880px)').matches) {
+    phoneWrap.addEventListener('mousemove', (e) => {
+      const rect = phoneWrap.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
-      screenshotMain.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
+      phone.style.transform = `rotateY(${x * 12}deg) rotateX(${-y * 8}deg) translateZ(0)`;
     });
-    screenshotMain.addEventListener('mouseleave', () => {
-      screenshotMain.style.transform = 'rotateY(0) rotateX(0)';
+    phoneWrap.addEventListener('mouseleave', () => {
+      phone.style.transform = 'rotateY(0) rotateX(0)';
     });
+  }
 
-    // Counter animation
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseInt(el.dataset.target);
-          const suffix = el.dataset.suffix || '';
-          const duration = 1500;
-          const start = performance.now();
+  // ── Typing demo cycle ──
+  const phrases = [
+    { text: 'กาแฟลาเต้ 85 บาท', cat: 'อาหาร & เครื่องดื่ม · ฿85', icon: 'i-coffee', tagGrad: 'linear-gradient(135deg, #FB923C, #F5A623)' },
+    { text: 'Grab ไปทำงาน 120', cat: 'เดินทาง · ฿120', icon: 'i-car', tagGrad: 'linear-gradient(135deg, #06B6D4, #3B82F6)' },
+    { text: 'ค่าเน็ต 599 บาท', cat: 'สาธารณูปโภค · ฿599', icon: 'i-wifi', tagGrad: 'linear-gradient(135deg, #14B8A6, #06B6D4)' },
+    { text: 'เสื้อยืด 390', cat: 'ช้อปปิ้ง · ฿390', icon: 'i-bag', tagGrad: 'linear-gradient(135deg, #A855F7, #EC4899)' },
+  ];
+  const inputEl = document.getElementById('typingInput');
+  const resultEl = document.getElementById('typingResult');
+  const resultTextEl = document.getElementById('resultText');
+  const resultTagEl = document.getElementById('resultTag');
+  let phraseIdx = 0;
 
-          function update(now) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-            const current = Math.round(target * eased);
-            el.textContent = current + suffix;
-            if (progress < 1) requestAnimationFrame(update);
-          }
-
-          requestAnimationFrame(update);
-          counterObserver.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
-
-    // Typing animation
-    const typingPhrases = [
-      { text: 'กาแฟ 80 บาท', result: '☕ อาหาร & เครื่องดื่ม' },
-      { text: 'ค่าเน็ต 599', result: '📱 สาธารณูปโภค' },
-      { text: 'grab 45 บาท', result: '🚗 เดินทาง' },
-      { text: 'เสื้อยืด 390', result: '👕 ช้อปปิ้ง' },
-    ];
-
-    let phraseIndex = 0;
-    const typingInput = document.getElementById('typingInput');
-    const typingResult = document.getElementById('typingResult');
-
-    function typePhrase() {
-      const phrase = typingPhrases[phraseIndex];
-      let charIndex = 0;
-      typingResult.classList.remove('show');
-      typingInput.textContent = '';
-
-      const typeInterval = setInterval(() => {
-        if (charIndex < phrase.text.length) {
-          typingInput.textContent += phrase.text[charIndex];
-          charIndex++;
-        } else {
-          clearInterval(typeInterval);
+  function typeNext() {
+    const phrase = phrases[phraseIdx];
+    inputEl.textContent = '';
+    resultEl.classList.remove('show');
+    let charIdx = 0;
+    const typeInterval = setInterval(() => {
+      if (charIdx < phrase.text.length) {
+        inputEl.textContent += phrase.text[charIdx++];
+      } else {
+        clearInterval(typeInterval);
+        setTimeout(() => {
+          resultTextEl.textContent = phrase.cat;
+          resultTagEl.style.background = phrase.tagGrad;
+          resultTagEl.querySelector('use').setAttribute('href', '#' + phrase.icon);
+          resultEl.classList.add('show');
           setTimeout(() => {
-            typingResult.textContent = phrase.result;
-            typingResult.classList.add('show');
-            setTimeout(() => {
-              phraseIndex = (phraseIndex + 1) % typingPhrases.length;
-              typePhrase();
-            }, 2500);
-          }, 400);
-        }
-      }, 80);
-    }
+            phraseIdx = (phraseIdx + 1) % phrases.length;
+            typeNext();
+          }, 2400);
+        }, 350);
+      }
+    }, 70);
+  }
+  if (inputEl) setTimeout(typeNext, 800);
 
-    // Start typing after hero animation completes
-    setTimeout(typePhrase, 1200);
-  </script>
+  // ── Currency toggle (THB / USD) ──
+  const toggle = document.getElementById('currencyToggle');
+  function applyCurrency(currency) {
+    document.querySelectorAll('[data-thb][data-usd]').forEach((el) => {
+      el.textContent = currency === 'THB' ? el.dataset.thb : el.dataset.usd;
+    });
+    toggle.classList.toggle('usd', currency === 'USD');
+    toggle.querySelectorAll('button').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.currency === currency);
+    });
+    try { localStorage.setItem('budgy-currency', currency); } catch (e) {}
+  }
+  // Detect default: localStorage > navigator.language > THB
+  const stored = (() => { try { return localStorage.getItem('budgy-currency'); } catch (e) { return null; } })();
+  const lang = (navigator.language || 'th').toLowerCase();
+  const defaultCurrency = stored || (lang.startsWith('th') ? 'THB' : 'USD');
+  applyCurrency(defaultCurrency);
+  toggle.querySelectorAll('button').forEach((btn) => {
+    btn.addEventListener('click', () => applyCurrency(btn.dataset.currency));
+  });
+</script>
+
 </body>
 </html>
