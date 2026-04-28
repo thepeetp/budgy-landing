@@ -569,7 +569,11 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
   }
-  @media (max-width: 720px) { .stats-inner { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) {
+    .stats-inner { padding: 18px 12px; gap: 8px; border-radius: 18px; }
+    .stat-number { font-size: 24px; }
+    .stat-label { font-size: 10.5px; }
+  }
   .stat-item { text-align: center; }
   .stat-number {
     font-family: 'Inter', sans-serif;
@@ -601,6 +605,7 @@
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
     box-shadow: var(--sh-1);
     background-image: var(--highlight-top);
+    display: flex; flex-direction: column;
     background-size: 100% 100%;
     background-repeat: no-repeat;
   }
@@ -632,10 +637,12 @@
   .pillar p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.65; }
   .pillar .micro {
     display: inline-flex; gap: 6px; align-items: center;
-    margin-top: 16px;
+    margin-top: auto;
     padding: 6px 12px; background: #F1F5F9; border-radius: 100px;
     font-size: 12px; color: var(--ink-soft); font-weight: 500;
+    align-self: flex-start;
   }
+  .pillar p { margin-bottom: 16px; }
   .pillar .micro svg { width: 12px; height: 12px; color: var(--c1); }
 
   /* ── FEATURES ── */
@@ -762,19 +769,33 @@
     margin: 56px 28px;
     max-width: 1140px;
     margin-left: auto; margin-right: auto;
-    background: linear-gradient(135deg, #06C755, #04a142);
+    background:
+      linear-gradient(165deg, #08D962 0%, #06C755 35%, #04a142 75%, #028a37 100%);
     border-radius: 32px;
     padding: 56px 32px;
     color: white;
     text-align: center;
+    box-shadow:
+      0 24px 60px rgba(6, 199, 85, 0.32),
+      0 8px 24px rgba(4, 161, 66, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.20);
     box-shadow: 0 30px 70px rgba(6, 199, 85, 0.30);
     position: relative; overflow: hidden;
   }
   .line-section::before {
     content: ''; position: absolute; inset: 0;
     background:
-      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.20), transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.10), transparent 50%);
+      radial-gradient(circle at 18% 28%, rgba(255,255,255,0.28), transparent 45%),
+      radial-gradient(circle at 82% 75%, rgba(255,255,255,0.14), transparent 50%),
+      radial-gradient(circle at 50% 100%, rgba(0,0,0,0.18), transparent 60%);
+    pointer-events: none;
+  }
+  .line-section::after {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity: 0.5;
+    pointer-events: none;
   }
   .line-badge-top {
     display: inline-flex; align-items: center; gap: 6px;
@@ -1291,7 +1312,7 @@
   <div class="reveal">
     <div class="section-label">ฟีเจอร์</div>
     <h2 class="section-title">ทุกอย่างที่คุณต้องการ<br>สำหรับจัดการเงิน</h2>
-    <p class="section-desc">Budgy ออกแบบมาให้บันทึกรายจ่ายได้ง่ายที่สุด ด้วย AI ที่ฉลาดพอจะจัดการทุกอย่างให้</p>
+    <p class="section-desc">Budgy ออกแบบมาให้บันทึกรายจ่ายได้ง่ายที่สุด ด้วย AI ที่ฉลาดพอจะจัดการแทนคุณ</p>
   </div>
 
   <div class="features-grid reveal-stagger">
@@ -1372,7 +1393,7 @@
       <div class="price-yearly" style="font-size:12px;color:var(--ink-mute);margin-top:-8px"
            data-thb="ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน"
            data-usd="ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน">ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน</div>
-      <a href="#" class="price-cta">เริ่มต้นฟรี</a>
+      <a href="#download" class="price-cta">เริ่มต้นฟรี</a>
       <ul>
         <li><svg><use href="#i-check"/></svg> AI 30 ครั้ง/เดือน</li>
         <li><svg><use href="#i-check"/></svg> งบประมาณ 5 รายการ</li>
@@ -1392,7 +1413,7 @@
       <div class="price-yearly" style="font-size:12px;color:var(--ink-mute);margin-top:-8px"
            data-thb="หรือ ฿1,799/ปี (ประหยัด 17%)"
            data-usd="หรือ $49.99/ปี (ประหยัด 17%)">หรือ ฿1,799/ปี (ประหยัด 17%)</div>
-      <a href="#" class="price-cta">เลือก Pro</a>
+      <a href="#download" class="price-cta">เลือก Pro</a>
       <ul>
         <li><svg><use href="#i-check"/></svg> AI 100 ครั้ง/เดือน</li>
         <li><svg><use href="#i-check"/></svg> งบประมาณ 10 รายการ</li>
@@ -1411,7 +1432,7 @@
       <div class="price-yearly" style="font-size:12px;color:var(--ink-mute);margin-top:-8px"
            data-thb="หรือ ฿3,499/ปี (ประหยัด 17%)"
            data-usd="หรือ $99.99/ปี (ประหยัด 17%)">หรือ ฿3,499/ปี (ประหยัด 17%)</div>
-      <a href="#" class="price-cta">เลือก Premium</a>
+      <a href="#download" class="price-cta">เลือก Premium</a>
       <ul>
         <li><svg><use href="#i-check"/></svg> ไม่จำกัดทุกฟีเจอร์</li>
         <li><svg><use href="#i-check"/></svg> วางแผนการเงินเต็มรูปแบบ</li>
