@@ -1310,15 +1310,15 @@
 <div class="stats-bar reveal">
   <div class="stats-inner">
     <div class="stat-item">
-      <div class="stat-number" data-target="95" data-suffix="%">0%</div>
+      <div class="stat-number" data-target="95" data-suffix="%">95%</div>
       <div class="stat-label">AI จัดหมวดแม่นยำ</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number" data-target="50" data-suffix="+">0+</div>
+      <div class="stat-number" data-target="50" data-suffix="+">50+</div>
       <div class="stat-label">สกุลเงินที่รองรับ</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number" data-target="3" data-suffix="">0</div>
+      <div class="stat-number" data-target="3" data-suffix="">3</div>
       <div class="stat-label">แพลตฟอร์ม iOS · Android · LINE</div>
     </div>
   </div>
@@ -1536,12 +1536,20 @@
   window.addEventListener('scroll', onScroll, { passive: true });
 
   // ── Counter animation for stats ──
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const el = entry.target;
         const target = parseInt(el.dataset.target);
         const suffix = el.dataset.suffix || '';
+        if (reduceMotion) {
+          el.textContent = target + suffix;
+          counterObserver.unobserve(el);
+          return;
+        }
+        // Animation will run — reset to 0 so user sees the count-up
+        el.textContent = '0' + suffix;
         const duration = 1600;
         const start = performance.now();
         function update(now) {
