@@ -761,6 +761,60 @@
   .feat-card.f2 { --c1: #F97316; --c2: #FB923C; }
   .feat-card.f3 { --c1: var(--teal); --c2: var(--cyan); }
   .feat-card.f4 { --c1: #6366F1; --c2: #8B5CF6; }
+  .feat-card.f5 { --c1: #F59E0B; --c2: #FBBF24; }
+  .feat-card.f6 { --c1: #0891B2; --c2: #06B6D4; }
+
+  /* Bank logos trust strip */
+  .bank-strip {
+    padding: 64px 32px 56px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  @media (max-width: 720px) { .bank-strip { padding: 44px 20px 36px; } }
+  .bank-strip-inner { text-align: center; }
+  .bank-strip-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: linear-gradient(135deg, #0EA5E9, #14B8A6);
+    color: white;
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.6px; text-transform: uppercase;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.35);
+  }
+  .bank-strip-title {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.6px;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  @media (max-width: 720px) { .bank-strip-title { font-size: 22px; } }
+  .bank-strip-desc {
+    font-size: 15.5px; color: var(--ink-soft);
+    max-width: 540px; margin: 0 auto 32px;
+    line-height: 1.65;
+  }
+  .bank-strip-logos {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px;
+    max-width: 920px; margin: 0 auto;
+  }
+  .bank-strip-logos img {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: white;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+  }
+  .bank-strip-logos img:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+  }
+  @media (max-width: 720px) {
+    .bank-strip-logos { gap: 10px; }
+    .bank-strip-logos img { width: 46px; height: 46px; border-radius: 11px; }
+  }
   .feat-card h3 { font-size: 22px; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.4px; position: relative; z-index: 1; }
   .feat-card p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; position: relative; z-index: 1; }
 
@@ -1348,6 +1402,34 @@
   </div>
 </div>
 
+<!-- BANK LOGOS TRUST STRIP -->
+<section class="bank-strip reveal">
+  <div class="bank-strip-inner">
+    <div class="bank-strip-label">
+      <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 1 9l11 7 9-5.73V17h2V9zM5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+      Thai-first
+    </div>
+    <h3 class="bank-strip-title">โลโก้ธนาคารจริง — ไม่ใช่ไอคอนทั่วไป</h3>
+    <p class="bank-strip-desc">บัญชี BBL ของคุณแสดงเป็น BBL จริง บัญชี SCB เป็น SCB จริง — รองรับ 14 ธนาคารหลักในไทย พร้อมแสดงทันทีที่สร้างบัญชี</p>
+    <div class="bank-strip-logos">
+      <img src="assets/banks/bbl.png" alt="Bangkok Bank" loading="lazy">
+      <img src="assets/banks/kbank.png" alt="Kasikornbank" loading="lazy">
+      <img src="assets/banks/scb.png" alt="SCB" loading="lazy">
+      <img src="assets/banks/ktb.png" alt="Krungthai" loading="lazy">
+      <img src="assets/banks/bay.png" alt="Krungsri" loading="lazy">
+      <img src="assets/banks/ttb.png" alt="ttb" loading="lazy">
+      <img src="assets/banks/gsb.png" alt="GSB" loading="lazy">
+      <img src="assets/banks/baac.png" alt="BAAC" loading="lazy">
+      <img src="assets/banks/ghb.png" alt="GH Bank" loading="lazy">
+      <img src="assets/banks/uob.png" alt="UOB" loading="lazy">
+      <img src="assets/banks/cimb.png" alt="CIMB" loading="lazy">
+      <img src="assets/banks/kkp.png" alt="KKP" loading="lazy">
+      <img src="assets/banks/lh.png" alt="LH Bank" loading="lazy">
+      <img src="assets/banks/tisco.png" alt="TISCO" loading="lazy">
+    </div>
+  </div>
+</section>
+
 <!-- TRUST PILLARS -->
 <section class="trust">
   <div class="trust-grid reveal-stagger">
@@ -1402,6 +1484,16 @@
       <h3>AI ผู้ช่วยตอบทุกคำถาม</h3>
       <p>"เดือนนี้ใช้กับร้านอาหารไปกี่บาท?" ถามภาษาไทย Budgy ตอบทันที พร้อมวิเคราะห์</p>
     </article>
+    <article class="feat-card f5">
+      <div class="feat-icon"><svg><use href="#i-briefcase"/></svg></div>
+      <h3>Net Worth ทั้งชีวิตในที่เดียว</h3>
+      <p>บัญชีธนาคาร · กองทุน · หุ้น · ทองคำ · บ้าน · พร้อมหนี้สินและบัตรเครดิต — เห็นยอดสุทธิจริงว่าคุณรวยขึ้นไหม ไม่ใช่แค่รายจ่ายรายเดือน</p>
+    </article>
+    <article class="feat-card f6">
+      <div class="feat-icon"><svg><use href="#i-bank"/></svg></div>
+      <h3>นำเข้า Statement PDF</h3>
+      <p>ดาวน์โหลด PDF จากแอปธนาคาร → ลากเข้า Budgy → AI ดึงทุกธุรกรรมให้ในไม่กี่วินาที ไม่ต้องบันทึกย้อนหลังด้วยมือเป็นชั่วโมง</p>
+    </article>
   </div>
 
   <div class="more-features reveal">
@@ -1410,11 +1502,9 @@
       <span class="pill"><svg><use href="#i-chart"/></svg> ตั้งงบประมาณ</span>
       <span class="pill"><svg><use href="#i-target"/></svg> เป้าหมายการออม</span>
       <span class="pill"><svg><use href="#i-trending"/></svg> วางแผนการเงินระยะยาว</span>
-      <span class="pill"><svg><use href="#i-bank"/></svg> นำเข้าสเตทเมนต์ธนาคาร</span>
       <span class="pill"><svg><use href="#i-users"/></svg> ค่าใช้จ่ายกลุ่ม</span>
       <span class="pill"><svg><use href="#i-calendar"/></svg> มุมมองปฏิทิน</span>
       <span class="pill"><svg><use href="#i-trending"/></svg> วิเคราะห์การใช้จ่าย</span>
-      <span class="pill"><svg><use href="#i-briefcase"/></svg> ทรัพย์สิน & หนี้สิน</span>
       <span class="pill"><svg><use href="#i-repeat"/></svg> รายการเกิดประจำ</span>
       <span class="pill"><svg><use href="#i-search"/></svg> ค้นหา</span>
       <span class="pill"><svg><use href="#i-globe"/></svg> 50+ สกุลเงิน</span>
