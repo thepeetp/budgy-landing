@@ -418,124 +418,25 @@
     width: 100px; height: 28px; background: black; border-radius: 100px;
     z-index: 10;
   }
-  .phone-header {
-    height: 200px;
-    background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 50%, var(--gold) 100%);
-    background-size: 200% 200%;
-    animation: gradShift 8s ease infinite;
-    border-radius: 0 0 22px 22px;
-    padding: 50px 18px 18px;
-    color: white; position: relative;
-  }
-  .phone-header::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(circle at 25% 20%, rgba(255,255,255,0.18), transparent 50%);
-    border-radius: inherit;
+  .phone-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
     pointer-events: none;
   }
-  .phone-greeting {
-    font-size: 11px; opacity: 0.85; margin-bottom: 4px;
-    font-weight: 500;
+  .phone-img.active {
+    clip-path: inset(0);
+    z-index: 2;
   }
-  .phone-name {
-    font-size: 14px; font-weight: 700; margin-bottom: 14px;
-  }
-  .phone-balance-label {
-    font-size: 10px; opacity: 0.85; margin-bottom: 4px;
-  }
-  .phone-balance {
-    font-family: 'Inter', sans-serif;
-    font-size: 28px; font-weight: 800;
-    letter-spacing: -0.8px;
-    margin-bottom: 8px;
-  }
-  .phone-stats {
-    display: flex; gap: 14px;
-    font-size: 9px;
-  }
-  .phone-stats .badge {
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(8px);
-    padding: 3px 7px;
-    border-radius: 100px; font-weight: 600;
-  }
-
-  .phone-body {
-    padding: 14px 14px 0;
-    background: white;
-    position: relative;
-    margin-top: -30px;
-    border-radius: 22px 22px 0 0;
-    height: calc(100% - 200px + 30px);
-  }
-  .phone-section-title {
-    font-size: 11px; font-weight: 700; color: var(--ink);
-    margin: 12px 4px 8px;
-    display: flex; justify-content: space-between;
-  }
-  .phone-section-title small { color: var(--purple-d); font-size: 10px; font-weight: 600; }
-
-  .phone-budget-card {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: var(--sh-1);
-  }
-  .phone-budget-row {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 11px; margin-bottom: 6px;
-  }
-  .phone-budget-row strong { font-weight: 700; }
-  .phone-bar {
-    height: 6px; background: #F1F5F9; border-radius: 3px;
-    overflow: hidden;
-    position: relative;
-  }
-  .phone-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--gold), var(--purple));
-    border-radius: 3px;
-    width: 0;
-    transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .phone-bar-fill.fill { width: 68%; }
-
-  .phone-tx-list {
-    margin-top: 10px;
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--sh-1);
-  }
-  .phone-tx {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 12px;
-    border-bottom: 1px solid #F1F5F9;
-    font-size: 11px;
-  }
-  .phone-tx:last-child { border-bottom: none; }
-  .phone-tx-icon {
-    width: 28px; height: 28px; border-radius: 9px;
-    display: flex; align-items: center; justify-content: center;
-    color: white; flex-shrink: 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  }
-  .phone-tx-icon svg { width: 14px; height: 14px; }
-  .phone-tx-icon.tx-food { background: linear-gradient(135deg, #F97316, var(--gold)); }
-  .phone-tx-icon.tx-trans { background: linear-gradient(135deg, var(--cyan), #3B82F6); }
-  .phone-tx-icon.tx-shop { background: linear-gradient(135deg, var(--purple), var(--pink)); }
-  .phone-tx-meta { flex: 1; min-width: 0; }
-  .phone-tx-name {
-    font-weight: 600; color: var(--ink);
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
-  .phone-tx-cat { font-size: 9px; color: var(--ink-mute); }
-  .phone-tx-amt {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700; color: var(--ink); font-size: 11px;
+  .phone-img.leaving {
+    clip-path: inset(0);
+    z-index: 1;
+    transition: none;
   }
 
   /* Floating badges */
@@ -802,130 +703,6 @@
   }
   .more-features .pill svg { width: 14px; height: 14px; color: var(--purple); transition: transform 0.2s; }
   .more-features .pill:hover svg { transform: rotate(-12deg) scale(1.1); }
-
-  /* ── SCREEN SHOWCASE ── */
-  .screens-section {
-    padding: 56px 28px 16px;
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-  @media (max-width: 880px) {
-    .screens-section { padding: 40px 0 8px; }
-  }
-  .screens-section .section-label,
-  .screens-section .section-title,
-  .screens-section .section-desc {
-    padding: 0 4px;
-  }
-  @media (max-width: 880px) {
-    .screens-section .section-label,
-    .screens-section .section-title,
-    .screens-section .section-desc { padding: 0 20px; }
-  }
-  .screens-rotator {
-    margin-top: 36px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-  }
-  .screens-stage {
-    width: 280px;
-    aspect-ratio: 9 / 19.5;
-    position: relative;
-  }
-  @media (max-width: 720px) {
-    .screens-stage { width: 248px; }
-  }
-  .screens-frame {
-    position: absolute;
-    inset: 0;
-    border-radius: 36px;
-    background: #fff;
-    padding: 6px;
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.9) inset,
-      0 36px 70px rgba(15,23,42,0.16),
-      0 14px 30px rgba(124,58,237,0.16),
-      0 2px 6px rgba(15,23,42,0.06);
-    border: 1px solid rgba(15,23,42,0.06);
-  }
-  .screens-frame::before {
-    content: "";
-    position: absolute;
-    top: 14px; left: 50%; transform: translateX(-50%);
-    width: 64px; height: 6px;
-    background: rgba(15,23,42,0.16);
-    border-radius: 100px;
-    z-index: 3;
-  }
-  .screens-img {
-    position: absolute;
-    inset: 6px;
-    width: calc(100% - 12px);
-    height: calc(100% - 12px);
-    border-radius: 30px;
-    object-fit: cover;
-    opacity: 1;
-    clip-path: inset(0 0 100% 0 round 30px);
-    transition: clip-path 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-    z-index: 1;
-  }
-  .screens-img.active {
-    clip-path: inset(0 0 0 0 round 30px);
-    z-index: 2;
-  }
-  .screens-img.leaving {
-    clip-path: inset(0 0 0 0 round 30px);
-    z-index: 1;
-    transition: none;
-  }
-  @media (max-width: 720px) {
-    .screens-img { border-radius: 26px; }
-  }
-  .screens-info {
-    text-align: center;
-    letter-spacing: -0.2px;
-    min-height: 44px;
-  }
-  .screens-info strong {
-    display: block;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--ink);
-    transition: opacity 0.32s ease;
-  }
-  .screens-info small {
-    display: block;
-    font-size: 12.5px;
-    font-weight: 500;
-    color: var(--ink-mute);
-    margin-top: 4px;
-    letter-spacing: 0.2px;
-    transition: opacity 0.32s ease;
-  }
-  .screens-info.fade strong,
-  .screens-info.fade small { opacity: 0; }
-  .screens-dots {
-    display: flex;
-    gap: 10px;
-    margin-top: 2px;
-  }
-  .screens-dot {
-    width: 8px; height: 8px;
-    padding: 0;
-    border: 0;
-    border-radius: 100px;
-    background: rgba(15,23,42,0.14);
-    cursor: pointer;
-    transition: background 0.3s ease, width 0.3s ease;
-  }
-  .screens-dot:hover { background: rgba(15,23,42,0.32); }
-  .screens-dot.active {
-    width: 24px;
-    background: linear-gradient(135deg, #14B8A6 0%, #7C3AED 100%);
-  }
 
   /* ── LINE ── */
   .line-section {
@@ -1393,56 +1170,14 @@
     </div>
     <div class="phone-wrap reveal" id="phoneWrap">
       <div class="phone" id="phone">
-        <div class="phone-screen">
-          <div class="phone-header">
-            <div class="phone-greeting">สวัสดีตอนเช้า</div>
-            <div class="phone-name">คุณ มิ้น · 28 เมษา</div>
-            <div class="phone-balance-label">ใช้ไปเดือนนี้</div>
-            <div class="phone-balance">฿12,450</div>
-            <div class="phone-stats">
-              <div class="badge">เหลืองบ ฿7,550</div>
-              <div class="badge">ออม 25%</div>
-            </div>
-          </div>
-          <div class="phone-body">
-            <div class="phone-budget-card">
-              <div class="phone-budget-row">
-                <span>งบกินข้าว</span>
-                <strong>฿3,400 / ฿5,000</strong>
-              </div>
-              <div class="phone-bar">
-                <div class="phone-bar-fill" id="phoneBar"></div>
-              </div>
-              <div style="font-size:9px;color:var(--ink-mute);margin-top:5px">ใช้ไป 68%</div>
-            </div>
-            <div class="phone-section-title">รายการล่าสุด <small>ดูทั้งหมด</small></div>
-            <div class="phone-tx-list">
-              <div class="phone-tx">
-                <div class="phone-tx-icon tx-food"><svg><use href="#i-coffee"/></svg></div>
-                <div class="phone-tx-meta">
-                  <div class="phone-tx-name">กาแฟลาเต้</div>
-                  <div class="phone-tx-cat">อาหาร & เครื่องดื่ม</div>
-                </div>
-                <div class="phone-tx-amt">฿85</div>
-              </div>
-              <div class="phone-tx">
-                <div class="phone-tx-icon tx-trans"><svg><use href="#i-car"/></svg></div>
-                <div class="phone-tx-meta">
-                  <div class="phone-tx-name">Grab ไปทำงาน</div>
-                  <div class="phone-tx-cat">เดินทาง</div>
-                </div>
-                <div class="phone-tx-amt">฿120</div>
-              </div>
-              <div class="phone-tx">
-                <div class="phone-tx-icon tx-shop"><svg><use href="#i-bag"/></svg></div>
-                <div class="phone-tx-meta">
-                  <div class="phone-tx-name">เสื้อยืด</div>
-                  <div class="phone-tx-cat">ช้อปปิ้ง</div>
-                </div>
-                <div class="phone-tx-amt">฿390</div>
-              </div>
-            </div>
-          </div>
+        <div class="phone-screen" id="phoneRotator">
+          <img class="phone-img active" src="assets/screens/th-01-home.png" alt="หน้าแรก Budgy">
+          <img class="phone-img" src="assets/screens/th-02-ai-chat.png" alt="ผู้ช่วย AI" loading="lazy">
+          <img class="phone-img" src="assets/screens/th-03-analytics.png" alt="วิเคราะห์การใช้จ่าย" loading="lazy">
+          <img class="phone-img" src="assets/screens/th-04-budgets.png" alt="งบประมาณ" loading="lazy">
+          <img class="phone-img" src="assets/screens/th-05-calendar.png" alt="ปฏิทิน" loading="lazy">
+          <img class="phone-img" src="assets/screens/th-06-ai-icons.png" alt="ไอคอนหมวดหมู่ AI" loading="lazy">
+          <img class="phone-img" src="assets/screens/th-07-groups.png" alt="กลุ่มเพื่อน" loading="lazy">
         </div>
       </div>
       <div class="float-badge b1">
@@ -1553,40 +1288,6 @@
       <span class="pill"><svg><use href="#i-repeat"/></svg> รายการเกิดประจำ</span>
       <span class="pill"><svg><use href="#i-search"/></svg> ค้นหา</span>
       <span class="pill"><svg><use href="#i-globe"/></svg> 50+ สกุลเงิน</span>
-    </div>
-  </div>
-</section>
-
-<!-- SCREEN SHOWCASE -->
-<section class="screens-section reveal" id="screens">
-  <div class="section-label">หน้าตาในแอป</div>
-  <h2 class="section-title">เห็น Budgy<br>ของจริงก่อนดาวน์โหลด</h2>
-  <p class="section-desc">7 หน้าหลัก — ตั้งแต่หน้าแรก ผู้ช่วย AI กราฟวิเคราะห์ งบประมาณ ไปจนถึงค่าใช้จ่ายกลุ่ม</p>
-
-  <div class="screens-rotator" id="screensRotator">
-    <div class="screens-stage">
-      <div class="screens-frame">
-        <img class="screens-img active" src="assets/screens/th-01-home.png" alt="หน้าแรก Budgy" data-caption="หน้าแรก" data-sub="ยอดเดือนนี้ · งบ · รายการล่าสุด">
-        <img class="screens-img" src="assets/screens/th-02-ai-chat.png" alt="ผู้ช่วย AI" loading="lazy" data-caption="AI ผู้ช่วย" data-sub="ถามภาษาไทย ตอบทันที">
-        <img class="screens-img" src="assets/screens/th-03-analytics.png" alt="วิเคราะห์การใช้จ่าย" loading="lazy" data-caption="วิเคราะห์" data-sub="กราฟ · เทรนด์ · เปรียบเทียบเดือน">
-        <img class="screens-img" src="assets/screens/th-04-budgets.png" alt="งบประมาณ" loading="lazy" data-caption="งบประมาณ" data-sub="หลอดแก้วแบบ liquid · เตือนก่อนเกิน">
-        <img class="screens-img" src="assets/screens/th-05-calendar.png" alt="ปฏิทิน" loading="lazy" data-caption="ปฏิทิน" data-sub="ดูรายจ่ายรายวันรายเดือน">
-        <img class="screens-img" src="assets/screens/th-06-ai-icons.png" alt="ไอคอนหมวดหมู่ AI" loading="lazy" data-caption="ไอคอนสร้างด้วย AI" data-sub="ทุกหมวดมีไอคอนของตัวเอง">
-        <img class="screens-img" src="assets/screens/th-07-groups.png" alt="กลุ่มเพื่อน" loading="lazy" data-caption="ค่าใช้จ่ายกลุ่ม" data-sub="หารกับเพื่อน · เคลียร์หนี้">
-      </div>
-    </div>
-    <div class="screens-info" id="screensInfo">
-      <strong id="screensCaption">หน้าแรก</strong>
-      <small id="screensSub">ยอดเดือนนี้ · งบ · รายการล่าสุด</small>
-    </div>
-    <div class="screens-dots" id="screensDots" role="tablist" aria-label="หน้าจอแอป">
-      <button class="screens-dot active" type="button" data-idx="0" aria-label="หน้าแรก"></button>
-      <button class="screens-dot" type="button" data-idx="1" aria-label="AI ผู้ช่วย"></button>
-      <button class="screens-dot" type="button" data-idx="2" aria-label="วิเคราะห์"></button>
-      <button class="screens-dot" type="button" data-idx="3" aria-label="งบประมาณ"></button>
-      <button class="screens-dot" type="button" data-idx="4" aria-label="ปฏิทิน"></button>
-      <button class="screens-dot" type="button" data-idx="5" aria-label="ไอคอนสร้างด้วย AI"></button>
-      <button class="screens-dot" type="button" data-idx="6" aria-label="ค่าใช้จ่ายกลุ่ม"></button>
     </div>
   </div>
 </section>
@@ -1844,14 +1545,10 @@
     btn.addEventListener('click', () => applyCurrency(btn.dataset.currency));
   });
 
-  // ── Screens rotator (auto-cycle through app screenshots) ──
-  const rotator = document.getElementById('screensRotator');
+  // ── Hero phone rotator (auto-cycle through real app screenshots) ──
+  const rotator = document.getElementById('phoneRotator');
   if (rotator) {
-    const imgs = Array.from(rotator.querySelectorAll('.screens-img'));
-    const dots = Array.from(rotator.querySelectorAll('.screens-dot'));
-    const info = document.getElementById('screensInfo');
-    const captionEl = document.getElementById('screensCaption');
-    const subEl = document.getElementById('screensSub');
+    const imgs = Array.from(rotator.querySelectorAll('.phone-img'));
     let idx = 0;
     let timer = null;
     let paused = false;
@@ -1864,24 +1561,11 @@
       transitioning = true;
       const oldImg = imgs[idx];
       const newImg = imgs[next];
-
-      info.classList.add('fade');
-      // Old: stays fully visible underneath while new wipes in from top
+      // Old stays fully visible underneath while new wipes in from top
       oldImg.classList.remove('active');
       oldImg.classList.add('leaving');
-      dots[idx].classList.remove('active');
-      // New: clip-path animates from collapsed-top to fully revealed
       newImg.classList.add('active');
-      dots[next].classList.add('active');
-
-      setTimeout(() => {
-        captionEl.textContent = newImg.dataset.caption;
-        subEl.textContent = newImg.dataset.sub;
-        info.classList.remove('fade');
-      }, 220);
-
       idx = next;
-
       setTimeout(() => {
         oldImg.classList.remove('leaving');
         transitioning = false;
@@ -1895,10 +1579,6 @@
 
     function start() { stop(); if (!reduceMotion) timer = setInterval(tick, 3600); }
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => { show(i); start(); });
-    });
 
     rotator.addEventListener('mouseenter', () => { paused = true; });
     rotator.addEventListener('mouseleave', () => { paused = false; });
