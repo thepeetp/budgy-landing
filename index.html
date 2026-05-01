@@ -424,19 +424,20 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    clip-path: inset(0 0 100% 0);
-    transition: clip-path 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
     pointer-events: none;
+    will-change: transform;
+    backface-visibility: hidden;
   }
   .phone-img.active {
-    clip-path: inset(0);
+    transform: translate3d(0, 0, 0);
     z-index: 2;
   }
   .phone-img.leaving {
-    clip-path: inset(0);
+    transform: translate3d(-30%, 0, 0);
     z-index: 1;
-    transition: none;
   }
 
   /* Floating badges */
@@ -1554,20 +1555,25 @@
     let paused = false;
     let transitioning = false;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const TRANSITION_MS = 720;
+    const TRANSITION_MS = 620;
 
     function show(next) {
       if (next === idx || transitioning) return;
       transitioning = true;
       const oldImg = imgs[idx];
       const newImg = imgs[next];
-      // Old stays fully visible underneath while new wipes in from top
+      // Slide carousel: old slides off to the left, new enters from the right
       oldImg.classList.remove('active');
       oldImg.classList.add('leaving');
       newImg.classList.add('active');
       idx = next;
       setTimeout(() => {
+        // Reset old image back to right offscreen WITHOUT animating (so it's
+        // ready for next time it becomes active)
+        oldImg.style.transition = 'none';
         oldImg.classList.remove('leaving');
+        oldImg.offsetWidth; // force reflow
+        oldImg.style.transition = '';
         transitioning = false;
       }, TRANSITION_MS);
     }
