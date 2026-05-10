@@ -14,6 +14,11 @@
   <meta name="theme-color" content="#A855F7">
   <link rel="canonical" href="https://budgy.life/">
 
+  <!-- iOS Smart App Banner (auto-shows install banner on Safari iOS) -->
+  <meta name="apple-itunes-app" content="app-id=6756961804">
+  <!-- Android-style hint via Chrome's prompt (handled by manifest below if PWA) -->
+  <meta name="google-play-app" content="app-id=io.budgy.mobile">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Budgy - แอปบันทึกค่าใช้จ่ายอัจฉริยะ ขับเคลื่อนด้วย AI">
   <meta property="og:description" content="แค่พิมพ์ 'กาแฟ 80 บาท' — Budgy จัดหมวดหมู่ให้อัตโนมัติ สแกนใบเสร็จ สแกนสลิปจากแกลเลอรี ตั้งงบประมาณ วางแผนการเงินครบจบในแอปเดียว">
@@ -40,6 +45,49 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!--
+    ============================================================================
+    ANALYTICS — uncomment + replace placeholder IDs to enable.
+    ============================================================================
+
+    Step 1: Create a GA4 property at https://analytics.google.com
+            (Admin > Create property > Web > paste budgy.life URL).
+            Copy the Measurement ID (looks like G-XXXXXXXXXX) and paste below.
+
+    Step 2: Create a Clarity project at https://clarity.microsoft.com
+            (free, no credit card). Copy the Project ID (10-char alphanumeric)
+            and paste below.
+
+    Step 3: Uncomment both blocks (remove the surrounding <!-- and --\>).
+            Push. Both tools start collecting data immediately.
+
+    Notes:
+    - Both are GDPR/PDPA-friendly when configured (Clarity defaults are fine
+      for Thailand; GA4 needs IP anonymization which is now default).
+    - Clarity gives session recordings + heatmaps (priceless for CRO).
+    - GA4 gives traffic source / acquisition / conversion funnel.
+
+  <\!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  </script>
+
+  <\!-- Microsoft Clarity (heatmaps + session recordings, free) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "PLACEHOLDER_PROJECT_ID");
+  </script>
+
+    ============================================================================
+  -->
 
   <!-- Structured Data -->
   <script type="application/ld+json">
