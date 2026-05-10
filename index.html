@@ -70,6 +70,89 @@
   }
   </script>
 
+  <!-- Organization schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Budgy",
+    "url": "https://budgy.life/",
+    "logo": "https://budgy.life/assets/icon-512.png",
+    "sameAs": [
+      "https://www.facebook.com/BudgyApp",
+      "https://line.me/R/ti/p/@508uvtlg",
+      "https://apps.apple.com/app/budgy/id6756961804",
+      "https://play.google.com/store/apps/details?id=io.budgy.mobile"
+    ]
+  }
+  </script>
+
+  <!-- FAQPage schema (matches visible FAQ section) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Budgy ใช้ฟรีได้ตลอดไปจริงไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ใช้ได้ตลอดไป มีโควต้ารายเดือนใจดีให้ครบทุกฟีเจอร์ — บันทึกรายจ่ายไม่จำกัด ตั้งงบ ตั้งเป้าออม วิเคราะห์การใช้จ่าย ใช้ AI ในระดับฟรี ส่วน Premium ปลดล็อกใช้แบบไม่จำกัด ทั้ง AI สแกนสลิป นำเข้า Statement และฟีเจอร์ขั้นสูง"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AI จัดหมวดหมู่ทำงานยังไง? แม่นแค่ไหน?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "พิมพ์รายจ่ายเป็นภาษาธรรมชาติ เช่น 'ค่ากาแฟ 60' หรือ 'ข้าวมันไก่ 50' — Budgy AI ใช้ Claude/Gemini วิเคราะห์ข้อความและจัดหมวดให้ ถ้าคุณแก้หมวด AI จะเรียนรู้และจัดให้ถูกขึ้นในครั้งต่อไป รองรับภาษาไทยและอังกฤษ"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "สแกนสลิปจากธนาคารไหนได้บ้าง?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "สแกนสลิปจาก mobile banking ได้ทุกธนาคารหลักของไทย: SCB, Kasikorn, Krungsri, Bangkok Bank, KTB, TTB, GSB และอื่นๆ รวมถึงสลิป PromptPay เพียงถ่ายรูปหรือเลือกจากแกลเลอรี — Budgy ตรวจเจอและลงรายการให้อัตโนมัติ"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ข้อมูลปลอดภัยไหม? Budgy เก็บข้อมูลอะไรบ้าง?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ข้อมูลทั้งหมดเข้ารหัสทั้งระหว่างส่ง (TLS) และเก็บ (AES-256 บน RDS/S3) ไม่มีโฆษณา ไม่ขายข้อมูล Budgy ไม่ได้เชื่อมกับบัญชีธนาคารคุณโดยตรง — ใช้แค่ภาพสลิปหรือ PDF statement ที่คุณเลือกอัปโหลดเอง"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ใช้ Budgy ร่วมกับครอบครัว/แฟนได้ไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ได้ Budgy มีฟีเจอร์ 'กลุ่ม' สำหรับแชร์งบและรายการกับครอบครัว แฟน หรือเพื่อน เห็นใครจ่ายอะไร ตั้งงบรวม และดูภาพรวมทั้งกลุ่มได้"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Budgy ใช้บน LINE ได้ด้วยไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "เข้าสู่ระบบด้วย LINE ได้ — ในแอป iOS และ Android ใช้ LINE Login เป็นหนึ่งในวิธี sign in ทำให้ไม่ต้องจำรหัสผ่านใหม่"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ย้ายข้อมูลจากแอปอื่นมา Budgy ได้ไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "นำเข้า PDF statement จากธนาคารโดยตรงได้ ส่วน CSV จากแอปอื่น (Money Lover, Spendee ฯลฯ) ติดต่อทีมงานผ่าน Facebook ได้ เราพร้อมช่วยย้ายข้อมูลให้"
+        }
+      }
+    ]
+  }
+  </script>
+
 <style>
   :root {
     --teal: #14B8A6;
@@ -1128,6 +1211,7 @@
   <div class="nav-links">
     <a href="#features">ฟีเจอร์</a>
     <a href="#pricing">ราคา</a>
+    <a href="/blog/">บทความ</a>
     <a href="#download" class="nav-cta">ดาวน์โหลด</a>
   </div>
 </nav>
@@ -1381,6 +1465,67 @@
       </ul>
     </article>
   </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="reveal" style="max-width:840px;margin:0 auto;padding:80px 24px 40px;">
+  <h2 class="section-title" style="margin-bottom:32px;">คำถามที่พบบ่อย</h2>
+
+  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
+    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+      Budgy ใช้ฟรีได้ตลอดไปจริงไหม?
+      <span style="color:var(--purple-d);font-size:20px;">+</span>
+    </summary>
+    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">ใช้ได้ตลอดไป มีโควต้ารายเดือนใจดีให้ครบทุกฟีเจอร์ — บันทึกรายจ่ายไม่จำกัด ตั้งงบ ตั้งเป้าออม วิเคราะห์การใช้จ่าย ใช้ AI ในระดับฟรี ส่วน Premium ปลดล็อกใช้แบบไม่จำกัด ทั้ง AI สแกนสลิป นำเข้า Statement และฟีเจอร์ขั้นสูง</p>
+  </details>
+
+  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
+    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+      AI จัดหมวดหมู่ทำงานยังไง? แม่นแค่ไหน?
+      <span style="color:var(--purple-d);font-size:20px;">+</span>
+    </summary>
+    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">พิมพ์รายจ่ายเป็นภาษาธรรมชาติ เช่น "ค่ากาแฟ 60" หรือ "ข้าวมันไก่ 50" — Budgy AI ใช้ Claude/Gemini วิเคราะห์ข้อความและจัดหมวดให้ ถ้าคุณแก้หมวด AI จะเรียนรู้และจัดให้ถูกขึ้นในครั้งต่อไป รองรับภาษาไทยและอังกฤษ</p>
+  </details>
+
+  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
+    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+      สแกนสลิปจากธนาคารไหนได้บ้าง?
+      <span style="color:var(--purple-d);font-size:20px;">+</span>
+    </summary>
+    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">สแกนสลิปจาก mobile banking ได้ทุกธนาคารหลักของไทย: SCB, Kasikorn, Krungsri, Bangkok Bank, KTB, TTB, GSB และอื่นๆ รวมถึงสลิป PromptPay เพียงถ่ายรูปหรือเลือกจากแกลเลอรี — Budgy ตรวจเจอและลงรายการให้อัตโนมัติ</p>
+  </details>
+
+  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
+    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+      ข้อมูลปลอดภัยไหม? Budgy เก็บข้อมูลอะไรบ้าง?
+      <span style="color:var(--purple-d);font-size:20px;">+</span>
+    </summary>
+    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">ข้อมูลทั้งหมดเข้ารหัสทั้งระหว่างส่ง (TLS) และเก็บ (AES-256 บน RDS/S3) ไม่มีโฆษณา ไม่ขายข้อมูล Budgy ไม่ได้เชื่อมกับบัญชีธนาคารคุณโดยตรง — ใช้แค่ภาพสลิปหรือ PDF statement ที่คุณเลือกอัปโหลดเอง อ่าน <a href="/privacy.html" style="color:var(--purple-d);">นโยบายความเป็นส่วนตัว</a></p>
+  </details>
+
+  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
+    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+      ใช้ Budgy ร่วมกับครอบครัว/แฟนได้ไหม?
+      <span style="color:var(--purple-d);font-size:20px;">+</span>
+    </summary>
+    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">ได้ Budgy มีฟีเจอร์ "กลุ่ม" สำหรับแชร์งบและรายการกับครอบครัว แฟน หรือเพื่อน เห็นใครจ่ายอะไร ตั้งงบรวม และดูภาพรวมทั้งกลุ่มได้</p>
+  </details>
+
+  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
+    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+      Budgy ใช้บน LINE ได้ด้วยไหม?
+      <span style="color:var(--purple-d);font-size:20px;">+</span>
+    </summary>
+    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">เข้าสู่ระบบด้วย LINE ได้ — ในแอป iOS และ Android ใช้ LINE Login เป็นหนึ่งในวิธี sign in ทำให้ไม่ต้องจำรหัสผ่านใหม่</p>
+  </details>
+
+  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
+    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+      ย้ายข้อมูลจากแอปอื่นมา Budgy ได้ไหม?
+      <span style="color:var(--purple-d);font-size:20px;">+</span>
+    </summary>
+    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">นำเข้า PDF statement จากธนาคารโดยตรงได้ ส่วน CSV จากแอปอื่น (Money Lover, Spendee ฯลฯ) — ติดต่อทีมงานผ่าน <a href="https://www.facebook.com/BudgyApp" style="color:var(--purple-d);">Facebook</a> เราพร้อมช่วยย้ายข้อมูลให้</p>
+  </details>
 </section>
 
 <!-- CTA -->
