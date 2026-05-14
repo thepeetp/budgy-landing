@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["TWY9VQV23Y.io.budgy.mobile"],
+        "components": [
+          { "/": "/ref/*" }
+        ]
+      }
+    ]
+  }
+}

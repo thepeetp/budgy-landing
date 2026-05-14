@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budgy</title>
+  <style>
+    body { margin: 0; padding: 0; background: #F8FAFC; }
+  </style>
+  <script>
+    // GitHub Pages SPA fallback for /ref/:code paths.
+    // When GitHub Pages returns 404 for /ref/ABCXYZ12, it serves this file.
+    // We detect the /ref/{code} pattern and rewrite to /ref/?code={code}
+    // so ref/index.html can read the code from the query param.
+    // All other 404s redirect to the home page.
+    (function() {
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var segments = path.split('/').filter(Boolean);
+
+      // Match /ref/{8-char code}
+      if (segments.length === 2 && segments[0] === 'ref') {
+        var code = segments[1];
+        // Validate: must be exactly 8 chars from the referral alphabet
+        if (/^[A-HJ-NP-Z2-9]{8}$/i.test(code)) {
+          window.location.replace(
+            '/ref/?code=' + encodeURIComponent(code.toUpperCase()) +
+            (search ? '&' + search.slice(1) : '')
+          );
+          return;
+        }
+      }
+
+      // Match /ref/ with no code (just show the ref page — it will show error)
+      if (segments.length === 1 && segments[0] === 'ref') {
+        window.location.replace('/ref/' + search);
+        return;
+      }
+
+      // All other 404s — go home
+      window.location.replace('/');
+    })();
+  </script>
+</head>
+<body>
+  <!-- Redirecting... -->
+</body>
+</html>

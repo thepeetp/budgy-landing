@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.budgy.mobile",
+    "sha256_cert_fingerprints": [
+      "44:63:E3:F8:1E:F6:6D:1A:30:3C:90:7C:82:92:E9:1C:D6:C4:24:2D:71:87:20:E5:7E:BD:F3:1F:FA:E3:8F:F4"
+    ]
+  }
+}]
