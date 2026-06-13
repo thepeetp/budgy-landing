@@ -1011,6 +1011,7 @@
   }
   .price-card:hover .tier-mark { transform: scale(1.08) rotate(-4deg); }
   .price-card.tier-free .tier-mark { --c1: var(--teal); --c2: #34D399; }
+  .price-card.tier-pro .tier-mark { --c1: var(--purple); --c2: var(--pink); }
   .price-card.popular .tier-mark { --c1: var(--purple); --c2: var(--pink); }
   .price-card.premium .tier-mark { --c1: var(--gold); --c2: #FB923C; }
   .tier-mark svg { width: 24px; height: 24px; }
@@ -1040,10 +1041,12 @@
   .price-cta:hover { transform: translateY(-3px); filter: brightness(1.05); }
   .price-cta:hover::before { left: 100%; }
   .price-cta:active { transform: translateY(-1px) scale(0.98); }
+  .price-card.tier-pro .price-cta,
   .price-card.popular .price-cta {
     background: linear-gradient(135deg, var(--purple), var(--pink));
     box-shadow: 0 12px 28px rgba(168, 85, 247, 0.35);
   }
+  .price-card.tier-pro .price-cta:hover,
   .price-card.popular .price-cta:hover { box-shadow: 0 18px 40px rgba(168, 85, 247, 0.45); }
   .price-card.premium .price-cta {
     background: linear-gradient(135deg, var(--gold), #FB923C);
@@ -1056,6 +1059,7 @@
     display: flex; gap: 10px; align-items: flex-start;
   }
   .price-card li svg { width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; margin-top: 1px; }
+  .price-card.tier-pro li svg { color: var(--purple); }
   .price-card.popular li svg { color: var(--purple); }
   .price-card.premium li svg { color: var(--gold-d); }
 
@@ -1476,7 +1480,7 @@
       </ul>
     </article>
 
-    <article class="price-card">
+    <article class="price-card tier-pro">
       <div class="tier-mark"><svg><use href="#i-wand"/></svg></div>
       <h3>Pro</h3>
       <div class="tier-desc">สำหรับคนจริงจัง</div>
