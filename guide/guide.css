@@ -391,6 +391,10 @@ img { max-width: 100%; }
 }
 .shot img {
   width: 100%;
+  /* The <img> carries width/height attributes for CLS. Without height:auto the
+     height attribute wins literally, so a 540x1200 screenshot rendered 208x1200
+     — stretched 2.6x and taller than the viewport. */
+  height: auto;
   display: block;
   border-radius: 22px;
   border: 1px solid var(--line);
