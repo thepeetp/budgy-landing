@@ -154,7 +154,7 @@
         "name": "AI จัดหมวดหมู่ทำงานยังไง? แม่นแค่ไหน?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "พิมพ์รายจ่ายเป็นภาษาธรรมชาติ เช่น 'ค่ากาแฟ 60' หรือ 'ข้าวมันไก่ 50' — Budgy AI ใช้ Claude/Gemini วิเคราะห์ข้อความและจัดหมวดให้ ถ้าคุณแก้หมวด AI จะเรียนรู้และจัดให้ถูกขึ้นในครั้งต่อไป รองรับภาษาไทยและอังกฤษ"
+          "text": "พิมพ์รายจ่ายเป็นภาษาธรรมชาติ เช่น 'ค่ากาแฟ 60' หรือ 'ข้าวมันไก่ 50' — Budgy AI ใช้ Gemini วิเคราะห์ข้อความและจัดหมวดให้ ถ้าคุณแก้หมวด AI จะเรียนรู้และจัดให้ถูกขึ้นในครั้งต่อไป รองรับภาษาไทยและอังกฤษ"
         }
       },
       {
@@ -186,7 +186,7 @@
         "name": "Budgy ใช้บน LINE ได้ด้วยไหม?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "เข้าสู่ระบบด้วย LINE ได้ — ในแอป iOS และ Android ใช้ LINE Login เป็นหนึ่งในวิธี sign in ทำให้ไม่ต้องจำรหัสผ่านใหม่"
+          "text": "ได้ 2 แบบ — ใช้งานผ่าน LINE โดยตรง เพียงเพิ่มเพื่อน Budgy OA แล้วพิมพ์ 'ข้าวกลางวัน 150' ระบบจะบันทึก จัดหมวด และตอบยอดสรุปกลับมาให้ในแชต แก้หรือลบรายการและถามยอดใช้จ่ายได้เช่นกัน โดยไม่ต้องเปิดแอป ส่วนการตั้งงบ เป้าหมาย และกลุ่ม ต้องทำในแอป และใช้ LINE Login เข้าสู่ระบบในแอป iOS/Android ได้ด้วย"
         }
       },
       {
@@ -341,7 +341,33 @@
   }
   .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(168, 85, 247, 0.35); filter: brightness(1.05); }
   .nav-cta:active { transform: translateY(0) scale(0.97); }
-  @media (max-width: 720px) { .nav-links a:not(.nav-cta) { display: none; } }
+  /* Mobile nav: the links used to be display:none with no hamburger behind them,
+     so ฟีเจอร์ / ราคา / คู่มือ / บทความ were unreachable on a phone entirely.
+     This page's links are a direct child of <nav> (there is no .nav-inner),
+     and the wordmark plus 28px side padding left too little room, so the row
+     overflowed leftwards under the logo — flex-end overflow is also unscrollable.
+     Trim the padding and the wordmark so all five genuinely fit. */
+  @media (max-width: 720px) {
+    nav { padding: 14px 16px; gap: 10px; }
+    .logo-text { display: none; }
+    .nav-links {
+      flex: 1 1 auto;
+      min-width: 0;
+      gap: 13px;
+      /* NOT justify-content:flex-end — when the row overflows, flex-end pushes
+         the first link off the left edge where it cannot be scrolled to. An auto
+         margin right-aligns the row while it fits and collapses to 0 when it
+         doesn't, so the overflow goes right and stays swipeable. */
+      justify-content: flex-start;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links > :first-child { margin-left: auto; }
+    .nav-links a { font-size: 13px; white-space: nowrap; flex: none; }
+    .nav-cta { padding: 9px 15px; font-size: 12.5px; }
+  }
 
   /* ── HERO ── */
   .hero {
@@ -1258,6 +1284,7 @@
   <div class="nav-links">
     <a href="#features">ฟีเจอร์</a>
     <a href="#pricing">ราคา</a>
+    <a href="/guide/">คู่มือ</a>
     <a href="/blog/">บทความ</a>
     <a href="#download" class="nav-cta">ดาวน์โหลด</a>
   </div>
@@ -1334,7 +1361,7 @@
       <div class="stat-label">ฟีเจอร์ครบครัน</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number" data-target="50" data-suffix="+">50+</div>
+      <div class="stat-number" data-target="14" data-suffix="">14</div>
       <div class="stat-label">สกุลเงินที่รองรับ</div>
     </div>
     <div class="stat-item">
@@ -1421,7 +1448,7 @@
       <span class="pill"><svg><use href="#i-trending"/></svg> วิเคราะห์การใช้จ่าย</span>
       <span class="pill"><svg><use href="#i-repeat"/></svg> รายการเกิดประจำ</span>
       <span class="pill"><svg><use href="#i-search"/></svg> ค้นหา</span>
-      <span class="pill"><svg><use href="#i-globe"/></svg> 50+ สกุลเงิน</span>
+      <span class="pill"><svg><use href="#i-globe"/></svg> 14 สกุลเงิน</span>
     </div>
   </div>
 </section>
@@ -1453,6 +1480,7 @@
     <div class="section-label">ราคา</div>
     <h2 class="section-title">เลือกแพ็กเกจที่เหมาะกับคุณ</h2>
     <p class="section-desc">เริ่มใช้ฟรี อัพเกรดเมื่อพร้อม</p>
+    <p class="section-desc" style="font-size:13px;margin-top:-10px;">ราคาอาจต่างกันเล็กน้อยระหว่าง App Store และ Google Play — ยอดที่เรียกเก็บจริงจะแสดงในแอปก่อนยืนยันการสมัครเสมอ</p>
     <div class="currency-toggle" id="currencyToggle" role="tablist" aria-label="Currency">
       <span class="slider"></span>
       <button data-currency="THB" role="tab">THB ฿</button>
@@ -1495,7 +1523,7 @@
         <li><svg><use href="#i-check"/></svg> สแกนใบเสร็จ 20 ครั้ง</li>
         <li><svg><use href="#i-check"/></svg> วิเคราะห์ขั้นสูง</li>
         <li><svg><use href="#i-check"/></svg> กลุ่ม 5 กลุ่ม (10 คน)</li>
-        <li><svg><use href="#i-check"/></svg> วางแผนการเงินเบื้องต้น</li>
+        <li><svg><use href="#i-check"/></svg> เป้าหมาย 10 รายการ</li>
       </ul>
     </article>
 
@@ -1538,7 +1566,7 @@
       AI จัดหมวดหมู่ทำงานยังไง? แม่นแค่ไหน?
       <span style="color:var(--purple-d);font-size:20px;">+</span>
     </summary>
-    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">พิมพ์รายจ่ายเป็นภาษาธรรมชาติ เช่น "ค่ากาแฟ 60" หรือ "ข้าวมันไก่ 50" — Budgy AI ใช้ Claude/Gemini วิเคราะห์ข้อความและจัดหมวดให้ ถ้าคุณแก้หมวด AI จะเรียนรู้และจัดให้ถูกขึ้นในครั้งต่อไป รองรับภาษาไทยและอังกฤษ</p>
+    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">พิมพ์รายจ่ายเป็นภาษาธรรมชาติ เช่น "ค่ากาแฟ 60" หรือ "ข้าวมันไก่ 50" — Budgy AI ใช้ Gemini วิเคราะห์ข้อความและจัดหมวดให้ ถ้าคุณแก้หมวด AI จะเรียนรู้และจัดให้ถูกขึ้นในครั้งต่อไป รองรับภาษาไทยและอังกฤษ</p>
   </details>
 
   <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
@@ -1570,7 +1598,7 @@
       Budgy ใช้บน LINE ได้ด้วยไหม?
       <span style="color:var(--purple-d);font-size:20px;">+</span>
     </summary>
-    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">เข้าสู่ระบบด้วย LINE ได้ — ในแอป iOS และ Android ใช้ LINE Login เป็นหนึ่งในวิธี sign in ทำให้ไม่ต้องจำรหัสผ่านใหม่</p>
+    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">ได้ 2 แบบ — <strong>ใช้งานผ่าน LINE โดยตรง</strong> เพียงเพิ่มเพื่อน Budgy OA แล้วพิมพ์ “ข้าวกลางวัน 150” ระบบจะบันทึก จัดหมวด และตอบยอดสรุปกลับมาให้ในแชต แก้หรือลบรายการและถามยอดใช้จ่ายได้เช่นกัน โดยไม่ต้องเปิดแอป (ส่วนการตั้งงบ เป้าหมาย และกลุ่ม ต้องทำในแอป) และ <strong>ใช้ LINE Login</strong> เข้าสู่ระบบในแอป iOS/Android ได้ด้วย ไม่ต้องจำรหัสผ่านใหม่</p>
   </details>
 
   <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
@@ -1600,6 +1628,7 @@
 
 <footer>
   <div class="links">
+    <a href="https://budgy.life/guide/">คู่มือการใช้งาน</a>
     <a href="https://budgy.life/privacy.html">Privacy</a>
     <a href="https://budgy.life/terms.html">Terms</a>
     <a href="mailto:teerapun.toranathiti@gmail.com">Contact</a>
