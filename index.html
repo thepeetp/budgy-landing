@@ -940,90 +940,6 @@
   @media (max-width: 720px) {
     .split-points { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
   }
-  /* The "try it" calculator. Real arithmetic, real formatting: the visitor
-     changes the bill or the head count and watches the shares move. */
-  .split-calc {
-    position: relative; z-index: 1;
-    margin-top: 22px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px;
-    align-items: center;
-    background: linear-gradient(135deg, rgba(234, 88, 12, 0.06), rgba(245, 158, 11, 0.10));
-    border: 1px solid rgba(234, 88, 12, 0.18);
-    border-radius: 18px;
-    padding: 20px 22px;
-  }
-  .split-calc .calc-title {
-    grid-column: 1 / -1;
-    font-size: 13px; font-weight: 700; color: var(--c1);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .split-calc .calc-title svg { width: 15px; height: 15px; }
-  .split-field { display: flex; flex-direction: column; gap: 6px; }
-  .split-field label { font-size: 12px; font-weight: 600; color: var(--ink-mute); }
-  .split-amount {
-    display: flex; align-items: center; gap: 6px;
-    background: white; border: 1px solid var(--line); border-radius: 12px;
-    padding: 8px 12px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .split-amount:focus-within { border-color: var(--c1); box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.14); }
-  .split-amount span { font-weight: 700; color: var(--ink-mute); }
-  .split-amount input {
-    flex: 1; min-width: 0; width: 100%;
-    border: 0; outline: 0; background: transparent;
-    font: inherit; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 700; color: var(--ink);
-    -moz-appearance: textfield;
-  }
-  .split-amount input::-webkit-outer-spin-button, .split-amount input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-  .split-stepper {
-    display: inline-flex; align-items: center; gap: 4px;
-    background: white; border: 1px solid var(--line); border-radius: 12px; padding: 4px;
-  }
-  .split-stepper button {
-    width: 34px; height: 34px; border: 0; border-radius: 9px;
-    background: #F8FAFC; color: var(--ink); cursor: pointer;
-    display: inline-flex; align-items: center; justify-content: center;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .split-stepper button:hover { background: #FFEDD5; color: var(--c1); }
-  .split-stepper button:active { transform: scale(0.92); }
-  .split-stepper button:focus-visible { outline: 2px solid var(--c1); outline-offset: 1px; }
-  .split-stepper button svg { width: 16px; height: 16px; }
-  .split-stepper output {
-    min-width: 42px; text-align: center;
-    font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 800;
-  }
-  .split-avatars { display: flex; margin-top: 4px; }
-  .split-avatars span {
-    width: 26px; height: 26px; border-radius: 50%;
-    margin-left: -6px;
-    border: 2px solid white;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 9.5px; font-weight: 700; color: white;
-    background: linear-gradient(135deg, #94A3B8, #64748B);
-    animation: avatarIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .split-avatars span:first-child { margin-left: 0; font-size: 8px; background: linear-gradient(135deg, var(--c1), var(--c2)); }
-  @keyframes avatarIn { from { transform: scale(0); } }
-  .split-result {
-    grid-column: 1 / -1;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-  }
-  .split-result > div {
-    background: white; border-radius: 14px; padding: 12px 16px;
-    border: 1px solid var(--line);
-  }
-  .split-result small { display: block; font-size: 11.5px; color: var(--ink-mute); font-weight: 500; margin-bottom: 2px; }
-  .split-result strong {
-    font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
-    color: var(--ink); display: inline-block;
-  }
-  .split-result strong.bump { animation: amtPop 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
-  .split-result .per strong { color: var(--c1); }
-  @media (max-width: 720px) {
-    .split-calc { grid-template-columns: 1fr; gap: 14px; padding: 16px; }
-    .split-result { grid-template-columns: 1fr; }
-  }
 
   .feat-card h3 { font-size: 22px; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.4px; position: relative; z-index: 1; }
   .feat-card p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; position: relative; z-index: 1; }
@@ -1514,8 +1430,6 @@
       <path d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/>
       <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor"/>
     </symbol>
-    <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 12.55a11 11 0 0 1 14 0"/>
       <path d="M2 8.82a15 15 0 0 1 20 0"/>
@@ -1684,29 +1598,6 @@
         <span><svg><use href="#i-chat"/></svg> พิมพ์บอกเป็นประโยค “หารกัน 4 คน แต่บอสไม่ได้กินของหวาน” แล้ว AI แบ่งยอดให้</span>
         <span><svg><use href="#i-receipt"/></svg> ส่งการ์ดสรุปยอดให้เพื่อนทางแชต แนบ QR พร้อมเพย์ได้ในตัว</span>
         <span><svg><use href="#i-users"/></svg> รวมหลายบิลของทริปเดียว พร้อมแผนโอนคืนที่โอนน้อยครั้งที่สุด</span>
-      </div>
-      <div class="split-calc" id="splitCalc">
-        <div class="calc-title"><svg><use href="#i-split"/></svg> ลองหารดู</div>
-        <div class="split-field">
-          <label for="splitTotal">ยอดบิลที่คุณออกไปก่อน</label>
-          <div class="split-amount">
-            <span>฿</span>
-            <input id="splitTotal" type="number" inputmode="decimal" min="1" max="9999999" step="1" value="1240" aria-label="ยอดบิล">
-          </div>
-        </div>
-        <div class="split-field">
-          <label for="splitPeople">หารกี่คน (รวมคุณ)</label>
-          <div class="split-stepper">
-            <button type="button" id="splitMinus" aria-label="ลดจำนวนคน"><svg><use href="#i-minus"/></svg></button>
-            <output id="splitPeople" for="splitTotal">4</output>
-            <button type="button" id="splitPlus" aria-label="เพิ่มจำนวนคน"><svg><use href="#i-plus"/></svg></button>
-          </div>
-          <div class="split-avatars" id="splitAvatars" aria-hidden="true"></div>
-        </div>
-        <div class="split-result">
-          <div class="per"><small>แต่ละคนจ่าย</small><strong id="splitPerPerson">฿310.00</strong></div>
-          <div><small>เพื่อนโอนคืนคุณรวม</small><strong id="splitOwed">฿930.00</strong></div>
-        </div>
       </div>
     </article>
     <article class="feat-card f1">
@@ -1950,7 +1841,7 @@
   <p>© 2026 Budgy. All rights reserved.</p>
 </footer>
 
-<script src="assets/site-logic.js?v=20260906a"></script>
+<script src="assets/site-logic.js?v=20260906b"></script>
 <script>
   // ── Reveal-on-scroll ──
   const observer = new IntersectionObserver((entries) => {
@@ -2144,48 +2035,6 @@
     } else {
       setTimeout(typeNext, 800);
     }
-  })();
-
-  // ── Split-bill calculator ──
-  (function () {
-    const totalEl = document.getElementById('splitTotal');
-    const peopleEl = document.getElementById('splitPeople');
-    const perEl = document.getElementById('splitPerPerson');
-    const owedEl = document.getElementById('splitOwed');
-    const avatarsEl = document.getElementById('splitAvatars');
-    if (!totalEl || !window.BudgyLogic) return;
-    const L = window.BudgyLogic;
-    const MIN = 2, MAX = 12;
-    let people = 4;
-
-    function bump(el, text) {
-      if (el.textContent === text) return;
-      el.textContent = text;
-      el.classList.remove('bump');
-      el.offsetWidth; // restart the animation
-      el.classList.add('bump');
-    }
-    function renderAvatars() {
-      if (avatarsEl.childElementCount === people) return;
-      avatarsEl.innerHTML = '';
-      for (let i = 0; i < people; i++) {
-        const a = document.createElement('span');
-        a.textContent = i === 0 ? 'คุณ' : String.fromCharCode(64 + i);
-        avatarsEl.appendChild(a);
-      }
-    }
-    function update() {
-      peopleEl.textContent = String(people);
-      renderAvatars();
-      const r = L.splitBill(totalEl.value, people);
-      if (!r) { bump(perEl, '—'); bump(owedEl, '—'); return; }
-      bump(perEl, L.formatBaht(r.perPerson, 2));
-      bump(owedEl, L.formatBaht(r.owedToYou, 2));
-    }
-    document.getElementById('splitMinus').addEventListener('click', () => { if (people > MIN) { people--; update(); } });
-    document.getElementById('splitPlus').addEventListener('click', () => { if (people < MAX) { people++; update(); } });
-    totalEl.addEventListener('input', update);
-    update();
   })();
 
   // ── Currency toggle (THB / USD) ──

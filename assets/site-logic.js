@@ -1,6 +1,6 @@
 /*
  * Pure logic for the interactive bits of budgy.life: the hero "type an expense"
- * demo and the split-bill calculator. No DOM in here so it runs under Node's
+ * demo. No DOM in here so it runs under Node's
  * test runner as well as in the browser (see test/site-logic.test.js).
  *
  * The categorizer is a deliberately small keyword map. It is a taste of what
@@ -64,20 +64,11 @@
     return { category: categorize(text), amount: amount, needsAmount: amount === null };
   }
 
-  function round2(n) { return Math.round(n * 100) / 100; }
-
-  function splitBill(total, people) {
-    total = Number(total); people = Number(people);
-    if (!(total > 0) || !(people >= 2)) return null;
-    var perPerson = round2(total / people);
-    return { perPerson: perPerson, owedToYou: round2(perPerson * (people - 1)) };
-  }
-
   function formatBaht(n, decimals) {
     if (decimals === undefined) decimals = Number.isInteger(n) ? 0 : 2;
     return '฿' + n.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
   }
 
   return { CATEGORIES: CATEGORIES, categorize: categorize, parseAmount: parseAmount,
-           demoResult: demoResult, splitBill: splitBill, formatBaht: formatBaht };
+           demoResult: demoResult, formatBaht: formatBaht };
 });

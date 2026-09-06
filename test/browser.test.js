@@ -100,25 +100,6 @@ test('phone showcase: dots match screenshots and clicking one jumps', async () =
   await context.close();
 });
 
-test('split calculator: changing people updates per-person amount', async () => {
-  const { page, context } = await open();
-  await page.locator('#splitPerPerson').scrollIntoViewIfNeeded();
-  assert.equal(await page.inputValue('#splitTotal'), '1240');
-  assert.equal((await page.textContent('#splitPeople')).trim(), '4');
-  assert.equal((await page.textContent('#splitPerPerson')).trim(), '฿310.00');
-  await page.click('#splitPlus');
-  assert.equal((await page.textContent('#splitPeople')).trim(), '5');
-  assert.equal((await page.textContent('#splitPerPerson')).trim(), '฿248.00');
-  assert.equal((await page.textContent('#splitOwed')).trim(), '฿992.00');
-  await page.fill('#splitTotal', '1000');
-  assert.equal((await page.textContent('#splitPerPerson')).trim(), '฿200.00');
-  // Cannot go below 2 people.
-  for (let i = 0; i < 5; i++) await page.click('#splitMinus');
-  assert.equal((await page.textContent('#splitPeople')).trim(), '2');
-  assert.equal((await page.textContent('#splitPerPerson')).trim(), '฿500.00');
-  await context.close();
-});
-
 test('faq: opening an item rotates the plus sign', async () => {
   const { page, context } = await open();
   const item = page.locator('#faq details').first();

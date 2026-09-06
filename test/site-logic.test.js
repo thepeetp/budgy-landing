@@ -3,7 +3,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const logic = require('../assets/site-logic.js');
-const { categorize, parseAmount, splitBill, formatBaht, demoResult } = logic;
+const { categorize, parseAmount, formatBaht, demoResult } = logic;
 
 test('categorize: Thai food keyword', () => {
   assert.equal(categorize('ข้าวมันไก่ 50').key, 'food');
@@ -61,18 +61,6 @@ test('demoResult: combines category and amount; missing amount is flagged', () =
   const missing = demoResult('ข้าวมันไก่');
   assert.equal(missing.needsAmount, true);
   assert.equal(missing.amount, null);
-});
-
-test('splitBill: divides and rounds to satang', () => {
-  assert.deepEqual(splitBill(1240, 4), { perPerson: 310, owedToYou: 930 });
-  assert.deepEqual(splitBill(1000, 3), { perPerson: 333.33, owedToYou: 666.66 });
-  assert.deepEqual(splitBill(1240, 5), { perPerson: 248, owedToYou: 992 });
-});
-
-test('splitBill: rejects fewer than 2 people or a non-positive total', () => {
-  assert.equal(splitBill(1240, 1), null);
-  assert.equal(splitBill(0, 4), null);
-  assert.equal(splitBill(NaN, 4), null);
 });
 
 test('formatBaht: thousands separator', () => {

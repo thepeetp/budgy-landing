@@ -18,13 +18,26 @@ test('index.html contains no emoji', () => {
 test('scripts reference site-logic.js and hooks exist', () => {
   assert.match(html, /<script src="assets\/site-logic\.js(\?v=[\w.-]+)?"><\/script>/);
   for (const id of ['typingInput', 'typingResult', 'resultText', 'resultTag', 'demoChips',
-                    'splitTotal', 'splitPeople', 'splitMinus', 'splitPlus', 'splitPerPerson', 'splitOwed',
                     'scrollProgress']) {
     assert.ok(html.includes(`id="${id}"`), `missing id="${id}"`);
   }
   // The demo must be a real text field, not a div, so phones show a keyboard.
   assert.match(html, /<input[^>]*id="typingInput"/);
   assert.ok((html.match(/class="demo-chip"/g) || []).length >= 3, 'need at least 3 quick-try chips');
+});
+
+test('the split-bill calculator is gone', () => {
+  // Removed at the user's request on 2026-09-06: the หารบิล card keeps its copy
+  // and its three bullets, but the interactive calculator is not on the page.
+  for (const hook of ['splitCalc', 'splitTotal', 'splitPeople', 'splitMinus', 'splitPlus',
+                      'splitPerPerson', 'splitOwed', 'splitAvatars']) {
+    assert.ok(!html.includes(`id="${hook}"`), `calculator hook came back: id="${hook}"`);
+  }
+  assert.ok(!html.includes('split-calc'), 'calculator markup or CSS came back');
+  assert.ok(!/BudgyLogic\s*\.\s*splitBill|L\.splitBill/.test(html), 'calculator script came back');
+  // The card itself must stay.
+  assert.ok(html.includes('หารบิลกับเพื่อน'), 'the split-bill feature card must stay');
+  assert.ok(html.includes('class="split-points"'), 'the three split-bill bullets must stay');
 });
 
 test('phone caption and dots hooks exist', () => {
