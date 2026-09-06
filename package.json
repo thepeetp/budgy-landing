@@ -1,0 +1,13 @@
+{
+  "name": "budgy-landing",
+  "private": true,
+  "description": "budgy.life marketing site (static). Tests: node --test.",
+  "scripts": {
+    "test": "npm run test:unit && npm run test:browser",
+    "test:unit": "node --test test/site-logic.test.js test/index-structure.test.js",
+    "test:browser": "node --test test/browser.test.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.59.1"
+  }
+}

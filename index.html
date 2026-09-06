@@ -7,8 +7,8 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>Budgy: แอปจดรายจ่าย สแกนสลิป รองรับทุกธนาคารไทย | Expense Tracker</title>
-  <meta name="description" content="แอปจดรายจ่ายฟรี — Budgy สแกนสลิป PromptPay ทุกธนาคาร นำเข้า statement SCB, Kasikorn, Krungsri, Bangkok Bank ตั้งงบ ออมเงิน ติดตามหนี้ ดาวน์โหลดบน iOS และ Android">
-  <meta name="keywords" content="แอปจดรายจ่าย, บันทึกค่าใช้จ่าย, สแกนสลิป, promptpay, รายรับรายจ่าย, expense tracker thailand, budget app, สแกนใบเสร็จ, OCR, ออมเงิน, งบประมาณ, วางแผนการเงิน, จดบัญชี, แอปการเงิน, Budgy">
+  <meta name="description" content="แอปจดรายจ่ายฟรี — Budgy สแกนสลิป PromptPay ทุกธนาคาร นำเข้า statement SCB, Kasikorn, Krungsri, Bangkok Bank ตั้งงบ ออมเงิน หารบิลกับเพื่อน ดาวน์โหลดบน iOS และ Android">
+  <meta name="keywords" content="แอปจดรายจ่าย, บันทึกค่าใช้จ่าย, สแกนสลิป, promptpay, รายรับรายจ่าย, expense tracker thailand, budget app, สแกนใบเสร็จ, OCR, ออมเงิน, งบประมาณ, วางแผนการเงิน, จดบัญชี, แอปการเงิน, หารบิล, แอปหารเงิน, หารค่าอาหาร, split bill, Budgy">
   <meta name="author" content="Budgy">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#A855F7">
@@ -21,7 +21,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Budgy: แอปจดรายจ่ายที่อ่านสลิปทุกธนาคาร">
-  <meta property="og:description" content="สแกนสลิป PromptPay นำเข้า statement ทุกธนาคารไทย ตั้งงบ ออมเงิน — ใช้ฟรี ไม่ต้องผูกบัญชีธนาคาร">
+  <meta property="og:description" content="สแกนสลิป PromptPay นำเข้า statement ทุกธนาคารไทย ตั้งงบ ออมเงิน หารบิลกับเพื่อน — ใช้ฟรี ไม่ต้องผูกบัญชีธนาคาร">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://budgy.life/">
   <meta property="og:image" content="https://budgy.life/assets/app-icon.png">
@@ -33,7 +33,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Budgy: Expense Tracker for Thailand">
-  <meta name="twitter:description" content="Scan PromptPay slips from any bank. Import statements. Track budgets, debt, savings. Free on iOS and Android.">
+  <meta name="twitter:description" content="Scan PromptPay slips from any bank. Import statements. Split bills with friends. Track budgets, savings. Free on iOS and Android.">
   <meta name="twitter:image" content="https://budgy.life/assets/app-icon.png">
 
   <!-- Favicon -->
@@ -95,7 +95,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Budgy",
-    "description": "AI-powered spending tracker with automatic categorization, receipt OCR, auto-detect bank-slip scanning, budgets, and financial planning",
+    "description": "AI-powered spending tracker with automatic categorization, receipt OCR, auto-detect bank-slip scanning, bill splitting with friends, budgets, and financial planning",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "iOS, Android",
     "offers": [
@@ -179,6 +179,14 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "ได้ Budgy มีฟีเจอร์ 'กลุ่ม' สำหรับแชร์งบและรายการกับครอบครัว แฟน หรือเพื่อน เห็นใครจ่ายอะไร ตั้งงบรวม และดูภาพรวมทั้งกลุ่มได้"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "หารบิลกับเพื่อนได้ไหม? เพื่อนต้องโหลดแอปด้วยหรือเปล่า?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ได้ — เปิดรายจ่ายที่คุณออกเงินไปทั้งก้อน แตะ 'หารบิล' แล้วเลือกวิธีหาร (เท่ากัน · ตามหุ้น · ระบุเอง) หรือพิมพ์บอกเป็นประโยคแล้วให้ AI แบ่งยอดให้ ยอดในรายการเดิมจะลดเหลือเฉพาะส่วนของคุณ ส่วนที่เหลือกลายเป็นยอดที่เพื่อนค้างไว้ เพื่อนไม่ต้องโหลดแอปและไม่ต้องสมัคร — ส่งการ์ดสรุปยอดให้ทางแชต แนบ QR พร้อมเพย์ได้ หรือส่งลิงก์ที่เพื่อนเปิดดูได้โดยไม่ต้องมีบัญชี (อ่านอย่างเดียว และยกเลิกลิงก์ได้ทุกเมื่อ)"
         }
       },
       {
@@ -309,6 +317,19 @@
     box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
     padding: 10px 28px;
   }
+  /* Reading progress: a hairline under the nav that fills left-to-right as the
+     visitor scrolls. Scaled, not resized, so it never triggers layout. */
+  .scroll-progress {
+    position: absolute; left: 0; right: 0; bottom: -1px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--purple), var(--gold));
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    transition: transform 0.12s linear;
+    pointer-events: none;
+  }
+  .nav-links a.active:not(.nav-cta) { color: var(--ink); }
+  .nav-links a.active:not(.nav-cta)::after { width: 100%; left: 0; }
   .logo { display: flex; gap: 12px; align-items: center; text-decoration: none; transition: transform 0.2s; }
   .logo:active { transform: scale(0.97); }
   .logo img {
@@ -484,9 +505,58 @@
     box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
   }
   .typing-demo .input-icon svg { width: 12px; height: 12px; }
-  .typing-demo .input { color: var(--ink); font-size: 15px; font-weight: 500; min-height: 18px; }
-  .typing-demo .input-cursor::after { content: '|'; animation: blink 0.8s steps(1) infinite; color: var(--teal); margin-left: 2px; }
-  @keyframes blink { 50% { opacity: 0; } }
+  .typing-demo { transition: box-shadow 0.3s, border-color 0.3s; }
+  .typing-demo:focus-within {
+    border-color: var(--teal);
+    box-shadow: var(--sh-3), 0 0 0 4px rgba(20, 184, 166, 0.16);
+  }
+  .typing-demo .demo-title {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-mute);
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .typing-demo .demo-title .live {
+    display: inline-flex; align-items: center; gap: 5px;
+    color: var(--teal-d); font-weight: 700; font-size: 11px;
+  }
+  .typing-demo .demo-title .live::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5);
+    animation: livePulse 1.8s ease-out infinite;
+  }
+  @keyframes livePulse {
+    0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5); }
+    100% { box-shadow: 0 0 0 7px rgba(20, 184, 166, 0); }
+  }
+  .typing-demo input {
+    flex: 1 1 auto; min-width: 0;
+    border: 0; outline: 0; background: transparent;
+    /* 16px, not 15: iOS Safari zooms the whole page when a smaller field is focused. */
+    font: inherit; font-size: 16px; font-weight: 500; color: var(--ink);
+    padding: 2px 0;
+    caret-color: var(--teal);
+  }
+  .typing-demo input::placeholder { color: var(--ink-mute); font-weight: 400; }
+  /* While the page is typing for the visitor, the wand breathes so the motion
+     reads as "the app is doing this", not "your keyboard is broken". */
+  .typing-demo.auto .input-icon { animation: wandBreath 1.4s ease-in-out infinite; }
+  @keyframes wandBreath { 50% { transform: scale(1.12); box-shadow: 0 6px 16px rgba(20, 184, 166, 0.4); } }
+  .typing-demo .result.hint {
+    background: #F1F5F9; color: var(--ink-soft);
+  }
+  .typing-demo .result .amt-pop { display: inline-block; animation: amtPop 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes amtPop { from { transform: scale(0.6); opacity: 0; } }
+  .demo-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+  .demo-chip {
+    border: 1px solid var(--line); background: #F8FAFC; color: var(--ink-soft);
+    font: inherit; font-size: 12px; font-weight: 500;
+    padding: 5px 11px; border-radius: 100px; cursor: pointer;
+    transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .demo-chip:hover, .demo-chip:focus-visible { background: white; border-color: var(--teal); color: var(--teal-d); transform: translateY(-1px); outline: 0; }
+  .demo-chip:active { transform: scale(0.96); }
+  .demo-note { font-size: 11px; color: var(--ink-mute); line-height: 1.45; max-width: 300px; }
+  @media (max-width: 880px) { .demo-note { max-width: none; } }
   .typing-demo .arrow {
     width: 16px; height: 16px; color: var(--teal);
     margin-left: 7px;
@@ -545,10 +615,33 @@
 
   /* ── PHONE MOCKUP (3D tilt-ready) ── */
   .phone-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 22px;
+  }
+  .phone-stage {
     position: relative;
     display: flex; justify-content: center;
     perspective: 1200px;
   }
+  .phone-nav { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .phone-caption {
+    font-size: 13.5px; font-weight: 600; color: var(--ink-soft);
+    min-height: 20px;
+    animation: captionIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes captionIn { from { opacity: 0; transform: translateY(6px); } }
+  .phone-dots { display: flex; gap: 6px; align-items: center; }
+  .phone-dots button {
+    width: 8px; height: 8px; padding: 0; border: 0; border-radius: 100px;
+    background: #CBD5E1; cursor: pointer;
+    transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, transform 0.2s;
+  }
+  .phone-dots button:hover { background: #94A3B8; transform: scale(1.2); }
+  .phone-dots button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+  .phone-dots button[aria-current="true"] {
+    width: 26px; transform: none;
+    background: linear-gradient(90deg, var(--teal), var(--purple));
+  }
+  @media (max-width: 880px) { .phone-wrap { gap: 44px; } }
   .phone {
     position: relative;
     width: 290px; aspect-ratio: 9/19;
@@ -817,6 +910,120 @@
   .feat-card.f4 { --c1: #6366F1; --c2: #8B5CF6; }
   .feat-card.f5 { --c1: #F59E0B; --c2: #FBBF24; }
   .feat-card.f6 { --c1: #0891B2; --c2: #06B6D4; }
+  /* f7 spans the grid: it is the newest feature and the one nobody is looking
+     for yet, so it gets the marquee row rather than a half-width slot.
+     Apricot (deep orange -> amber) is Split Bill's own wayfinding gradient in
+     the app, so the card and the screenshot in the phone above agree. */
+  .feat-card.f7 { --c1: #EA580C; --c2: #F59E0B; grid-column: 1 / -1; }
+  .feat-card.f7 p { max-width: 720px; }
+  .split-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 22px;
+    position: relative; z-index: 1;
+  }
+  .split-points span {
+    display: flex; align-items: flex-start; gap: 9px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 13px 15px;
+    font-size: 13.5px; line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .split-points svg {
+    width: 16px; height: 16px; flex: 0 0 16px;
+    margin-top: 2px;
+    color: var(--c1);
+  }
+  @media (max-width: 720px) {
+    .split-points { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
+  }
+  /* The "try it" calculator. Real arithmetic, real formatting: the visitor
+     changes the bill or the head count and watches the shares move. */
+  .split-calc {
+    position: relative; z-index: 1;
+    margin-top: 22px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(234, 88, 12, 0.06), rgba(245, 158, 11, 0.10));
+    border: 1px solid rgba(234, 88, 12, 0.18);
+    border-radius: 18px;
+    padding: 20px 22px;
+  }
+  .split-calc .calc-title {
+    grid-column: 1 / -1;
+    font-size: 13px; font-weight: 700; color: var(--c1);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .split-calc .calc-title svg { width: 15px; height: 15px; }
+  .split-field { display: flex; flex-direction: column; gap: 6px; }
+  .split-field label { font-size: 12px; font-weight: 600; color: var(--ink-mute); }
+  .split-amount {
+    display: flex; align-items: center; gap: 6px;
+    background: white; border: 1px solid var(--line); border-radius: 12px;
+    padding: 8px 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .split-amount:focus-within { border-color: var(--c1); box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.14); }
+  .split-amount span { font-weight: 700; color: var(--ink-mute); }
+  .split-amount input {
+    flex: 1; min-width: 0; width: 100%;
+    border: 0; outline: 0; background: transparent;
+    font: inherit; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 700; color: var(--ink);
+    -moz-appearance: textfield;
+  }
+  .split-amount input::-webkit-outer-spin-button, .split-amount input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .split-stepper {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: white; border: 1px solid var(--line); border-radius: 12px; padding: 4px;
+  }
+  .split-stepper button {
+    width: 34px; height: 34px; border: 0; border-radius: 9px;
+    background: #F8FAFC; color: var(--ink); cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .split-stepper button:hover { background: #FFEDD5; color: var(--c1); }
+  .split-stepper button:active { transform: scale(0.92); }
+  .split-stepper button:focus-visible { outline: 2px solid var(--c1); outline-offset: 1px; }
+  .split-stepper button svg { width: 16px; height: 16px; }
+  .split-stepper output {
+    min-width: 42px; text-align: center;
+    font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 800;
+  }
+  .split-avatars { display: flex; margin-top: 4px; }
+  .split-avatars span {
+    width: 26px; height: 26px; border-radius: 50%;
+    margin-left: -6px;
+    border: 2px solid white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 9.5px; font-weight: 700; color: white;
+    background: linear-gradient(135deg, #94A3B8, #64748B);
+    animation: avatarIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .split-avatars span:first-child { margin-left: 0; font-size: 8px; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+  @keyframes avatarIn { from { transform: scale(0); } }
+  .split-result {
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .split-result > div {
+    background: white; border-radius: 14px; padding: 12px 16px;
+    border: 1px solid var(--line);
+  }
+  .split-result small { display: block; font-size: 11.5px; color: var(--ink-mute); font-weight: 500; margin-bottom: 2px; }
+  .split-result strong {
+    font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+    color: var(--ink); display: inline-block;
+  }
+  .split-result strong.bump { animation: amtPop 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+  .split-result .per strong { color: var(--c1); }
+  @media (max-width: 720px) {
+    .split-calc { grid-template-columns: 1fr; gap: 14px; padding: 16px; }
+    .split-result { grid-template-columns: 1fr; }
+  }
 
   .feat-card h3 { font-size: 22px; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.4px; position: relative; z-index: 1; }
   .feat-card p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; position: relative; z-index: 1; }
@@ -1124,6 +1331,16 @@
     footer .links { gap: 12px 18px; margin-bottom: 12px; }
   }
 
+  /* FAQ: the + turns into × and the answer settles in, so the click reads. */
+  #faq details { transition: border-color 0.25s, box-shadow 0.25s; }
+  #faq details:hover { border-color: rgba(168, 85, 247, 0.35); }
+  #faq details[open] { border-color: rgba(168, 85, 247, 0.45); box-shadow: var(--sh-2); }
+  #faq summary::-webkit-details-marker { display: none; }
+  #faq summary span { display: inline-block; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); line-height: 1; }
+  #faq details[open] summary span { transform: rotate(45deg); }
+  #faq details[open] > p { animation: faqIn 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes faqIn { from { opacity: 0; transform: translateY(-6px); } }
+
   .preview-banner {
     background: linear-gradient(90deg, var(--purple), var(--pink));
     color: white; padding: 8px 16px; text-align: center;
@@ -1215,6 +1432,14 @@
       <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
       <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
     </symbol>
+    <symbol id="i-split" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3v4"/>
+      <path d="M12 7c0 3-6 3-6 7v3"/>
+      <path d="M12 7c0 3 6 3 6 7v3"/>
+      <circle cx="6" cy="20" r="1.6"/>
+      <circle cx="18" cy="20" r="1.6"/>
+      <circle cx="12" cy="3" r="1.6"/>
+    </symbol>
     <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <rect x="3" y="4" width="18" height="18" rx="2"/>
       <path d="M16 2v4M8 2v4M3 10h18"/>
@@ -1267,6 +1492,30 @@
       <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
       <path d="M3 6h18M16 10a4 4 0 0 1-8 0"/>
     </symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/>
+    </symbol>
+    <symbol id="i-film" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="2"/>
+      <path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+    </symbol>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 11l9-8 9 8"/>
+      <path d="M5 10v10h5v-6h4v6h5V10"/>
+    </symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+    </symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/>
+      <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 12.55a11 11 0 0 1 14 0"/>
       <path d="M2 8.82a15 15 0 0 1 20 0"/>
@@ -1277,6 +1526,7 @@
 </svg>
 
 <nav id="nav">
+  <span class="scroll-progress" id="scrollProgress" aria-hidden="true"></span>
   <a class="logo" href="#">
     <img src="assets/budgy-logo-nav.png" alt="Budgy">
     <span class="logo-text">Budgy</span>
@@ -1303,18 +1553,32 @@
       </div>
       <h1>บันทึกรายจ่าย<br>ง่ายขึ้นด้วย <span class="grad">AI</span></h1>
       <p class="lead">
-        แค่พิมพ์ "กาแฟ 80 บาท" — Budgy จัดหมวดหมู่ให้อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ และวางแผนการเงินให้คุณครบจบในแอปเดียว
+        แค่พิมพ์ "กาแฟ 80 บาท" — Budgy จัดหมวดหมู่ให้อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ หารบิลกับเพื่อน และวางแผนการเงินให้คุณครบจบในแอปเดียว
       </p>
-      <div class="typing-demo">
+      <div class="typing-demo" id="typingDemo">
+        <div class="demo-title">
+          <span>ลองพิมพ์รายจ่ายของคุณดู</span>
+          <span class="live">ตอบทันที</span>
+        </div>
         <div class="input-row">
           <div class="input-icon"><svg><use href="#i-wand"/></svg></div>
-          <div class="input input-cursor" id="typingInput"></div>
+          <input id="typingInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
+                 enterkeyhint="done" maxlength="60" placeholder="เช่น ข้าวมันไก่ 50"
+                 aria-label="พิมพ์รายจ่ายเพื่อลองให้ AI จัดหมวดหมู่">
         </div>
         <svg class="arrow"><use href="#i-arrow-down"/></svg>
-        <div class="result" id="typingResult">
+        <div class="result" id="typingResult" aria-live="polite">
           <div class="result-tag" id="resultTag"><svg><use href="#i-coffee"/></svg></div>
           <span id="resultText">อาหาร & เครื่องดื่ม · ฿85</span>
         </div>
+        <div class="demo-chips" id="demoChips" aria-label="ตัวอย่างให้ลอง">
+          <button type="button" class="demo-chip" data-text="ชาไข่มุก 65">ชาไข่มุก 65</button>
+          <button type="button" class="demo-chip" data-text="BTS 42">BTS 42</button>
+          <button type="button" class="demo-chip" data-text="Netflix 419">Netflix 419</button>
+          <button type="button" class="demo-chip" data-text="ค่าไฟ 1,200">ค่าไฟ 1,200</button>
+          <button type="button" class="demo-chip" data-text="หมูกระทะกับเพื่อน 1,240">หมูกระทะกับเพื่อน 1,240</button>
+        </div>
+        <div class="demo-note">ตัวอย่างแบบย่อบนเว็บ — ในแอป AI เข้าใจชื่อร้าน เมนู และบริการในไทยได้กว้างกว่านี้ และเรียนรู้จากที่คุณแก้</div>
       </div>
       <div class="hero-buttons" id="download">
         <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn" aria-label="Download Budgy on the App Store">
@@ -1327,7 +1591,8 @@
         </a>
       </div>
     </div>
-    <div class="phone-wrap reveal" id="phoneWrap">
+    <div class="phone-wrap reveal">
+      <div class="phone-stage" id="phoneWrap">
       <div class="phone" id="phone">
         <div class="phone-screen" id="phoneRotator">
           <img class="phone-img active" src="assets/screens/th-01-home.png" alt="หน้าแรก Budgy">
@@ -1339,6 +1604,7 @@
           <img class="phone-img" src="assets/screens/th-07-groups.png" alt="กลุ่มเพื่อน" loading="lazy">
           <img class="phone-img" src="assets/screens/th-08-slip-scan.png" alt="สแกนสลิปอัตโนมัติ" loading="lazy">
           <img class="phone-img" src="assets/screens/th-09-statement.png" alt="นำเข้า Statement PDF" loading="lazy">
+          <img class="phone-img" src="assets/screens/th-10-split-bill.png" alt="หารบิลกับเพื่อน" loading="lazy">
         </div>
       </div>
       <div class="float-badge b1">
@@ -1348,6 +1614,11 @@
       <div class="float-badge b2">
         <div class="ic"><svg><use href="#i-scan"/></svg></div>
         <div><small>สแกนสลิป</small><strong>1 วินาที</strong></div>
+      </div>
+      </div>
+      <div class="phone-nav">
+        <div class="phone-caption" id="phoneCaption">หน้าแรก Budgy</div>
+        <div class="phone-dots" id="phoneDots" role="tablist" aria-label="เลือกหน้าจอตัวอย่าง"></div>
       </div>
     </div>
   </div>
@@ -1404,13 +1675,46 @@
   </div>
 
   <div class="features-grid reveal-stagger">
+    <article class="feat-card f7 new">
+      <div class="new-badge">ใหม่</div>
+      <div class="feat-icon"><svg><use href="#i-split"/></svg></div>
+      <h3>หารบิลกับเพื่อน</h3>
+      <p>ออกเงินไปก่อนทั้งก้อน แล้วค่อยแตะ <b>หารบิล</b> ที่รายการนั้น — ยอดในรายการจะเหลือแค่ส่วนของคุณจริง ๆ ที่เหลือกลายเป็นยอดที่เพื่อนค้างไว้ ไม่ปนกับรายจ่ายส่วนตัว <b>เพื่อนไม่ต้องโหลดแอป ไม่ต้องสมัคร</b></p>
+      <div class="split-points">
+        <span><svg><use href="#i-chat"/></svg> พิมพ์บอกเป็นประโยค “หารกัน 4 คน แต่บอสไม่ได้กินของหวาน” แล้ว AI แบ่งยอดให้</span>
+        <span><svg><use href="#i-receipt"/></svg> ส่งการ์ดสรุปยอดให้เพื่อนทางแชต แนบ QR พร้อมเพย์ได้ในตัว</span>
+        <span><svg><use href="#i-users"/></svg> รวมหลายบิลของทริปเดียว พร้อมแผนโอนคืนที่โอนน้อยครั้งที่สุด</span>
+      </div>
+      <div class="split-calc" id="splitCalc">
+        <div class="calc-title"><svg><use href="#i-split"/></svg> ลองหารดู</div>
+        <div class="split-field">
+          <label for="splitTotal">ยอดบิลที่คุณออกไปก่อน</label>
+          <div class="split-amount">
+            <span>฿</span>
+            <input id="splitTotal" type="number" inputmode="decimal" min="1" max="9999999" step="1" value="1240" aria-label="ยอดบิล">
+          </div>
+        </div>
+        <div class="split-field">
+          <label for="splitPeople">หารกี่คน (รวมคุณ)</label>
+          <div class="split-stepper">
+            <button type="button" id="splitMinus" aria-label="ลดจำนวนคน"><svg><use href="#i-minus"/></svg></button>
+            <output id="splitPeople" for="splitTotal">4</output>
+            <button type="button" id="splitPlus" aria-label="เพิ่มจำนวนคน"><svg><use href="#i-plus"/></svg></button>
+          </div>
+          <div class="split-avatars" id="splitAvatars" aria-hidden="true"></div>
+        </div>
+        <div class="split-result">
+          <div class="per"><small>แต่ละคนจ่าย</small><strong id="splitPerPerson">฿310.00</strong></div>
+          <div><small>เพื่อนโอนคืนคุณรวม</small><strong id="splitOwed">฿930.00</strong></div>
+        </div>
+      </div>
+    </article>
     <article class="feat-card f1">
       <div class="feat-icon"><svg><use href="#i-cpu"/></svg></div>
       <h3>AI จัดหมวดหมู่ให้เอง</h3>
       <p>พิมพ์ "ข้าวมันไก่ 50" — AI รู้เลยว่าเป็นค่าอาหาร ไม่ต้องเลือกหมวดเอง เข้าใจชื่อร้าน · เมนู · บริการในไทย</p>
     </article>
-    <article class="feat-card f2 new">
-      <div class="new-badge">ใหม่</div>
+    <article class="feat-card f2">
       <div class="feat-icon"><svg><use href="#i-scan"/></svg></div>
       <h3>สแกนสลิปอัตโนมัติ</h3>
       <p>โอนผ่าน PromptPay หรือแอปธนาคาร แล้วแคปสลิปไว้ — Budgy ตรวจพบจากแกลเลอรีให้เอง ดึงร้าน เลขอ้างอิง ยอดเงิน แค่กดยืนยัน</p>
@@ -1595,6 +1899,14 @@
 
   <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
     <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+      หารบิลกับเพื่อนได้ไหม? เพื่อนต้องโหลดแอปด้วยหรือเปล่า?
+      <span style="color:var(--purple-d);font-size:20px;">+</span>
+    </summary>
+    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">ได้ — เปิดรายจ่ายที่คุณออกเงินไปทั้งก้อน แตะ “หารบิล” แล้วเลือกวิธีหาร (เท่ากัน · ตามหุ้น · ระบุเอง) หรือพิมพ์บอกเป็นประโยคแล้วให้ AI แบ่งยอดให้ ยอดในรายการเดิมจะลดเหลือเฉพาะส่วนของคุณ ส่วนที่เหลือกลายเป็นยอดที่เพื่อนค้างไว้ เพื่อนไม่ต้องโหลดแอปและไม่ต้องสมัคร — ส่งการ์ดสรุปยอดให้ทางแชต แนบ QR พร้อมเพย์ได้ หรือส่งลิงก์ที่เพื่อนเปิดดูได้โดยไม่ต้องมีบัญชี (อ่านอย่างเดียว และยกเลิกลิงก์ได้ทุกเมื่อ)</p>
+  </details>
+
+  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
+    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
       Budgy ใช้บน LINE ได้ด้วยไหม?
       <span style="color:var(--purple-d);font-size:20px;">+</span>
     </summary>
@@ -1638,6 +1950,7 @@
   <p>© 2026 Budgy. All rights reserved.</p>
 </footer>
 
+<script src="assets/site-logic.js"></script>
 <script>
   // ── Reveal-on-scroll ──
   const observer = new IntersectionObserver((entries) => {
@@ -1652,13 +1965,32 @@
 
   // ── Nav blur intensify on scroll ──
   const nav = document.getElementById('nav');
+  const progressBar = document.getElementById('scrollProgress');
   let scrollY = 0;
   function onScroll() {
     scrollY = window.scrollY;
     if (scrollY > 24) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    progressBar.style.transform = 'scaleX(' + Number(p.toFixed(4)) + ')';
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
+
+  // ── Nav scroll-spy: underline the section the visitor is in ──
+  const spyLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)'));
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const link = spyLinks.find((a) => a.getAttribute('href') === '#' + entry.target.id);
+      if (link) link.classList.toggle('active', entry.isIntersecting);
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  spyLinks.forEach((a) => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) spyObserver.observe(target);
+  });
 
   // ── Counter animation for stats ──
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1691,18 +2023,6 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('.stat-number').forEach((el) => counterObserver.observe(el));
 
-  // ── Phone budget bar fill on scroll-into-view ──
-  const phoneBar = document.getElementById('phoneBar');
-  const phoneBarObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => phoneBar.classList.add('fill'), 400);
-        phoneBarObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  if (phoneBar) phoneBarObserver.observe(phoneBar);
-
   // ── 3D phone tilt on mouse ──
   const phoneWrap = document.getElementById('phoneWrap');
   const phone = document.getElementById('phone');
@@ -1718,43 +2038,155 @@
     });
   }
 
-  // ── Typing demo cycle ──
-  const phrases = [
-    { text: 'กาแฟลาเต้ 85 บาท', cat: 'อาหาร & เครื่องดื่ม · ฿85', icon: 'i-coffee', tagGrad: 'linear-gradient(135deg, #FB923C, #F5A623)' },
-    { text: 'Grab ไปทำงาน 120', cat: 'เดินทาง · ฿120', icon: 'i-car', tagGrad: 'linear-gradient(135deg, #06B6D4, #3B82F6)' },
-    { text: 'ค่าเน็ต 599 บาท', cat: 'สาธารณูปโภค · ฿599', icon: 'i-wifi', tagGrad: 'linear-gradient(135deg, #14B8A6, #06B6D4)' },
-    { text: 'เสื้อยืด 390', cat: 'ช้อปปิ้ง · ฿390', icon: 'i-bag', tagGrad: 'linear-gradient(135deg, #A855F7, #EC4899)' },
-  ];
-  const inputEl = document.getElementById('typingInput');
-  const resultEl = document.getElementById('typingResult');
-  const resultTextEl = document.getElementById('resultText');
-  const resultTagEl = document.getElementById('resultTag');
-  let phraseIdx = 0;
+  // ── Hero demo: the page types for you until you type for yourself ──
+  // Two modes. "auto" cycles through sample phrases character by character;
+  // the first focus, keystroke or chip tap hands the field to the visitor and
+  // auto never comes back, so it can't overwrite what they wrote.
+  (function () {
+    const demo = document.getElementById('typingDemo');
+    const inputEl = document.getElementById('typingInput');
+    const resultEl = document.getElementById('typingResult');
+    const resultTextEl = document.getElementById('resultText');
+    const resultTagEl = document.getElementById('resultTag');
+    const chips = document.getElementById('demoChips');
+    if (!demo || !inputEl || !window.BudgyLogic) return;
+    const L = window.BudgyLogic;
 
-  function typeNext() {
-    const phrase = phrases[phraseIdx];
-    inputEl.textContent = '';
-    resultEl.classList.remove('show');
-    let charIdx = 0;
-    const typeInterval = setInterval(() => {
-      if (charIdx < phrase.text.length) {
-        inputEl.textContent += phrase.text[charIdx++];
+    const phrases = ['กาแฟลาเต้ 85 บาท', 'Grab ไปทำงาน 120', 'ค่าเน็ต 599 บาท', 'เสื้อยืด 390'];
+    let phraseIdx = 0;
+    let userMode = false;
+    let typeTimer = null, holdTimer = null, debounce = null;
+
+    function render(text) {
+      const value = String(text || '').trim();
+      if (!value) { resultEl.classList.remove('show'); return; }
+      const r = L.demoResult(value);
+      resultTagEl.style.background = r.category.gradient;
+      resultTagEl.querySelector('use').setAttribute('href', '#' + r.category.icon);
+      if (r.needsAmount) {
+        resultEl.classList.add('hint');
+        resultTextEl.textContent = 'ใส่จำนวนเงินด้วย เช่น “' + value + ' 50”';
       } else {
-        clearInterval(typeInterval);
-        setTimeout(() => {
-          resultTextEl.textContent = phrase.cat;
-          resultTagEl.style.background = phrase.tagGrad;
-          resultTagEl.querySelector('use').setAttribute('href', '#' + phrase.icon);
-          resultEl.classList.add('show');
-          setTimeout(() => {
-            phraseIdx = (phraseIdx + 1) % phrases.length;
-            typeNext();
-          }, 2400);
-        }, 350);
+        resultEl.classList.remove('hint');
+        resultTextEl.innerHTML = '';
+        resultTextEl.append(r.category.label + ' · ');
+        const amt = document.createElement('span');
+        amt.className = 'amt-pop';
+        amt.textContent = L.formatBaht(r.amount);
+        resultTextEl.appendChild(amt);
       }
-    }, 70);
-  }
-  if (inputEl) setTimeout(typeNext, 800);
+      resultEl.classList.add('show');
+    }
+
+    function stopAuto() {
+      clearInterval(typeTimer); clearTimeout(holdTimer);
+      typeTimer = holdTimer = null;
+      demo.classList.remove('auto');
+    }
+
+    function typeNext() {
+      if (userMode) return;
+      const phrase = phrases[phraseIdx];
+      inputEl.value = '';
+      resultEl.classList.remove('show');
+      demo.classList.add('auto');
+      let charIdx = 0;
+      typeTimer = setInterval(() => {
+        if (userMode) return stopAuto();
+        if (charIdx < phrase.length) {
+          inputEl.value += phrase[charIdx++];
+        } else {
+          clearInterval(typeTimer); typeTimer = null;
+          holdTimer = setTimeout(() => {
+            if (userMode) return;
+            render(phrase);
+            holdTimer = setTimeout(() => {
+              phraseIdx = (phraseIdx + 1) % phrases.length;
+              typeNext();
+            }, 2600);
+          }, 350);
+        }
+      }, 70);
+    }
+
+    function takeOver() {
+      if (userMode) return;
+      userMode = true;
+      stopAuto();
+    }
+
+    inputEl.addEventListener('focus', () => {
+      const wasAuto = !userMode;
+      takeOver();
+      // The auto-typed sample is selected so the first keystroke replaces it.
+      if (wasAuto && inputEl.value) inputEl.select();
+    });
+    inputEl.addEventListener('input', () => {
+      takeOver();
+      clearTimeout(debounce);
+      debounce = setTimeout(() => render(inputEl.value), 120);
+    });
+    inputEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { clearTimeout(debounce); render(inputEl.value); inputEl.blur(); }
+    });
+    chips.addEventListener('click', (e) => {
+      const chip = e.target.closest('.demo-chip');
+      if (!chip) return;
+      takeOver();
+      inputEl.value = chip.dataset.text;
+      render(inputEl.value);
+    });
+
+    if (reduceMotion) {
+      // No typewriter: show the first sample already answered.
+      inputEl.value = phrases[0];
+      render(phrases[0]);
+    } else {
+      setTimeout(typeNext, 800);
+    }
+  })();
+
+  // ── Split-bill calculator ──
+  (function () {
+    const totalEl = document.getElementById('splitTotal');
+    const peopleEl = document.getElementById('splitPeople');
+    const perEl = document.getElementById('splitPerPerson');
+    const owedEl = document.getElementById('splitOwed');
+    const avatarsEl = document.getElementById('splitAvatars');
+    if (!totalEl || !window.BudgyLogic) return;
+    const L = window.BudgyLogic;
+    const MIN = 2, MAX = 12;
+    let people = 4;
+
+    function bump(el, text) {
+      if (el.textContent === text) return;
+      el.textContent = text;
+      el.classList.remove('bump');
+      el.offsetWidth; // restart the animation
+      el.classList.add('bump');
+    }
+    function renderAvatars() {
+      if (avatarsEl.childElementCount === people) return;
+      avatarsEl.innerHTML = '';
+      for (let i = 0; i < people; i++) {
+        const a = document.createElement('span');
+        a.textContent = i === 0 ? 'คุณ' : String.fromCharCode(64 + i);
+        avatarsEl.appendChild(a);
+      }
+    }
+    function update() {
+      peopleEl.textContent = String(people);
+      renderAvatars();
+      const r = L.splitBill(totalEl.value, people);
+      if (!r) { bump(perEl, '—'); bump(owedEl, '—'); return; }
+      bump(perEl, L.formatBaht(r.perPerson, 2));
+      bump(owedEl, L.formatBaht(r.owedToYou, 2));
+    }
+    document.getElementById('splitMinus').addEventListener('click', () => { if (people > MIN) { people--; update(); } });
+    document.getElementById('splitPlus').addEventListener('click', () => { if (people < MAX) { people++; update(); } });
+    totalEl.addEventListener('input', update);
+    update();
+  })();
 
   // ── Currency toggle (THB / USD) ──
   const toggle = document.getElementById('currencyToggle');
@@ -1780,11 +2212,34 @@
   const rotator = document.getElementById('phoneRotator');
   if (rotator) {
     const imgs = Array.from(rotator.querySelectorAll('.phone-img'));
+    const caption = document.getElementById('phoneCaption');
+    const dotsWrap = document.getElementById('phoneDots');
+    const dots = imgs.map((img, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', img.alt);
+      if (i === 0) b.setAttribute('aria-current', 'true');
+      b.addEventListener('click', () => { show(i); start(); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+    function syncNav() {
+      dots.forEach((d, i) => {
+        if (i === idx) d.setAttribute('aria-current', 'true');
+        else d.removeAttribute('aria-current');
+      });
+      if (caption.textContent !== imgs[idx].alt) {
+        caption.textContent = imgs[idx].alt;
+        caption.style.animation = 'none';
+        caption.offsetWidth;
+        caption.style.animation = '';
+      }
+    }
     let idx = 0;
     let timer = null;
     let paused = false;
     let transitioning = false;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const TRANSITION_MS = 620;
 
     function show(next) {
@@ -1797,6 +2252,7 @@
       oldImg.classList.add('leaving');
       newImg.classList.add('active');
       idx = next;
+      syncNav();
       setTimeout(() => {
         // Reset old image back to right offscreen WITHOUT animating (so it's
         // ready for next time it becomes active)
@@ -1823,6 +2279,7 @@
       entries.forEach((entry) => entry.isIntersecting ? start() : stop());
     }, { threshold: 0.35 });
     rotObs.observe(rotator);
+    syncNav();
   }
 </script>
 
