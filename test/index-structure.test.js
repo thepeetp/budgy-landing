@@ -16,7 +16,7 @@ test('index.html contains no emoji', () => {
 });
 
 test('scripts reference site-logic.js and hooks exist', () => {
-  assert.match(html, /<script src="assets\/site-logic\.js"><\/script>/);
+  assert.match(html, /<script src="assets\/site-logic\.js(\?v=[\w.-]+)?"><\/script>/);
   for (const id of ['typingInput', 'typingResult', 'resultText', 'resultTag', 'demoChips',
                     'splitTotal', 'splitPeople', 'splitMinus', 'splitPlus', 'splitPerPerson', 'splitOwed',
                     'scrollProgress']) {
