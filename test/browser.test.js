@@ -154,3 +154,74 @@ test('mobile: no horizontal overflow at 390px', async () => {
   assert.ok(sw <= 390, `scrollWidth ${sw} > 390`);
   await context.close();
 });
+
+// Drag the phone screen sideways with a real pointer, like a swipe.
+async function swipe(page, fromX, toX, steps = 8) {
+  const box = await page.locator('#phoneRotator').boundingBox();
+  const y = box.y + box.height / 2;
+  await page.mouse.move(box.x + box.width * fromX, y);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width * toX, y + 2, { steps });
+  await page.mouse.up();
+  await page.waitForTimeout(700);
+}
+const activeIndex = (page) => page.evaluate(() =>
+  [...document.querySelectorAll('.phone-img')].findIndex((el) => el.classList.contains('active')));
+
+test('phone showcase: swiping left goes forward, swiping right goes back (and wraps)', async () => {
+  const { page, context, errors } = await open();
+  const count = await page.locator('.phone-img').count();
+  await page.locator('#phoneRotator').scrollIntoViewIfNeeded();
+  assert.equal(await activeIndex(page), 0);
+  await swipe(page, 0.8, 0.2);
+  assert.equal(await activeIndex(page), 1, 'swipe left should show the next screen');
+  assert.equal((await page.textContent('#phoneCaption')).trim(),
+    await page.locator('.phone-img').nth(1).getAttribute('alt'));
+  await swipe(page, 0.2, 0.8);
+  assert.equal(await activeIndex(page), 0, 'swipe right should come back');
+  await swipe(page, 0.2, 0.8);
+  assert.equal(await activeIndex(page), count - 1, 'swiping back from the first wraps to the last');
+  assert.equal(await page.locator('#phoneDots button[aria-current="true"]').count(), 1);
+  // Nothing is left half-dragged: every inline transform is cleared.
+  const stray = await page.evaluate(() => [...document.querySelectorAll('.phone-img')]
+    .filter((el) => el.style.transform !== '').length);
+  assert.equal(stray, 0, 'inline drag transforms must be cleared after a swipe');
+  assert.deepEqual(errors, []);
+  await context.close();
+});
+
+test('phone showcase: a slow short drag snaps back, and the page keeps vertical scroll', async () => {
+  const { page, context } = await open();
+  await page.locator('#phoneRotator').scrollIntoViewIfNeeded();
+  const box = await page.locator('#phoneRotator').boundingBox();
+  const y = box.y + box.height / 2;
+  await page.mouse.move(box.x + box.width * 0.5, y);
+  await page.mouse.down();
+  // 30px over ~200ms: slow enough that it is a drag, not a flick.
+  for (let i = 1; i <= 5; i++) { await page.mouse.move(box.x + box.width * 0.5 + i * 6, y); await page.waitForTimeout(40); }
+  await page.mouse.up();
+  await page.waitForTimeout(700);
+  assert.equal(await activeIndex(page), 0, 'a slow drag under a quarter of the width must not change the screen');
+  assert.equal(await page.locator('#phoneRotator').evaluate((el) => getComputedStyle(el).touchAction), 'pan-y');
+  await context.close();
+});
+
+test('phone showcase: a quick flick changes the screen even when it is short', async () => {
+  const { page, context } = await open();
+  await page.locator('#phoneRotator').scrollIntoViewIfNeeded();
+  await swipe(page, 0.55, 0.3, 3);
+  assert.equal(await activeIndex(page), 1);
+  await context.close();
+});
+
+test('phone showcase: a bare mouseenter (what iOS fires on a tap) does not freeze the autoplay', async () => {
+  // iOS Safari fires mouseenter on a tap and never mouseleave, so a hover-pause
+  // keyed on mouseenter stays paused for good. Only a real mouse pointer may pause.
+  const { page, context } = await open();
+  await page.locator('#phoneRotator').scrollIntoViewIfNeeded();
+  await page.locator('#phoneRotator').dispatchEvent('mouseenter');
+  const before = await activeIndex(page);
+  await page.waitForTimeout(4600);
+  assert.notEqual(await activeIndex(page), before, 'autoplay should keep going');
+  await context.close();
+});
