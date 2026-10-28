@@ -11,7 +11,7 @@
   <meta name="keywords" content="แอปจดรายจ่าย, บันทึกค่าใช้จ่าย, สแกนสลิป, promptpay, รายรับรายจ่าย, expense tracker thailand, budget app, สแกนใบเสร็จ, OCR, ออมเงิน, งบประมาณ, วางแผนการเงิน, จดบัญชี, แอปการเงิน, หารบิล, แอปหารเงิน, หารค่าอาหาร, split bill, Budgy">
   <meta name="author" content="Budgy">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#A855F7">
+  <meta name="theme-color" content="#7C3AED">
   <link rel="canonical" href="https://budgy.life/">
 
   <!-- iOS Smart App Banner (auto-shows install banner on Safari iOS) -->
@@ -44,7 +44,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=Noto+Sans+Thai+Looped:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!--
     ============================================================================
@@ -100,7 +100,6 @@
     "operatingSystem": "iOS, Android",
     "offers": [
       { "@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free" },
-      { "@type": "Offer", "price": "4.99", "priceCurrency": "USD", "name": "Pro" },
       { "@type": "Offer", "price": "9.99", "priceCurrency": "USD", "name": "Premium" }
     ],
     "aggregateRating": {
@@ -209,47 +208,67 @@
   }
   </script>
 
+
 <style>
+  /* ──────────────────────────────────────────────────────────────────────────
+     budgy.life — 2026-10-28 redesign.
+     One loud thing: the hero is the app's own hub gradient (BudgyGradients.hubPalette,
+     Teal 700 → Sky 700 → Violet 600 → Pink 700 → Amber 700), the same band every
+     hub screen in the app wears, with white type on it. Each stop clears 4.5:1
+     under white, which is why the app picked them. Everything below the hero is
+     quiet paper; the one moment of motion after load is the slip stack fanning
+     out into ledger rows.
+     ────────────────────────────────────────────────────────────────────────── */
   :root {
-    --teal: #14B8A6;
-    --teal-d: #0D9488;
-    --gold: #F5A623;
-    --gold-d: #D97706;
-    --purple: #A855F7;
-    --purple-d: #7C3AED;
-    --pink: #EC4899;
-    --cyan: #06B6D4;
-    --ink: #0F172A;
-    --ink-soft: #334155;
-    --ink-mute: #64748B;
-    --bg: #F8FAFC;
-    --line: #E2E8F0;
+    --hub-teal: #0F766E;
+    --hub-sky: #0369A1;
+    --hub-violet: #7C3AED;
+    --hub-pink: #BE185D;
+    --hub-amber: #B45309;
+    --hub: linear-gradient(115deg, var(--hub-teal) 0%, var(--hub-sky) 26%, var(--hub-violet) 52%, var(--hub-pink) 78%, var(--hub-amber) 100%);
 
-    /* ── Layered shadows for depth ── */
-    --sh-1: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.04);
-    --sh-2: 0 4px 8px rgba(15, 23, 42, 0.04), 0 4px 16px rgba(15, 23, 42, 0.06);
-    --sh-3: 0 8px 16px rgba(15, 23, 42, 0.06), 0 16px 40px rgba(15, 23, 42, 0.08);
-    --sh-4: 0 16px 32px rgba(15, 23, 42, 0.08), 0 24px 60px rgba(15, 23, 42, 0.12);
-    --sh-glow-purple: 0 8px 24px rgba(168, 85, 247, 0.18);
-    --sh-glow-teal: 0 8px 24px rgba(20, 184, 166, 0.18);
-    --sh-glow-gold: 0 8px 24px rgba(245, 166, 35, 0.18);
+    --night: #1E1646;
+    --ink: #1E1646;
+    --ink-soft: #46415F;
+    --ink-mute: #6B6785;
+    --paper: #FAF9FC;
+    --card: #FFFFFF;
+    --line: #E7E4EF;
 
-    /* Top highlight (pseudo-3D card lift) */
-    --highlight-top: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 30%);
+    --apricot: #EA580C;
+    --apricot-2: #F59E0B;
+    --line-green: #06C755;
+
+    /* Kept for the hero demo and FAQ links, which read these names. */
+    --teal: #0F766E;
+    --teal-d: #0F766E;
+    --purple: #7C3AED;
+    --purple-d: #6D28D9;
+    --gold: #B45309;
+
+    --display: 'Anuphan', 'Noto Sans Thai Looped', sans-serif;
+    --body: 'Noto Sans Thai Looped', 'Anuphan', sans-serif;
+
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --wrap: 1180px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    font-family: var(--body);
+    font-size: 16px;
     color: var(--ink);
-    background: var(--bg);
-    line-height: 1.5;
+    background: var(--paper);
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
   svg { flex-shrink: 0; }
+  img { max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--hub-violet); outline-offset: 3px; border-radius: 6px; }
+  h1, h2, h3, h4 { font-family: var(--display); color: var(--ink); text-wrap: balance; }
 
-  /* ── Reduced motion: disable decorative animations + reveal motion ── */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.001ms !important;
@@ -257,1022 +276,613 @@
       transition-duration: 0.001ms !important;
       scroll-behavior: auto !important;
     }
-    .reveal, .reveal-stagger > * {
-      opacity: 1 !important;
-      transform: none !important;
-    }
   }
 
-  /* ── Subtle dotted noise overlay (adds texture) ── */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    z-index: 1; pointer-events: none;
-    opacity: 0.4;
-    background-image: radial-gradient(circle, rgba(15,23,42,0.025) 1px, transparent 1px);
-    background-size: 24px 24px;
-    mix-blend-mode: multiply;
-  }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 28px; }
+  @media (max-width: 720px) { .wrap { padding: 0 20px; } }
 
-  /* ── Reveal-on-scroll ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-stagger > * {
-    opacity: 0;
-    transform: translateY(20px) scale(0.96);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
-  .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; }
-  .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; }
-  .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; }
-  .reveal-stagger.visible > * {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  /* ── NAV (Glassmorphic + scroll-aware) ── */
+  /* ── NAV ── */
   nav {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(255,255,255,0.70);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border-bottom: 1px solid rgba(226, 232, 240, 0.4);
-    padding: 14px 28px;
     display: flex; justify-content: space-between; align-items: center;
-    transition: background 0.3s, box-shadow 0.3s, border-color 0.3s, padding 0.25s;
+    padding: 14px 28px;
+    background: rgba(250, 249, 252, 0.82);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, padding 0.25s;
   }
-  nav.scrolled {
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(24px) saturate(200%);
-    -webkit-backdrop-filter: blur(24px) saturate(200%);
-    border-bottom-color: rgba(226, 232, 240, 0.8);
-    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
-    padding: 10px 28px;
-  }
-  /* Reading progress: a hairline under the nav that fills left-to-right as the
-     visitor scrolls. Scaled, not resized, so it never triggers layout. */
+  nav.scrolled { border-bottom-color: var(--line); padding: 10px 28px; }
+  /* Reading progress: a hairline under the nav, in the hub gradient. */
   .scroll-progress {
-    position: absolute; left: 0; right: 0; bottom: -1px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--teal), var(--purple), var(--gold));
-    transform-origin: 0 50%;
-    transform: scaleX(0);
+    position: absolute; left: 0; right: 0; bottom: -1px; height: 3px;
+    background: var(--hub);
+    transform-origin: 0 50%; transform: scaleX(0);
     transition: transform 0.12s linear;
     pointer-events: none;
   }
-  .nav-links a.active:not(.nav-cta) { color: var(--ink); }
-  .nav-links a.active:not(.nav-cta)::after { width: 100%; left: 0; }
-  .logo { display: flex; gap: 12px; align-items: center; text-decoration: none; transition: transform 0.2s; }
-  .logo:active { transform: scale(0.97); }
-  .logo img {
-    width: 42px; height: 42px;
-    filter: drop-shadow(0 4px 12px rgba(168, 85, 247, 0.25));
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s;
-  }
-  .logo:hover img { transform: rotate(-8deg) scale(1.06); filter: drop-shadow(0 6px 16px rgba(168, 85, 247, 0.35)); }
-  .logo-text {
-    font-family: 'Inter', sans-serif;
-    font-weight: 800; font-size: 24px;
-    letter-spacing: -0.6px;
-    color: var(--ink);
-  }
-  .nav-links { display: flex; gap: 32px; align-items: center; }
-  .nav-links a { color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 15px; transition: color 0.2s; position: relative; }
-  .nav-links a:not(.nav-cta)::after {
-    content: ''; position: absolute; bottom: -6px; left: 50%;
-    width: 0; height: 2px; background: linear-gradient(90deg, var(--teal), var(--purple));
-    transition: width 0.3s, left 0.3s;
-  }
-  .nav-links a:not(.nav-cta):hover { color: var(--ink); }
-  .nav-links a:not(.nav-cta):hover::after { width: 100%; left: 0; }
+  .logo { display: flex; gap: 10px; align-items: center; text-decoration: none; }
+  .logo img { width: 38px; height: 38px; }
+  .logo-text { font-family: var(--display); font-weight: 700; font-size: 23px; letter-spacing: -0.4px; color: var(--ink); }
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+  .nav-links a:not(.nav-cta):hover, .nav-links a.active:not(.nav-cta) { color: var(--ink); }
+  .nav-links a.active:not(.nav-cta) { box-shadow: inset 0 -2px 0 var(--hub-violet); }
   .nav-cta {
-    background: linear-gradient(135deg, var(--teal), var(--purple));
-    color: white !important; padding: 10px 22px; border-radius: 100px;
-    font-size: 14px; font-weight: 600;
-    box-shadow: var(--sh-glow-purple);
-    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+    background: var(--night); color: white !important;
+    padding: 9px 20px; border-radius: 100px; font-size: 14px; font-weight: 600;
+    transition: transform 0.2s var(--ease), background 0.2s;
   }
-  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(168, 85, 247, 0.35); filter: brightness(1.05); }
-  .nav-cta:active { transform: translateY(0) scale(0.97); }
-  /* Mobile nav: the links used to be display:none with no hamburger behind them,
-     so ฟีเจอร์ / ราคา / คู่มือ / บทความ were unreachable on a phone entirely.
-     This page's links are a direct child of <nav> (there is no .nav-inner),
-     and the wordmark plus 28px side padding left too little room, so the row
-     overflowed leftwards under the logo — flex-end overflow is also unscrollable.
-     Trim the padding and the wordmark so all five genuinely fit. */
+  .nav-cta:hover { background: var(--hub-violet); }
+  .nav-cta:active { transform: scale(0.97); }
+  /* Phones: the links stay reachable as a swipeable row (there is no hamburger).
+     margin-left:auto on the first link, not justify-content:flex-end, so an
+     overflowing row spills right where it can still be scrolled to. */
   @media (max-width: 720px) {
-    nav { padding: 14px 16px; gap: 10px; }
+    nav, nav.scrolled { padding: 12px 16px; gap: 10px; }
     .logo-text { display: none; }
     .nav-links {
-      flex: 1 1 auto;
-      min-width: 0;
-      gap: 13px;
-      /* NOT justify-content:flex-end — when the row overflows, flex-end pushes
-         the first link off the left edge where it cannot be scrolled to. An auto
-         margin right-aligns the row while it fits and collapses to 0 when it
-         doesn't, so the overflow goes right and stays swipeable. */
-      justify-content: flex-start;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
+      flex: 1 1 auto; min-width: 0; gap: 14px;
+      justify-content: flex-start; overflow-x: auto;
+      scrollbar-width: none; -webkit-overflow-scrolling: touch;
     }
     .nav-links::-webkit-scrollbar { display: none; }
     .nav-links > :first-child { margin-left: auto; }
-    .nav-links a { font-size: 13px; white-space: nowrap; flex: none; }
-    .nav-cta { padding: 9px 15px; font-size: 12.5px; }
+    .nav-links a { font-size: 13.5px; white-space: nowrap; flex: none; }
+    .nav-cta { padding: 8px 14px; font-size: 13px; }
   }
 
-  /* ── HERO ── */
+  /* ── HERO: the hub gradient, inset like a window onto the app ── */
+  .hero-frame { padding: 8px 12px 0; }
   .hero {
-    position: relative;
-    padding: 88px 28px 96px;
-    overflow: hidden;
-    isolation: isolate;
+    position: relative; isolation: isolate; overflow: hidden;
+    max-width: 1400px; margin: 0 auto;
+    border-radius: 36px;
+    background: var(--hub-violet);
+    color: white;
+    padding: 84px 28px 76px;
   }
-  @media (max-width: 720px) {
-    .hero { padding: 56px 20px 56px; }
-  }
-  .hero-mesh-1, .hero-mesh-2, .hero-mesh-3 {
-    position: absolute; border-radius: 50%;
-    filter: blur(90px); z-index: -1; pointer-events: none;
+  /* The band drifts like the app's narrow-window sampler. It is a wide layer
+     moved with transform, not an animated background-position: that repainted
+     the whole hero every frame and made scrolling stutter. */
+  .hero::before, .cta-final::before {
+    content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 180%;
+    z-index: -2; pointer-events: none;
+    background: var(--hub);
+    animation: hubSlide 22s ease-in-out infinite alternate;
     will-change: transform;
   }
-  .hero-mesh-1 {
-    width: 540px; height: 540px;
-    background: var(--teal); opacity: 0.32;
-    top: -140px; left: -100px;
-    animation: blob 18s ease-in-out infinite;
-  }
-  .hero-mesh-2 {
-    width: 460px; height: 460px;
-    background: var(--purple); opacity: 0.30;
-    top: 60px; right: -80px;
-    animation: blob 22s ease-in-out infinite -3s;
-  }
-  .hero-mesh-3 {
-    width: 420px; height: 420px;
-    background: var(--gold); opacity: 0.24;
-    bottom: -120px; left: 28%;
-    animation: blob 16s ease-in-out infinite -7s;
-  }
-  @keyframes blob {
-    0%,100% { transform: translate(0,0) scale(1); }
-    33% { transform: translate(50px, -40px) scale(1.1); }
-    66% { transform: translate(-40px, 50px) scale(0.92); }
+  @keyframes hubSlide { from { transform: translateX(0); } to { transform: translateX(-44.4%); } }
+  /* Soft light from the top-left, so the band reads as a lit surface, not a flat fill. */
+  .hero::after {
+    content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(900px 520px at 12% -10%, rgba(255,255,255,0.22), transparent 60%),
+      radial-gradient(700px 500px at 100% 110%, rgba(30, 22, 70, 0.35), transparent 60%);
   }
   .hero-inner {
     max-width: 1140px; margin: 0 auto;
-    display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px;
+    display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 48px;
     align-items: center;
   }
-  @media (max-width: 880px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 56px; text-align: center; }
-  }
-
   .hero-badge {
     display: inline-flex; gap: 8px; align-items: center;
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(16px);
-    border: 1px solid var(--line);
-    padding: 7px 14px; border-radius: 100px;
-    font-size: 12px; font-weight: 600; color: var(--ink-soft);
-    margin-bottom: 22px;
-    box-shadow: var(--sh-2);
-    position: relative;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.28);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 13px; font-weight: 500;
+    margin-bottom: 26px;
   }
-  .hero-badge svg { color: var(--purple); animation: sparkle 2.5s ease-in-out infinite; }
-  @keyframes sparkle {
-    0%,100% { transform: scale(1) rotate(0); opacity: 1; }
-    50% { transform: scale(1.2) rotate(15deg); opacity: 0.7; }
-  }
+  .hero-badge svg { width: 14px; height: 14px; }
   .hero h1 {
-    font-size: clamp(40px, 5.8vw, 60px);
-    line-height: 1.05; font-weight: 800;
-    letter-spacing: -1.5px;
+    color: white;
+    font-size: clamp(44px, 6vw, 76px);
+    line-height: 1.12; font-weight: 700;
+    letter-spacing: -0.02em;
     margin-bottom: 22px;
-    color: var(--ink);
   }
-  .hero h1 .grad {
-    background: linear-gradient(120deg, var(--teal), var(--gold), var(--purple), var(--teal));
-    background-size: 300% 300%;
-    animation: gradShift 5s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-  }
-  @keyframes gradShift {
-    0%,100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
+  .hero h1 .line2 { display: block; font-weight: 400; opacity: 0.94; }
   .hero p.lead {
-    font-size: 17px; color: var(--ink-soft); margin-bottom: 28px;
-    max-width: 520px; line-height: 1.65;
+    font-size: 18px; line-height: 1.7; max-width: 34em;
+    color: rgba(255,255,255,0.94);
+    margin-bottom: 30px;
   }
-  @media (max-width: 880px) { .hero p.lead { margin-left: auto; margin-right: auto; } }
 
-  /* ── Typing demo (cycles phrases) ── */
+  /* Hero demo: a glass command bar, the same move as typing into the app's AI chat. */
   .typing-demo {
-    display: inline-flex; flex-direction: column; gap: 10px;
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin-bottom: 28px;
-    box-shadow: var(--sh-3);
-    text-align: left;
-    min-width: 280px;
-    background-image: var(--highlight-top);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    position: relative;
+    display: flex; flex-direction: column; gap: 12px;
+    max-width: 520px;
+    padding: 16px 18px 16px;
+    margin-bottom: 30px;
+    border-radius: 22px;
+    background: rgba(30, 22, 70, 0.22);
+    border: 1px solid rgba(255,255,255,0.32);
+    box-shadow: 0 24px 60px rgba(30, 22, 70, 0.28);
+    transition: background 0.3s, border-color 0.3s;
   }
-  .typing-demo .input-row {
-    display: flex; align-items: center; gap: 10px;
-  }
-  .typing-demo .input-icon {
-    width: 24px; height: 24px; border-radius: 8px;
-    background: linear-gradient(135deg, var(--teal), var(--cyan));
-    display: flex; align-items: center; justify-content: center;
-    color: white; flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
-  }
-  .typing-demo .input-icon svg { width: 12px; height: 12px; }
-  .typing-demo { transition: box-shadow 0.3s, border-color 0.3s; }
-  .typing-demo:focus-within {
-    border-color: var(--teal);
-    box-shadow: var(--sh-3), 0 0 0 4px rgba(20, 184, 166, 0.16);
-  }
+  .typing-demo:focus-within { background: rgba(30, 22, 70, 0.3); border-color: rgba(255,255,255,0.7); }
   .typing-demo .demo-title {
-    font-size: 12.5px; font-weight: 600; color: var(--ink-mute);
     display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.92);
   }
-  .typing-demo .demo-title .live {
-    display: inline-flex; align-items: center; gap: 5px;
-    color: var(--teal-d); font-weight: 700; font-size: 11px;
-  }
+  .typing-demo .demo-title .live { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
   .typing-demo .demo-title .live::before {
-    content: ''; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--teal);
-    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5);
+    content: ''; width: 7px; height: 7px; border-radius: 50%; background: #6EE7B7;
     animation: livePulse 1.8s ease-out infinite;
   }
-  @keyframes livePulse {
-    0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5); }
-    100% { box-shadow: 0 0 0 7px rgba(20, 184, 166, 0); }
+  @keyframes livePulse { 0% { box-shadow: 0 0 0 0 rgba(110,231,183,0.7); } 100% { box-shadow: 0 0 0 8px rgba(110,231,183,0); } }
+  .typing-demo .input-row {
+    display: flex; align-items: center; gap: 12px;
+    background: white; border-radius: 14px; padding: 12px 14px;
   }
+  .typing-demo .input-icon {
+    width: 30px; height: 30px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: white; background: var(--hub);
+  }
+  .typing-demo .input-icon svg { width: 15px; height: 15px; }
+  .typing-demo.auto .input-icon { animation: wandBreath 1.4s ease-in-out infinite; }
+  @keyframes wandBreath { 50% { transform: scale(1.1); } }
   .typing-demo input {
     flex: 1 1 auto; min-width: 0;
     border: 0; outline: 0; background: transparent;
-    /* 16px, not 15: iOS Safari zooms the whole page when a smaller field is focused. */
-    font: inherit; font-size: 16px; font-weight: 500; color: var(--ink);
-    padding: 2px 0;
-    caret-color: var(--teal);
+    /* 16px+: iOS Safari zooms the page when a smaller field is focused. */
+    font: inherit; font-size: 17px; font-weight: 500; color: var(--ink);
+    caret-color: var(--hub-violet);
   }
   .typing-demo input::placeholder { color: var(--ink-mute); font-weight: 400; }
-  /* While the page is typing for the visitor, the wand breathes so the motion
-     reads as "the app is doing this", not "your keyboard is broken". */
-  .typing-demo.auto .input-icon { animation: wandBreath 1.4s ease-in-out infinite; }
-  @keyframes wandBreath { 50% { transform: scale(1.12); box-shadow: 0 6px 16px rgba(20, 184, 166, 0.4); } }
-  .typing-demo .result.hint {
-    background: #F1F5F9; color: var(--ink-soft);
-  }
-  .typing-demo .result .amt-pop { display: inline-block; animation: amtPop 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-  @keyframes amtPop { from { transform: scale(0.6); opacity: 0; } }
-  .demo-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
-  .demo-chip {
-    border: 1px solid var(--line); background: #F8FAFC; color: var(--ink-soft);
-    font: inherit; font-size: 12px; font-weight: 500;
-    padding: 5px 11px; border-radius: 100px; cursor: pointer;
-    transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s;
-  }
-  .demo-chip:hover, .demo-chip:focus-visible { background: white; border-color: var(--teal); color: var(--teal-d); transform: translateY(-1px); outline: 0; }
-  .demo-chip:active { transform: scale(0.96); }
-  .demo-note { font-size: 11px; color: var(--ink-mute); line-height: 1.45; max-width: 300px; }
-  @media (max-width: 880px) { .demo-note { max-width: none; } }
-  .typing-demo .arrow {
-    width: 16px; height: 16px; color: var(--teal);
-    margin-left: 7px;
-    opacity: 0.7;
-    transition: opacity 0.3s, transform 0.3s;
-  }
-  @media (max-width: 880px) {
-    .typing-demo { width: 100%; max-width: 320px; align-self: center; }
-    .typing-demo .arrow { align-self: center; margin-left: 0; }
-    .typing-demo .result { align-self: center; }
-  }
+  .typing-demo .arrow { display: none; }
   .typing-demo .result {
-    background: linear-gradient(135deg, #ECFDF5, #DBEAFE);
-    border-radius: 10px; padding: 8px 14px;
-    font-size: 13px; font-weight: 600; color: var(--teal-d);
     align-self: flex-start;
     display: inline-flex; gap: 10px; align-items: center;
-    opacity: 0;
-    transform: translateY(6px);
-    transition: opacity 0.4s, transform 0.4s;
+    background: rgba(30, 22, 70, 0.42);
+    border-radius: 100px; padding: 6px 16px 6px 6px;
+    font-size: 14.5px; font-weight: 600; color: white;
+    opacity: 0; transform: translateY(6px);
+    transition: opacity 0.35s, transform 0.35s var(--ease);
   }
-  .typing-demo .result.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .typing-demo .result.show { opacity: 1; transform: none; }
+  .typing-demo .result.hint { padding-left: 16px; font-weight: 500; }
+  .typing-demo .result.hint .result-tag { display: none; }
+  .typing-demo .result .amt-pop { display: inline-block; font-family: var(--display); font-weight: 700; animation: amtPop 0.4s var(--ease); }
+  @keyframes amtPop { from { transform: scale(0.6); opacity: 0; } }
   .result-tag {
-    width: 22px; height: 22px; border-radius: 7px;
-    display: flex; align-items: center; justify-content: center;
-    color: white; flex-shrink: 0;
-    background: linear-gradient(135deg, #FB923C, var(--gold));
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; color: white;
+    background: linear-gradient(135deg, #FB923C, #F59E0B);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
   }
-  .result-tag svg { width: 12px; height: 12px; }
+  .result-tag svg { width: 14px; height: 14px; }
+  .demo-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .demo-chip {
+    border: 1px solid rgba(255,255,255,0.36); background: rgba(255,255,255,0.1); color: white;
+    font: inherit; font-size: 13px; font-weight: 500;
+    padding: 5px 12px; border-radius: 100px; cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .demo-chip:hover, .demo-chip:focus-visible { background: white; color: var(--ink); border-color: white; }
+  .demo-chip:active { transform: scale(0.96); }
+  .demo-note { font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,0.9); }
 
   .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
-  @media (max-width: 880px) { .hero-buttons { justify-content: center; } }
   .store-btn {
     display: inline-flex; align-items: center; gap: 10px;
-    background: var(--ink); color: white; padding: 12px 20px;
-    border-radius: 14px; text-decoration: none; min-width: 178px;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s;
-    position: relative;
-    overflow: hidden;
+    background: white; color: var(--ink);
+    padding: 11px 20px 11px 16px; min-width: 172px;
+    border-radius: 14px; text-decoration: none;
+    box-shadow: 0 10px 30px rgba(30, 22, 70, 0.22);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s;
   }
-  .store-btn::before {
-    content: ''; position: absolute; top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-    transition: left 0.55s;
-  }
-  .store-btn:hover { transform: translateY(-3px); box-shadow: var(--sh-3); }
-  .store-btn:hover::before { left: 100%; }
-  .store-btn:active { transform: translateY(-1px) scale(0.98); }
-  .store-btn svg { width: 22px; height: 22px; position: relative; z-index: 1; }
-  .store-btn small { font-size: 10px; opacity: 0.8; display: block; position: relative; z-index: 1; }
-  .store-btn strong { font-size: 15px; font-weight: 600; position: relative; z-index: 1; }
+  .store-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(30, 22, 70, 0.3); }
+  .store-btn:active { transform: scale(0.98); }
+  .store-btn svg { width: 24px; height: 24px; }
+  .store-btn small { display: block; font-size: 11px; line-height: 1.2; color: var(--ink-mute); }
+  .store-btn strong { display: block; font-size: 16px; line-height: 1.25; font-weight: 700; font-family: var(--display); }
 
-  /* ── PHONE MOCKUP (3D tilt-ready) ── */
-  .phone-wrap {
-    display: flex; flex-direction: column; align-items: center; gap: 22px;
-  }
-  .phone-stage {
+  /* Phone: the real app, cycling through its screens. */
+  .phone-wrap { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .phone-stage { position: relative; display: flex; justify-content: center; }
+  .phone {
     position: relative;
-    display: flex; justify-content: center;
-    perspective: 1200px;
+    width: 300px; aspect-ratio: 9/19;
+    border-radius: 44px;
+    padding: 10px;
+    background: #0E0A24;
+    box-shadow:
+      0 0 0 1.5px rgba(255,255,255,0.22),
+      0 50px 90px rgba(30, 22, 70, 0.5),
+      0 18px 36px rgba(30, 22, 70, 0.3);
+    transform: rotate(3deg);
   }
+  .phone-screen { width: 100%; height: 100%; border-radius: 35px; overflow: hidden; position: relative; background: #F4F3F8; }
+  .phone-img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1; pointer-events: none; will-change: transform; backface-visibility: hidden;
+  }
+  .phone-img.active { transform: translate3d(0, 0, 0); z-index: 2; }
+  .phone-img.leaving { transform: translate3d(-30%, 0, 0); z-index: 1; }
   .phone-nav { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .phone-caption {
-    font-size: 13.5px; font-weight: 600; color: var(--ink-soft);
-    min-height: 20px;
-    animation: captionIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+  .phone-caption { font-size: 14px; font-weight: 600; color: white; min-height: 22px; animation: captionIn 0.45s var(--ease); }
   @keyframes captionIn { from { opacity: 0; transform: translateY(6px); } }
   .phone-dots { display: flex; gap: 6px; align-items: center; }
   .phone-dots button {
-    width: 8px; height: 8px; padding: 0; border: 0; border-radius: 100px;
-    background: #CBD5E1; cursor: pointer;
-    transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, transform 0.2s;
+    width: 8px; height: 8px; padding: 0; border: 0; border-radius: 100px; cursor: pointer;
+    background: rgba(255,255,255,0.45);
+    transition: width 0.35s var(--ease), background 0.3s;
   }
-  .phone-dots button:hover { background: #94A3B8; transform: scale(1.2); }
-  .phone-dots button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
-  .phone-dots button[aria-current="true"] {
-    width: 26px; transform: none;
-    background: linear-gradient(90deg, var(--teal), var(--purple));
+  .phone-dots button:hover { background: rgba(255,255,255,0.8); }
+  .phone-dots button[aria-current="true"] { width: 26px; background: white; }
+
+  @media (max-width: 920px) {
+    .hero { padding: 56px 22px 56px; border-radius: 28px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 52px; }
+    .phone { width: 264px; transform: none; }
   }
-  @media (max-width: 880px) { .phone-wrap { gap: 44px; } }
-  .phone {
-    position: relative;
-    width: 290px; aspect-ratio: 9/19;
-    border-radius: 38px;
-    background: linear-gradient(180deg, #1E293B, #0F172A);
-    padding: 10px;
-    box-shadow:
-      0 50px 100px rgba(20, 184, 166, 0.25),
-      0 20px 50px rgba(168, 85, 247, 0.20),
-      0 8px 16px rgba(15, 23, 42, 0.10),
-      inset 0 0 0 2px #0a0f1c;
-    transform-style: preserve-3d;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-  }
-  .phone-screen {
-    width: 100%; height: 100%;
-    border-radius: 30px;
-    overflow: hidden; position: relative;
-    background: var(--bg);
-  }
-  .phone-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate3d(100%, 0, 0);
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1;
-    pointer-events: none;
-    will-change: transform;
-    backface-visibility: hidden;
-  }
-  .phone-img.active {
-    transform: translate3d(0, 0, 0);
-    z-index: 2;
-  }
-  .phone-img.leaving {
-    transform: translate3d(-30%, 0, 0);
-    z-index: 1;
+  @media (max-width: 720px) {
+    .hero-frame { padding: 6px 8px 0; }
+    .hero { padding: 44px 18px 48px; border-radius: 24px; }
+    .hero p.lead { font-size: 16.5px; }
+    .typing-demo { padding: 14px; border-radius: 18px; }
+    .store-btn { flex: 1 1 150px; min-width: 0; }
   }
 
-  /* Floating badges */
-  .float-badge {
-    position: absolute;
-    background: white;
-    box-shadow: var(--sh-4);
-    border-radius: 16px; padding: 10px 14px;
-    display: flex; gap: 10px; align-items: center;
-    font-size: 12px;
-    animation: bob 4s ease-in-out infinite;
+  /* ── BANKS: logos of the banks whose slips Budgy reads ── */
+  .banks { padding: 44px 0 8px; }
+  .banks .wrap { display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+  .banks p { font-size: 15px; color: var(--ink-soft); max-width: 22em; }
+  .banks p strong { color: var(--ink); font-weight: 600; }
+  .bank-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .bank-row img { width: 46px; height: 46px; border-radius: 13px; box-shadow: 0 1px 2px rgba(30,22,70,0.08); }
+  @media (max-width: 720px) {
+    .banks { padding: 32px 0 0; }
+    .bank-row img { width: 40px; height: 40px; border-radius: 11px; }
+  }
+
+  /* ── Shared section heads ── */
+  .section { padding: 104px 0 0; }
+  @media (max-width: 720px) { .section { padding-top: 72px; } }
+  .section-title {
+    font-size: clamp(32px, 4.4vw, 52px);
+    font-weight: 700; line-height: 1.18; letter-spacing: -0.015em;
+    margin-bottom: 16px;
+  }
+  .section-desc { color: var(--ink-soft); font-size: 17px; max-width: 34em; line-height: 1.7; }
+
+  /* ── SLIPS: the signature moment. Three slips sit stacked, then fan out
+     and each becomes a ledger row when the section scrolls in. ── */
+  .slips .wrap { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; }
+  .slips .copy p + p { margin-top: 14px; }
+  .slip-facts { list-style: none; margin-top: 26px; display: grid; gap: 12px; }
+  .slip-facts li { display: flex; gap: 12px; align-items: flex-start; color: var(--ink-soft); font-size: 15.5px; }
+  .slip-facts svg { width: 20px; height: 20px; margin-top: 3px; color: var(--hub-violet); }
+  .slip-stage {
+    position: relative; min-height: 540px;
+    border-radius: 32px;
+    background:
+      radial-gradient(420px 300px at 30% 30%, rgba(124, 58, 237, 0.10), transparent 70%),
+      radial-gradient(380px 300px at 80% 80%, rgba(15, 118, 110, 0.10), transparent 70%),
+      #F1EFF7;
+    overflow: hidden;
+  }
+  .slip {
+    position: absolute; top: 40px; left: 26px;
+    width: 166px;
+    background: white; border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(30, 22, 70, 0.16);
+    overflow: hidden;
+    transform: rotate(0deg) translate(0, 0);
+    transition: transform 1s var(--ease);
+  }
+  .slip .band { height: 54px; display: flex; align-items: center; gap: 9px; padding: 0 14px; color: white; font-size: 12.5px; font-weight: 600; }
+  .slip .band img { width: 28px; height: 28px; border-radius: 8px; box-shadow: 0 0 0 2px rgba(255,255,255,0.6); }
+  .slip .body { padding: 14px 16px 16px; }
+  .slip .ok { font-size: 12px; color: #059669; font-weight: 600; display: flex; gap: 5px; align-items: center; }
+  .slip .ok svg { width: 13px; height: 13px; }
+  .slip .amt { font-family: var(--display); font-size: 25px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 6px 0 10px; }
+  .slip dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 11.5px; }
+  .slip dt { color: var(--ink-mute); }
+  .slip dd { color: var(--ink); text-align: right; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .slip .perf { height: 10px; background: radial-gradient(circle at 5px -1px, #F1EFF7 5px, transparent 5.5px) repeat-x; background-size: 12px 10px; }
+  .slip.s1 .band { background: #138F2D; }
+  .slip.s2 .band { background: #4E2A84; }
+  .slip.s3 .band { background: #1E4598; }
+  .slip.s1 { z-index: 3; }
+  .slip.s2 { z-index: 2; transform: rotate(-2deg) translate(6px, 6px); }
+  .slip.s3 { z-index: 1; transform: rotate(2deg) translate(12px, 12px); }
+  .slip-stage.play .slip.s1 { transform: rotate(-6deg) translate(0, 18px); }
+  .slip-stage.play .slip.s2 { transform: rotate(0deg) translate(186px, 0); transition-delay: 0.08s; }
+  .slip-stage.play .slip.s3 { transform: rotate(6deg) translate(372px, 18px); transition-delay: 0.16s; }
+
+  .ledger {
+    position: absolute; right: 26px; bottom: 26px; left: 26px;
+    background: white; border-radius: 22px; padding: 10px 6px 6px;
+    box-shadow: 0 30px 60px rgba(30, 22, 70, 0.18);
     z-index: 5;
-    background-image: var(--highlight-top);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
   }
-  .float-badge.b1 { top: 60px; right: -80px; }
-  .float-badge.b2 { bottom: 80px; left: -80px; animation-delay: -2s; }
-  @media (max-width: 880px) {
-    .float-badge.b1 { right: -8px; top: -34px; }
-    .float-badge.b2 { left: -8px; bottom: -34px; }
+  .ledger-head { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 14px 8px; }
+  .ledger-head strong { font-family: var(--display); font-size: 15px; }
+  .ledger-head span { font-size: 12px; color: var(--ink-mute); }
+  .ledger-row {
+    display: grid; grid-template-columns: 38px 1fr auto; gap: 12px; align-items: center;
+    padding: 10px 12px; border-radius: 14px;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
   }
-  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-  .float-badge .ic {
-    width: 34px; height: 34px; border-radius: 11px;
-    display: flex; align-items: center; justify-content: center;
-    color: white;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  .slip-stage.play .ledger-row { opacity: 1; transform: none; }
+  .slip-stage.play .ledger-row:nth-child(2) { transition-delay: 0.7s; }
+  .slip-stage.play .ledger-row:nth-child(3) { transition-delay: 0.85s; }
+  .slip-stage.play .ledger-row:nth-child(4) { transition-delay: 1s; }
+  .ledger-row .cat { width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; }
+  .ledger-row .cat svg { width: 18px; height: 18px; }
+  .ledger-row b { display: block; font-weight: 600; font-size: 14.5px; line-height: 1.35; }
+  .ledger-row small { display: block; font-size: 12px; color: var(--ink-mute); line-height: 1.4; }
+  .ledger-row .v { font-family: var(--display); font-weight: 700; font-size: 16px; }
+  @media (max-width: 920px) {
+    .slips .wrap { grid-template-columns: 1fr; gap: 36px; }
   }
-  .float-badge.b1 .ic { background: linear-gradient(135deg, var(--purple), var(--pink)); }
-  .float-badge.b2 .ic { background: linear-gradient(135deg, var(--teal), var(--cyan)); }
-  .float-badge svg { width: 18px; height: 18px; }
-  .float-badge small { color: var(--ink-mute); font-size: 10px; line-height: 1.2; }
-  .float-badge strong { font-size: 13px; line-height: 1.3; }
-
-  /* ── STATS BAR (counter animation) ── */
-  .stats-bar {
-    max-width: 1140px;
-    margin: -40px auto 0;
-    padding: 0 28px;
-    position: relative;
-    z-index: 2;
+  @media (max-width: 560px) {
+    .slip-stage { min-height: 470px; border-radius: 24px; }
+    .slip { width: 108px; left: 10px; top: 22px; border-radius: 12px; }
+    .slip .band { height: 38px; font-size: 0; padding: 0 9px; }
+    .slip .band img { width: 22px; height: 22px; }
+    .slip .body { padding: 10px 10px 12px; }
+    .slip .amt { font-size: 17px; margin: 4px 0 6px; }
+    .slip dl { font-size: 9.5px; grid-template-columns: 1fr; }
+    .slip dt { display: none; }
+    .slip dd { text-align: left; }
+    .slip-stage.play .slip.s1 { transform: rotate(-5deg) translate(0, 12px); }
+    .slip-stage.play .slip.s2 { transform: rotate(0deg) translate(112px, 0); }
+    .slip-stage.play .slip.s3 { transform: rotate(5deg) translate(224px, 12px); }
+    .ledger { left: 14px; right: 14px; bottom: 14px; }
   }
-  .stats-inner {
-    background: white;
-    border-radius: 24px;
-    padding: 28px 32px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    box-shadow: var(--sh-3);
-    border: 1px solid rgba(226, 232, 240, 0.6);
-    background-image: var(--highlight-top);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  }
-  @media (max-width: 720px) {
-    .stats-bar { margin-top: 8px; padding: 0 16px; }
-    .stats-inner { padding: 18px 8px; gap: 4px; border-radius: 18px; }
-    .stat-number { font-size: 24px; }
-    .stat-label { font-size: 10.5px; line-height: 1.35; }
-  }
-  @media (max-width: 380px) {
-    .stat-label { font-size: 9.5px; }
-  }
-  .stat-item { text-align: center; min-width: 0; }
-  .stat-number {
-    font-family: 'Inter', sans-serif;
-    font-size: 36px; font-weight: 800;
-    letter-spacing: -1px;
-    background: linear-gradient(135deg, var(--teal), var(--purple), var(--gold));
-    background-size: 200% 200%;
-    animation: gradShift 6s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 4px;
-  }
-  .stat-label {
-    font-size: 13px; color: var(--ink-mute); font-weight: 500;
-  }
-
-  /* ── TRUST PILLARS ── */
-  .trust { padding: 64px 28px 32px; max-width: 1140px; margin: 0 auto; }
-  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  @media (max-width: 720px) {
-    .trust { padding: 44px 20px 20px; }
-    .trust-grid { grid-template-columns: 1fr; gap: 12px; }
-    .pillar { padding: 24px 22px; border-radius: 20px; }
-  }
-
-  .pillar {
-    background: white;
-    border-radius: 24px;
-    padding: 32px 28px;
-    border: 1px solid var(--line);
-    position: relative; overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
-    box-shadow: var(--sh-1);
-    background-image: var(--highlight-top);
-    display: flex; flex-direction: column;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  }
-  .pillar:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--sh-4);
-  }
-  .pillar::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--c1), var(--c2));
-  }
-  .pillar.cloud { --c1: var(--teal); --c2: var(--cyan); }
-  .pillar.ai { --c1: var(--purple); --c2: var(--pink); }
-  .pillar.priv { --c1: var(--gold); --c2: #FB923C; }
-  .pillar-icon {
-    width: 60px; height: 60px; border-radius: 18px;
-    background: linear-gradient(135deg, var(--c1), var(--c2));
-    display: flex; align-items: center; justify-content: center;
-    color: white;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 0 0 4px rgba(255,255,255,0.4);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .pillar:hover .pillar-icon { transform: scale(1.08) rotate(-4deg); }
-  .pillar-icon svg { width: 28px; height: 28px; }
-  .pillar h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.2px; }
-  .pillar p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.65; }
-  .pillar .micro {
-    display: inline-flex; gap: 6px; align-items: center;
-    margin-top: auto;
-    padding: 6px 12px; background: #F1F5F9; border-radius: 100px;
-    font-size: 12px; color: var(--ink-soft); font-weight: 500;
-    align-self: flex-start;
-  }
-  .pillar p { margin-bottom: 16px; }
-  .pillar .micro svg { width: 12px; height: 12px; color: var(--c1); }
 
   /* ── FEATURES ── */
-  .features-section { padding: 56px 28px; max-width: 1140px; margin: 0 auto; }
-  .section-label {
-    font-size: 12px; letter-spacing: 2.5px; font-weight: 700;
-    color: var(--purple-d); margin-bottom: 12px; text-transform: uppercase;
-  }
-  .section-title {
-    font-size: clamp(30px, 4.2vw, 44px);
-    font-weight: 800; letter-spacing: -1.2px;
-    margin-bottom: 14px; line-height: 1.1;
-  }
-  .section-desc { color: var(--ink-soft); font-size: 16px; max-width: 540px; margin-bottom: 44px; line-height: 1.6; }
+  .features-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: end; margin-bottom: 48px; }
+  .features-head .section-title { margin-bottom: 0; }
+  @media (max-width: 820px) { .features-head { grid-template-columns: 1fr; gap: 12px; margin-bottom: 36px; } }
 
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 36px;
-  }
-  @media (max-width: 720px) {
-    .features-section { padding: 40px 20px; }
-    .features-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 28px; }
-    .feat-card { padding: 24px 22px; border-radius: 20px; }
-    .feat-card h3 { font-size: 19px; }
-  }
-
-  .feat-card {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 24px;
-    padding: 32px;
-    position: relative;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s, border-color 0.3s;
-    box-shadow: var(--sh-1);
-    background-image: var(--highlight-top);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    overflow: hidden;
-  }
-  .feat-card::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(circle at 50% 0%, var(--c1), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s;
-    pointer-events: none;
-    mix-blend-mode: screen;
-  }
-  .feat-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--sh-4);
-    border-color: var(--c1);
-  }
-  .feat-card:hover::after { opacity: 0.06; }
-  .feat-card:hover .feat-icon { transform: scale(1.1) rotate(-5deg); }
-  .feat-card.new::after-badge {}
-  .feat-card.new .new-badge {
-    position: absolute; top: 14px; right: 14px;
-    background: linear-gradient(135deg, var(--purple), var(--pink));
-    color: white;
-    font-size: 10.5px; font-weight: 700;
-    padding: 4px 11px; border-radius: 100px;
-    box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4);
-    z-index: 2;
-    animation: badgePulse 2.4s ease-in-out infinite;
-  }
-  @keyframes badgePulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4); }
-    50% { transform: scale(1.06); box-shadow: 0 8px 22px rgba(168, 85, 247, 0.55); }
-  }
-  .feat-icon {
-    width: 60px; height: 60px; border-radius: 18px;
-    background: linear-gradient(135deg, var(--c1), var(--c2));
-    display: flex; align-items: center; justify-content: center;
-    color: white;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 0 0 4px rgba(255,255,255,0.4);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative; z-index: 1;
-  }
-  .feat-icon svg { width: 28px; height: 28px; }
-  .feat-card.f1 { --c1: var(--purple); --c2: var(--pink); }
-  .feat-card.f2 { --c1: #F97316; --c2: #FB923C; }
-  .feat-card.f3 { --c1: var(--teal); --c2: var(--cyan); }
-  .feat-card.f4 { --c1: #6366F1; --c2: #8B5CF6; }
-  .feat-card.f5 { --c1: #F59E0B; --c2: #FBBF24; }
-  .feat-card.f6 { --c1: #0891B2; --c2: #06B6D4; }
-  /* f7 spans the grid: it is the newest feature and the one nobody is looking
-     for yet, so it gets the marquee row rather than a half-width slot.
-     Apricot (deep orange -> amber) is Split Bill's own wayfinding gradient in
-     the app, so the card and the screenshot in the phone above agree. */
-  .feat-card.f7 { --c1: #EA580C; --c2: #F59E0B; grid-column: 1 / -1; }
-  .feat-card.f7 p { max-width: 720px; }
-  .split-points {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-top: 22px;
-    position: relative; z-index: 1;
-  }
-  .split-points span {
-    display: flex; align-items: flex-start; gap: 9px;
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 13px 15px;
-    font-size: 13.5px; line-height: 1.55;
-    color: var(--ink-soft);
-  }
-  .split-points svg {
-    width: 16px; height: 16px; flex: 0 0 16px;
-    margin-top: 2px;
-    color: var(--c1);
-  }
-  @media (max-width: 720px) {
-    .split-points { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
-  }
-
-  .feat-card h3 { font-size: 22px; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.4px; position: relative; z-index: 1; }
-  .feat-card p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; position: relative; z-index: 1; }
-
-  .more-features {
-    text-align: center;
-    padding: 36px 32px;
-    background: white;
-    border-radius: 24px;
-    border: 1px solid var(--line);
-    box-shadow: var(--sh-1);
-    background-image: var(--highlight-top);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  }
-  .more-features .more-label {
-    font-size: 13px; letter-spacing: 1.5px; font-weight: 700; text-transform: uppercase;
-    color: var(--ink-mute); margin-bottom: 18px;
-  }
-  .more-features .pills {
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 9px;
-  }
-  .more-features .pill {
-    background: #F8FAFC;
-    border: 1px solid var(--line);
-    padding: 8px 14px;
-    border-radius: 100px;
-    font-size: 13px; color: var(--ink-soft); font-weight: 500;
-    display: inline-flex; align-items: center; gap: 7px;
-    transition: transform 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
-    cursor: default;
-  }
-  .more-features .pill:hover {
-    background: white; border-color: var(--purple);
-    transform: translateY(-2px);
-    box-shadow: var(--sh-glow-purple);
-  }
-  .more-features .pill svg { width: 14px; height: 14px; color: var(--purple); transition: transform 0.2s; }
-  .more-features .pill:hover svg { transform: rotate(-12deg) scale(1.1); }
-
-  /* ── LINE ── */
-  .line-section {
-    margin: 56px 28px;
-    max-width: 1140px;
-    margin-left: auto; margin-right: auto;
-    background:
-      linear-gradient(165deg, #08D962 0%, #06C755 35%, #04a142 75%, #028a37 100%);
+  /* Split bill: the newest feature gets the wide panel, in its own apricot
+     wayfinding gradient from the app. */
+  .feat-card.f7 {
+    position: relative; overflow: hidden;
     border-radius: 32px;
-    padding: 56px 32px;
-    color: white;
-    text-align: center;
-    box-shadow:
-      0 24px 60px rgba(6, 199, 85, 0.32),
-      0 8px 24px rgba(4, 161, 66, 0.22),
-      inset 0 1px 0 rgba(255, 255, 255, 0.20);
-    box-shadow: 0 30px 70px rgba(6, 199, 85, 0.30);
+    padding: 44px 44px 40px;
+    background: linear-gradient(135deg, #FFF4EB 0%, #FFF9EE 100%);
+    border: 1px solid #FBD9BD;
+  }
+  .feat-card.f7::after {
+    content: ''; position: absolute; right: -120px; top: -140px; width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.22), transparent 65%);
+    pointer-events: none;
+  }
+  .feat-card.f7 .top { display: flex; gap: 18px; align-items: center; margin-bottom: 16px; position: relative; z-index: 1; }
+  .feat-card.f7 .feat-icon { background: linear-gradient(135deg, var(--apricot), var(--apricot-2)); width: 56px; height: 56px; border-radius: 18px; margin: 0; }
+  .feat-card.f7 h3 { font-size: clamp(26px, 3vw, 34px); font-weight: 700; margin: 0; }
+  .new-badge {
+    display: inline-block; vertical-align: middle; margin-left: 10px;
+    background: var(--apricot); color: white;
+    font-family: var(--body); font-size: 12px; font-weight: 600;
+    padding: 2px 10px; border-radius: 100px;
+  }
+  .feat-card.f7 > p { max-width: 46em; color: var(--ink-soft); font-size: 16.5px; position: relative; z-index: 1; }
+  .split-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; position: relative; z-index: 1; }
+  .split-points span {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 16px; padding: 16px 18px;
+    font-size: 14.5px; line-height: 1.6; color: var(--ink-soft);
+  }
+  .split-points svg { width: 18px; height: 18px; flex: 0 0 18px; margin-top: 3px; color: var(--apricot); }
+  @media (max-width: 720px) {
+    .feat-card.f7 { padding: 28px 22px; border-radius: 24px; }
+    .split-points { grid-template-columns: 1fr; gap: 10px; margin-top: 20px; }
+  }
+
+  /* The rest: a two-column list ruled by hairlines, not a grid of cards. */
+  .feat-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px; margin-top: 28px; }
+  .feat-item { display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 30px 0; border-top: 1px solid var(--line); }
+  .feat-item .feat-icon { width: 48px; height: 48px; border-radius: 15px; color: white; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+  .feat-icon svg { width: 24px; height: 24px; }
+  .feat-item h3 { font-size: 21px; font-weight: 600; line-height: 1.35; margin-bottom: 6px; }
+  .feat-item p { color: var(--ink-soft); font-size: 15.5px; }
+  .feat-item.f1 { --c1: #7C3AED; --c2: #A855F7; }
+  .feat-item.f3 { --c1: #0F766E; --c2: #14B8A6; }
+  .feat-item.f4 { --c1: #4F46E5; --c2: #818CF8; }
+  .feat-item.f5 { --c1: #B45309; --c2: #F59E0B; }
+  .feat-item.f6 { --c1: #0369A1; --c2: #0EA5E9; }
+  @media (max-width: 820px) { .feat-list { grid-template-columns: 1fr; } .feat-item { padding: 24px 0; } }
+
+  .more-features { display: flex; gap: 14px 24px; align-items: center; flex-wrap: wrap; padding: 28px 0 0; border-top: 1px solid var(--line); }
+  .more-features .more-label { font-weight: 600; color: var(--ink); font-size: 15px; }
+  .more-features .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .more-features .pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: white; border: 1px solid var(--line);
+    padding: 6px 13px; border-radius: 100px;
+    font-size: 13.5px; color: var(--ink-soft);
+  }
+  .more-features .pill svg { width: 14px; height: 14px; color: var(--hub-violet); }
+
+  /* ── PROMISES: three plain columns on night ── */
+  .promises { margin-top: 104px; background: var(--night); color: white; padding: 88px 0; }
+  .promises h2 { color: white; }
+  .promises .section-desc { color: rgba(255,255,255,0.8); }
+  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 48px; }
+  .pillar { border-top: 2px solid; border-image: var(--hub) 1; padding-top: 24px; display: flex; flex-direction: column; }
+  .pillar-icon { width: 28px; height: 28px; color: #C4B5FD; margin-bottom: 16px; }
+  .pillar-icon svg { width: 28px; height: 28px; }
+  .pillar h4 { color: white; font-size: 21px; font-weight: 600; line-height: 1.35; margin-bottom: 10px; }
+  .pillar p { color: rgba(255,255,255,0.8); font-size: 15.5px; margin-bottom: 16px; }
+  .pillar .micro { margin-top: auto; display: inline-flex; gap: 7px; align-items: center; font-size: 13.5px; color: #DDD6FE; }
+  .pillar .micro svg { width: 14px; height: 14px; }
+  @media (max-width: 820px) {
+    .promises { margin-top: 72px; padding: 64px 0; }
+    .trust-grid { grid-template-columns: 1fr; gap: 36px; margin-top: 36px; }
+  }
+
+  /* ── LINE: a chat, because that is what it is ── */
+  .line-section .panel {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 48px; align-items: center;
+    background: var(--line-green); color: white;
+    border-radius: 36px; padding: 56px;
     position: relative; overflow: hidden;
   }
-  .line-section::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 18% 28%, rgba(255,255,255,0.28), transparent 45%),
-      radial-gradient(circle at 82% 75%, rgba(255,255,255,0.14), transparent 50%),
-      radial-gradient(circle at 50% 100%, rgba(0,0,0,0.18), transparent 60%);
-    pointer-events: none;
-  }
-  .line-section::after {
-    content: ''; position: absolute; inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
-    background-size: 22px 22px;
-    opacity: 0.5;
-    pointer-events: none;
-  }
-  .line-badge-top {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(8px);
-    padding: 6px 14px; border-radius: 100px;
-    font-size: 12px; font-weight: 700;
-    margin-bottom: 16px;
-    position: relative;
-  }
-  .line-section h2 { font-size: 34px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.7px; position: relative; }
-  .line-section p { font-size: 16px; opacity: 0.95; margin-bottom: 24px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.65; position: relative; }
-  @media (max-width: 720px) {
-    .line-section { margin: 32px 20px; padding: 40px 24px; border-radius: 24px; }
-    .line-section h2 { font-size: 26px; }
-    .line-section p { font-size: 14.5px; margin-bottom: 20px; }
-    .pricing { padding: 40px 20px; }
-    .cta-final { margin: 40px 20px 56px; padding: 44px 24px; border-radius: 24px; }
-    .cta-final h2 { font-size: 26px; }
-    .cta-final p { font-size: 14.5px; margin-bottom: 22px; }
-  }
+  .line-badge-top { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: 14px; margin-bottom: 14px; }
+  .line-badge-top svg { width: 18px; height: 18px; }
+  .line-section h2 { color: white; font-size: clamp(30px, 3.8vw, 44px); font-weight: 700; line-height: 1.2; margin-bottom: 14px; }
+  .line-section p { font-size: 17px; color: white; max-width: 30em; margin-bottom: 28px; }
+  .line-actions { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
   .line-btn {
     display: inline-flex; gap: 8px; align-items: center;
-    background: white; color: #04a142;
-    padding: 14px 28px; border-radius: 100px;
-    font-weight: 700; font-size: 15px;
-    text-decoration: none;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-    position: relative;
-    transition: transform 0.25s, box-shadow 0.25s;
-    overflow: hidden;
+    background: white; color: #03702F;
+    padding: 14px 26px; border-radius: 100px;
+    font-weight: 700; font-size: 15.5px; text-decoration: none;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s;
+    box-shadow: 0 10px 24px rgba(0, 60, 25, 0.22);
   }
-  .line-btn::before {
-    content: ''; position: absolute; top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(6, 199, 85, 0.10), transparent);
-    transition: left 0.6s;
+  .line-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(0, 60, 25, 0.28); }
+  .line-btn svg { width: 16px; height: 16px; }
+  .line-qr { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; }
+  .line-qr img { width: 92px; height: 92px; background: white; border-radius: 14px; padding: 6px; }
+  .chat {
+    background: #E9EEF6; border-radius: 26px; padding: 18px 16px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+    box-shadow: 0 30px 60px rgba(0, 60, 25, 0.28);
+    color: var(--ink);
   }
-  .line-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(0,0,0,0.22); }
-  .line-btn:hover::before { left: 100%; }
-  .line-btn:hover svg { transform: translateX(4px); }
-  .line-btn:active { transform: translateY(-1px) scale(0.98); }
-  .line-btn svg { width: 16px; height: 16px; transition: transform 0.25s; position: relative; z-index: 1; }
-  .line-btn span { position: relative; z-index: 1; }
+  .chat-head { display: flex; gap: 10px; align-items: center; padding: 0 4px 8px; border-bottom: 1px solid rgba(30,22,70,0.08); }
+  .chat-head img { width: 32px; height: 32px; border-radius: 50%; background: white; }
+  .chat-head b { font-size: 14.5px; }
+  .bubble { max-width: 82%; padding: 10px 14px; border-radius: 18px; font-size: 14.5px; line-height: 1.5; }
+  .bubble.me { align-self: flex-end; background: #8DE055; border-bottom-right-radius: 6px; }
+  .bubble.bot { align-self: flex-start; background: white; border-bottom-left-radius: 6px; }
+  .bubble.bot b { font-family: var(--display); }
+  @media (max-width: 860px) {
+    .line-section .panel { grid-template-columns: 1fr; padding: 36px 22px; border-radius: 26px; gap: 32px; }
+  }
 
-  /* ── PRICING ── */
-  .pricing { padding: 56px 28px; max-width: 1140px; margin: 0 auto; }
+  /* ── PRICING: Free and Premium ── */
+  .pricing-head { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .pricing-head .section-desc { margin: 0 auto; }
+  .pricing-head .fine { font-size: 13.5px; color: var(--ink-mute); max-width: 40em; margin: 10px auto 0; }
   .currency-toggle {
-    display: inline-flex;
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 100px;
-    padding: 4px;
-    box-shadow: var(--sh-1);
-    margin-top: 8px;
-    position: relative;
+    display: inline-flex; position: relative;
+    margin-top: 22px; padding: 4px;
+    background: white; border: 1px solid var(--line); border-radius: 100px;
   }
   .currency-toggle button {
-    border: none;
-    background: transparent;
-    padding: 8px 18px;
-    border-radius: 100px;
-    font-family: inherit;
-    font-weight: 600;
-    font-size: 13px;
-    color: var(--ink-mute);
-    cursor: pointer;
+    position: relative; z-index: 1;
+    border: 0; background: transparent; cursor: pointer;
+    padding: 7px 18px; border-radius: 100px;
+    font: inherit; font-size: 13.5px; font-weight: 600; color: var(--ink-mute);
     transition: color 0.25s;
-    position: relative;
-    z-index: 1;
-    letter-spacing: 0.3px;
   }
   .currency-toggle button.active { color: white; }
   .currency-toggle .slider {
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    bottom: 4px;
-    width: calc(50% - 4px);
-    border-radius: 100px;
-    background: linear-gradient(135deg, var(--teal), var(--purple));
-    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
-    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 0;
+    position: absolute; top: 4px; left: 4px; bottom: 4px; width: calc(50% - 4px);
+    border-radius: 100px; background: var(--night);
+    transition: transform 0.32s var(--ease);
   }
   .currency-toggle.usd .slider { transform: translateX(100%); }
   .price-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-    margin-top: 44px;
-  }
-  @media (max-width: 880px) {
-    .price-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
-    .pricing > .reveal { text-align: center; }
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;
+    max-width: 880px; margin: 48px auto 0;
   }
   .price-card {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 24px;
-    padding: 40px 28px 32px;
-    position: relative;
-    display: flex; flex-direction: column;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
-    box-shadow: var(--sh-1);
-    background-image: var(--highlight-top);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    position: relative; display: flex; flex-direction: column;
+    background: white; border: 1px solid var(--line);
+    border-radius: 30px; padding: 38px 34px 34px;
   }
-  .price-card:hover { transform: translateY(-4px); box-shadow: var(--sh-3); }
-  .price-card.popular {
-    border: 1px solid rgba(251, 146, 60, 0.20);
-    box-shadow:
-      0 0 0 4px rgba(251, 146, 60, 0.07),
-      0 24px 60px rgba(251, 146, 60, 0.22),
-      0 8px 20px rgba(251, 146, 60, 0.10);
-    transform: scale(1.03);
-  }
-  .price-card.popular:hover {
-    transform: scale(1.03) translateY(-4px);
-    box-shadow:
-      0 0 0 4px rgba(251, 146, 60, 0.12),
-      0 30px 70px rgba(251, 146, 60, 0.30),
-      0 12px 26px rgba(251, 146, 60, 0.14);
-  }
-  @media (max-width: 720px) {
-    .price-card.popular { transform: none; box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.07), 0 16px 40px rgba(251, 146, 60, 0.18); }
-    .price-card.popular:hover { transform: translateY(-4px); }
-  }
-  .price-badge {
-    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--gold), #FB923C);
-    color: white;
-    font-size: 11px; font-weight: 700;
-    padding: 6px 16px; border-radius: 100px;
-    text-transform: uppercase; letter-spacing: 1.2px;
-    box-shadow: 0 8px 20px rgba(251, 146, 60, 0.4);
-    animation: badgePulse 2.4s ease-in-out infinite;
-  }
-  .tier-mark {
-    width: 48px; height: 48px;
-    border-radius: 14px;
-    display: inline-flex; align-items: center; justify-content: center;
-    margin-bottom: 16px; color: white;
-    background: linear-gradient(135deg, var(--c1), var(--c2));
-    box-shadow: 0 12px 24px rgba(0,0,0,0.10), 0 0 0 4px rgba(255,255,255,0.5);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .price-card:hover .tier-mark { transform: scale(1.08) rotate(-4deg); }
-  .price-card.tier-free .tier-mark { --c1: var(--teal); --c2: #34D399; }
-  .price-card.tier-pro .tier-mark { --c1: var(--purple); --c2: var(--pink); }
-  .price-card.popular .tier-mark { --c1: var(--purple); --c2: var(--pink); }
-  .price-card.premium .tier-mark { --c1: var(--gold); --c2: #FB923C; }
-  .tier-mark svg { width: 24px; height: 24px; }
-  .price-card h3 { font-size: 24px; margin-bottom: 4px; font-weight: 800; letter-spacing: -0.4px; }
-  .price-card .tier-desc { color: var(--ink-mute); font-size: 14px; margin-bottom: 20px; }
-  .price-amt { font-family: 'Inter', sans-serif; font-size: 40px; font-weight: 800; letter-spacing: -1.5px; }
-  .price-amt small { font-family: 'Noto Sans Thai', sans-serif; font-size: 14px; font-weight: 500; color: var(--ink-mute); letter-spacing: 0; }
+  .price-card h3 { font-size: 26px; font-weight: 700; }
+  .price-card .tier-desc { color: var(--ink-mute); font-size: 15px; margin-bottom: 22px; }
+  .price-amt { font-family: var(--display); font-size: 52px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+  .price-amt small { font-family: var(--body); font-size: 15px; font-weight: 500; color: var(--ink-mute); letter-spacing: 0; }
+  .price-yearly { font-size: 13.5px; color: var(--ink-mute); margin-top: 6px; }
   .price-cta {
-    display: block; width: 100%; padding: 14px;
-    border: none; border-radius: 14px;
-    background: linear-gradient(135deg, var(--teal), #34D399);
-    color: white;
-    font-weight: 700; font-size: 15px;
-    margin: 22px 0 26px; cursor: pointer;
-    text-decoration: none; text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-    position: relative; overflow: hidden;
-    box-shadow: 0 12px 28px rgba(20, 184, 166, 0.32);
+    display: block; text-align: center; text-decoration: none;
+    margin: 26px 0 26px; padding: 14px;
+    border-radius: 14px; font-weight: 700; font-size: 15.5px;
+    background: var(--paper); color: var(--ink); border: 1px solid var(--line);
+    transition: transform 0.2s var(--ease), background 0.2s;
   }
-  .price-card.tier-free .price-cta:hover { box-shadow: 0 18px 40px rgba(20, 184, 166, 0.42); }
-  .price-cta::before {
-    content: ''; position: absolute; top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-    transition: left 0.55s;
-  }
-  .price-cta:hover { transform: translateY(-3px); filter: brightness(1.05); }
-  .price-cta:hover::before { left: 100%; }
-  .price-cta:active { transform: translateY(-1px) scale(0.98); }
-  .price-card.tier-pro .price-cta,
-  .price-card.popular .price-cta {
-    background: linear-gradient(135deg, var(--purple), var(--pink));
-    box-shadow: 0 12px 28px rgba(168, 85, 247, 0.35);
-  }
-  .price-card.tier-pro .price-cta:hover,
-  .price-card.popular .price-cta:hover { box-shadow: 0 18px 40px rgba(168, 85, 247, 0.45); }
-  .price-card.premium .price-cta {
-    background: linear-gradient(135deg, var(--gold), #FB923C);
-    box-shadow: 0 12px 28px rgba(245, 166, 35, 0.35);
-  }
-  .price-card.premium .price-cta:hover { box-shadow: 0 18px 40px rgba(245, 166, 35, 0.45); }
-  .price-card ul { list-style: none; }
-  .price-card li {
-    padding: 8px 0; font-size: 14.5px; color: var(--ink-soft);
-    display: flex; gap: 10px; align-items: flex-start;
-  }
-  .price-card li svg { width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; margin-top: 1px; }
-  .price-card.tier-pro li svg { color: var(--purple); }
-  .price-card.popular li svg { color: var(--purple); }
-  .price-card.premium li svg { color: var(--gold-d); }
+  .price-cta:hover { transform: translateY(-2px); background: white; }
+  .price-card ul { list-style: none; display: grid; gap: 4px; }
+  .price-card li { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; font-size: 15px; color: var(--ink-soft); }
+  .price-card li svg { width: 18px; height: 18px; margin-top: 4px; color: var(--hub-teal); }
 
-  /* ── CTA ── */
+  .price-card.premium { background: var(--night); border-color: var(--night); color: white; overflow: hidden; }
+  .price-card.premium::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: var(--hub); }
+  .price-card.premium h3 { color: white; }
+  .price-card.premium .tier-desc, .price-card.premium .price-amt small, .price-card.premium .price-yearly { color: rgba(255,255,255,0.78); }
+  .price-card.premium .price-cta { background: var(--hub); color: white; border: 0; background-size: 160% 100%; transition: background-position 0.4s, transform 0.2s var(--ease); }
+  .price-card.premium .price-cta:hover { background-position: 100% 0; }
+  .price-card.premium li { color: rgba(255,255,255,0.88); }
+  .price-card.premium li svg { color: #C4B5FD; }
+  .price-badge {
+    position: absolute; top: 34px; right: 30px;
+    background: rgba(255,255,255,0.14); color: white;
+    font-size: 12.5px; font-weight: 600;
+    padding: 4px 12px; border-radius: 100px;
+  }
+  @media (max-width: 760px) {
+    .price-grid { grid-template-columns: 1fr; max-width: 460px; }
+    .price-card { padding: 30px 24px 26px; border-radius: 24px; }
+    .price-badge { top: 28px; right: 22px; }
+  }
+
+  /* ── FAQ ── */
+  #faq .wrap { max-width: 860px; }
+  #faq .section-title { margin-bottom: 28px; }
+  #faq details { border-bottom: 1px solid var(--line); transition: border-color 0.25s; }
+  #faq details:first-of-type { border-top: 1px solid var(--line); }
+  #faq summary {
+    cursor: pointer; list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    padding: 22px 2px;
+    font-family: var(--display); font-weight: 600; font-size: 18.5px; line-height: 1.45;
+  }
+  #faq summary::-webkit-details-marker { display: none; }
+  #faq summary:hover { color: var(--hub-violet); }
+  /* The + turns into × and the answer settles in, so the click reads. */
+  #faq summary span {
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: white; border: 1px solid var(--line);
+    color: var(--hub-violet); font-size: 20px; line-height: 1;
+    transition: transform 0.3s var(--ease), background 0.25s, color 0.25s;
+  }
+  #faq details[open] summary span { transform: rotate(45deg); background: var(--night); color: white; border-color: var(--night); }
+  #faq details > p { padding: 0 48px 24px 2px; color: var(--ink-soft); font-size: 16px; line-height: 1.8; }
+  #faq details > p a { color: var(--purple-d); }
+  #faq details[open] > p { animation: faqIn 0.35s var(--ease); }
+  @keyframes faqIn { from { opacity: 0; transform: translateY(-6px); } }
+  @media (max-width: 720px) { #faq summary { font-size: 16.5px; padding: 18px 0; } #faq details > p { padding-right: 0; } }
+
+  /* ── FINAL CTA: the hub band again, so the page ends where it began ── */
   .cta-final {
-    margin: 56px 28px 88px;
-    max-width: 1140px;
-    margin-left: auto; margin-right: auto;
-    background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 60%, var(--gold) 100%);
-    background-size: 200% 200%;
-    animation: gradShift 8s ease infinite;
-    border-radius: 32px;
-    padding: 64px 32px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 30px 70px rgba(168, 85, 247, 0.32);
-    position: relative; overflow: hidden;
+    margin: 104px 12px 12px;
+    border-radius: 36px;
+    position: relative; isolation: isolate; overflow: hidden;
+    background: var(--hub-violet);
+    color: white; text-align: center;
+    padding: 84px 24px;
   }
-  .cta-final::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 50%),
-      radial-gradient(circle at 70% 70%, rgba(255,255,255,0.10), transparent 50%);
-  }
-  .cta-final h2 { font-size: 38px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.7px; position: relative; }
-  .cta-final p { font-size: 17px; opacity: 0.95; margin-bottom: 30px; position: relative; }
-  .cta-final .hero-buttons { position: relative; }
+  .cta-final h2 { color: white; font-size: clamp(34px, 4.8vw, 60px); font-weight: 700; line-height: 1.15; margin-bottom: 14px; }
+  .cta-final p { font-size: 18px; color: rgba(255,255,255,0.94); margin-bottom: 32px; }
+  .cta-final .hero-buttons { justify-content: center; }
+  @media (max-width: 720px) { .cta-final { margin: 72px 8px 8px; padding: 56px 20px; border-radius: 24px; } }
 
   /* ── FOOTER ── */
-  footer { padding: 36px 28px; border-top: 1px solid var(--line); color: var(--ink-mute); font-size: 13px; text-align: center; background: white; position: relative; z-index: 2; }
-  footer .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; margin-bottom: 16px; }
-  footer a { color: var(--ink-soft); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-  footer a:hover { color: var(--purple-d); }
-  @media (max-width: 480px) {
-    footer { padding: 28px 16px; font-size: 12px; }
-    footer .links { gap: 12px 18px; margin-bottom: 12px; }
-  }
-
-  /* FAQ: the + turns into × and the answer settles in, so the click reads. */
-  #faq details { transition: border-color 0.25s, box-shadow 0.25s; }
-  #faq details:hover { border-color: rgba(168, 85, 247, 0.35); }
-  #faq details[open] { border-color: rgba(168, 85, 247, 0.45); box-shadow: var(--sh-2); }
-  #faq summary::-webkit-details-marker { display: none; }
-  #faq summary span { display: inline-block; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); line-height: 1; }
-  #faq details[open] summary span { transform: rotate(45deg); }
-  #faq details[open] > p { animation: faqIn 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
-  @keyframes faqIn { from { opacity: 0; transform: translateY(-6px); } }
-
-  .preview-banner {
-    background: linear-gradient(90deg, var(--purple), var(--pink));
-    color: white; padding: 8px 16px; text-align: center;
-    font-size: 13px; font-weight: 600;
-  }
-
-  /* Make sure content stays above background noise */
-  nav, .hero > *:not(.hero-mesh-1):not(.hero-mesh-2):not(.hero-mesh-3),
-  .stats-bar, .trust, .features-section, .line-section, .pricing, .cta-final, footer {
-    position: relative;
-    z-index: 2;
-  }
+  footer { padding: 36px 28px 44px; color: var(--ink-mute); font-size: 13.5px; text-align: center; }
+  footer .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 26px; margin-bottom: 14px; }
+  footer a { color: var(--ink-soft); text-decoration: none; font-weight: 500; }
+  footer a:hover { color: var(--hub-violet); }
 </style>
 </head>
 <body>
-
 
 <!-- SVG Icon Definitions -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -1455,17 +1065,15 @@
 </nav>
 
 <!-- HERO -->
+<div class="hero-frame">
 <section class="hero">
-  <div class="hero-mesh-1"></div>
-  <div class="hero-mesh-2"></div>
-  <div class="hero-mesh-3"></div>
   <div class="hero-inner">
-    <div class="reveal">
+    <div>
       <div class="hero-badge">
-        <svg width="14" height="14"><use href="#i-wand"/></svg>
-        ใช้ได้แล้ว iOS · Android · LINE
+        <svg><use href="#i-wand"/></svg>
+        ใช้ได้บน iPhone, Android และ LINE
       </div>
-      <h1>บันทึกรายจ่าย<br>ง่ายขึ้นด้วย <span class="grad">AI</span></h1>
+      <h1>จดรายจ่าย <span class="line2">แค่พิมพ์<wbr>ประโยคเดียว</span></h1>
       <p class="lead">
         แค่พิมพ์ "กาแฟ 80 บาท" — Budgy จัดหมวดหมู่ให้อัตโนมัติ สแกนใบเสร็จ ตั้งงบประมาณ หารบิลกับเพื่อน และวางแผนการเงินให้คุณครบจบในแอปเดียว
       </p>
@@ -1497,7 +1105,7 @@
       <div class="hero-buttons" id="download">
         <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn" aria-label="Download Budgy on the App Store">
           <svg><use href="#i-apple"/></svg>
-          <div><small>Download on</small><strong>App Store</strong></div>
+          <div><small>Download on the</small><strong>App Store</strong></div>
         </a>
         <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn" aria-label="Get Budgy on Google Play">
           <svg><use href="#i-play"/></svg>
@@ -1505,30 +1113,22 @@
         </a>
       </div>
     </div>
-    <div class="phone-wrap reveal">
+    <div class="phone-wrap">
       <div class="phone-stage" id="phoneWrap">
-      <div class="phone" id="phone">
-        <div class="phone-screen" id="phoneRotator">
-          <img class="phone-img active" src="assets/screens/th-01-home.png" alt="หน้าแรก Budgy">
-          <img class="phone-img" src="assets/screens/th-02-ai-chat.png" alt="ผู้ช่วย AI" loading="lazy">
-          <img class="phone-img" src="assets/screens/th-03-analytics.png" alt="วิเคราะห์การใช้จ่าย" loading="lazy">
-          <img class="phone-img" src="assets/screens/th-04-budgets.png" alt="งบประมาณ" loading="lazy">
-          <img class="phone-img" src="assets/screens/th-05-calendar.png" alt="ปฏิทิน" loading="lazy">
-          <img class="phone-img" src="assets/screens/th-06-ai-icons.png" alt="ไอคอนหมวดหมู่ AI" loading="lazy">
-          <img class="phone-img" src="assets/screens/th-07-groups.png" alt="กลุ่มเพื่อน" loading="lazy">
-          <img class="phone-img" src="assets/screens/th-08-slip-scan.png" alt="สแกนสลิปอัตโนมัติ" loading="lazy">
-          <img class="phone-img" src="assets/screens/th-09-statement.png" alt="นำเข้า Statement PDF" loading="lazy">
-          <img class="phone-img" src="assets/screens/th-10-split-bill.png" alt="หารบิลกับเพื่อน" loading="lazy">
+        <div class="phone" id="phone">
+          <div class="phone-screen" id="phoneRotator">
+            <img class="phone-img active" src="assets/screens/th-01-home.png" alt="หน้าแรก Budgy">
+            <img class="phone-img" src="assets/screens/th-02-ai-chat.png" alt="ผู้ช่วย AI" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-03-analytics.png" alt="วิเคราะห์การใช้จ่าย" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-04-budgets.png" alt="งบประมาณ" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-05-calendar.png" alt="ปฏิทิน" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-06-ai-icons.png" alt="ไอคอนหมวดหมู่ AI" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-07-groups.png" alt="กลุ่มเพื่อน" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-08-slip-scan.png" alt="สแกนสลิปอัตโนมัติ" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-09-statement.png" alt="นำเข้า Statement PDF" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-10-split-bill.png" alt="หารบิลกับเพื่อน" loading="lazy">
+          </div>
         </div>
-      </div>
-      <div class="float-badge b1">
-        <div class="ic"><svg><use href="#i-cpu"/></svg></div>
-        <div><small>AI จัดหมวด</small><strong>ฉลาดให้เอง</strong></div>
-      </div>
-      <div class="float-badge b2">
-        <div class="ic"><svg><use href="#i-scan"/></svg></div>
-        <div><small>สแกนสลิป</small><strong>1 วินาที</strong></div>
-      </div>
       </div>
       <div class="phone-nav">
         <div class="phone-caption" id="phoneCaption">หน้าแรก Budgy</div>
@@ -1537,62 +1137,99 @@
     </div>
   </div>
 </section>
-
-<!-- STATS BAR (counter animation) -->
-<div class="stats-bar reveal">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <div class="stat-number" data-target="20" data-suffix="+">20+</div>
-      <div class="stat-label">ฟีเจอร์ครบครัน</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-target="14" data-suffix="">14</div>
-      <div class="stat-label">สกุลเงินที่รองรับ</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-target="3" data-suffix="">3</div>
-      <div class="stat-label">iOS · Android · LINE</div>
-    </div>
-  </div>
 </div>
 
-<!-- TRUST PILLARS -->
-<section class="trust">
-  <div class="trust-grid reveal-stagger">
-    <div class="pillar cloud">
-      <div class="pillar-icon"><svg><use href="#i-cloud"/></svg></div>
-      <h4>เปลี่ยนเครื่อง ไม่ต้องเริ่มใหม่</h4>
-      <p>Login เดิม ข้อมูลครบ — รายการ งบ เป้าหมาย ตามคุณไปทุกเครื่อง ทั้ง iPhone, Android และ LINE</p>
-      <div class="micro"><svg><use href="#i-sync"/></svg> Sync อัตโนมัติ ทุกครั้ง</div>
+<!-- BANKS -->
+<section class="banks" aria-label="ธนาคารที่อ่านสลิปได้">
+  <div class="wrap">
+    <p><strong>อ่านสลิปได้ทุกธนาคารหลักของไทย</strong> รวมถึงสลิป PromptPay ไม่ต้องผูกบัญชีธนาคาร</p>
+    <div class="bank-row">
+      <img src="assets/banks/kbank.png" alt="กสิกรไทย" width="46" height="46" loading="lazy">
+      <img src="assets/banks/scb.png" alt="ไทยพาณิชย์" width="46" height="46" loading="lazy">
+      <img src="assets/banks/bbl.png" alt="กรุงเทพ" width="46" height="46" loading="lazy">
+      <img src="assets/banks/bay.png" alt="กรุงศรี" width="46" height="46" loading="lazy">
+      <img src="assets/banks/ktb.png" alt="กรุงไทย" width="46" height="46" loading="lazy">
+      <img src="assets/banks/ttb.png" alt="ทีทีบี" width="46" height="46" loading="lazy">
+      <img src="assets/banks/gsb.png" alt="ออมสิน" width="46" height="46" loading="lazy">
     </div>
-    <div class="pillar ai">
-      <div class="pillar-icon"><svg><use href="#i-wand"/></svg></div>
-      <h4>AI แนะนำ คุณตัดสินใจ</h4>
-      <p>AI จัดหมวด วิเคราะห์ ทำงานเบื้องหลังให้ — แต่ทุกการบันทึก ทุกหมวด ทุกงบ คุณปรับเอง แก้ ลบได้ตลอด</p>
-      <div class="micro"><svg><use href="#i-cpu"/></svg> ฉลาดให้ ไม่ก้าวก่าย</div>
+  </div>
+</section>
+
+<!-- SLIPS -->
+<section class="section slips" id="slips">
+  <div class="wrap">
+    <div class="copy">
+      <h2 class="section-title">แคปสลิปไว้<br>Budgy เจอให้เอง</h2>
+      <p class="section-desc">โอนผ่าน PromptPay หรือแอปธนาคาร แล้วแคปสลิปไว้ — Budgy ตรวจพบจากแกลเลอรีให้เอง ดึงร้าน เลขอ้างอิง ยอดเงิน แค่กดยืนยัน</p>
+      <ul class="slip-facts">
+        <li><svg><use href="#i-check"/></svg> ถ้ายอดและวันที่ตรงกับรายการที่คุณพิมพ์ไว้แล้ว แอปจะถามก่อนว่าจะรวมหรือแยก</li>
+        <li><svg><use href="#i-check"/></svg> ไม่ต้องให้รหัสหรือเชื่อมบัญชีธนาคาร ใช้แค่ภาพที่คุณเลือกเอง</li>
+        <li><svg><use href="#i-check"/></svg> สแกนสลิปเป็นฟีเจอร์ Premium บัญชีใหม่ใช้ได้ไม่จำกัดตลอดช่วงทดลอง 14 วัน</li>
+      </ul>
     </div>
-    <div class="pillar priv">
-      <div class="pillar-icon"><svg><use href="#i-shield"/></svg></div>
-      <h4>ข้อมูลของคุณ เป็นของคุณ</h4>
-      <p>ดูได้ทั้งหมด ส่งออก CSV เก็บไว้เอง ลบบัญชีเองได้ทุกเมื่อ — ทุกอย่างอยู่ในมือคุณ</p>
-      <div class="micro"><svg><use href="#i-export"/></svg> ดูได้ · Export · ลบเอง</div>
+    <div class="slip-stage" id="slipStage" aria-hidden="true">
+      <div class="slip s3">
+        <div class="band"><img src="assets/banks/bbl.png" alt="">โอนเงินสำเร็จ</div>
+        <div class="body">
+          <div class="ok"><svg><use href="#i-check"/></svg> สำเร็จ</div>
+          <div class="amt">฿599.00</div>
+          <dl><dt>ไปยัง</dt><dd>ค่าอินเทอร์เน็ต</dd><dt>วันที่</dt><dd>28 ต.ค. 69</dd></dl>
+        </div>
+        <div class="perf"></div>
+      </div>
+      <div class="slip s2">
+        <div class="band"><img src="assets/banks/scb.png" alt="">โอนเงินสำเร็จ</div>
+        <div class="body">
+          <div class="ok"><svg><use href="#i-check"/></svg> สำเร็จ</div>
+          <div class="amt">฿1,240.00</div>
+          <dl><dt>ไปยัง</dt><dd>หมูกระทะ ลาดพร้าว</dd><dt>วันที่</dt><dd>27 ต.ค. 69</dd></dl>
+        </div>
+        <div class="perf"></div>
+      </div>
+      <div class="slip s1">
+        <div class="band"><img src="assets/banks/kbank.png" alt="">โอนเงินสำเร็จ</div>
+        <div class="body">
+          <div class="ok"><svg><use href="#i-check"/></svg> สำเร็จ</div>
+          <div class="amt">฿85.00</div>
+          <dl><dt>ไปยัง</dt><dd>ร้านกาแฟ อารีย์</dd><dt>วันที่</dt><dd>28 ต.ค. 69</dd></dl>
+        </div>
+        <div class="perf"></div>
+      </div>
+      <div class="ledger">
+        <div class="ledger-head"><strong>รายการจากสลิป</strong><span>รอคุณกดยืนยัน</span></div>
+        <div class="ledger-row">
+          <div class="cat" style="background:linear-gradient(135deg,#EA580C,#F59E0B)"><svg><use href="#i-coffee"/></svg></div>
+          <div><b>ร้านกาแฟ อารีย์</b><small>อาหารและเครื่องดื่ม</small></div>
+          <div class="v">฿85</div>
+        </div>
+        <div class="ledger-row">
+          <div class="cat" style="background:linear-gradient(135deg,#BE185D,#EC4899)"><svg><use href="#i-users"/></svg></div>
+          <div><b>หมูกระทะ ลาดพร้าว</b><small>อาหารและเครื่องดื่ม</small></div>
+          <div class="v">฿1,240</div>
+        </div>
+        <div class="ledger-row">
+          <div class="cat" style="background:linear-gradient(135deg,#0369A1,#0EA5E9)"><svg><use href="#i-wifi"/></svg></div>
+          <div><b>ค่าอินเทอร์เน็ต</b><small>บิลและค่าบริการ</small></div>
+          <div class="v">฿599</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FEATURES -->
-<section class="features-section" id="features">
-  <div class="reveal">
-    <div class="section-label">ฟีเจอร์</div>
-    <h2 class="section-title">ทุกอย่างที่คุณต้องการ<br>สำหรับจัดการเงิน</h2>
-    <p class="section-desc">Budgy ออกแบบมาให้บันทึกรายจ่ายได้ง่ายที่สุด ด้วย AI ที่ฉลาดพอจะจัดการแทนคุณ</p>
-  </div>
+<section class="section features-section" id="features">
+  <div class="wrap">
+    <div class="features-head">
+      <h2 class="section-title">ครบทุกเรื่องเงิน<br>ในแอปเดียว</h2>
+      <p class="section-desc">Budgy ออกแบบมาให้บันทึกรายจ่ายได้ง่ายที่สุด ด้วย AI ที่ฉลาดพอจะจัดการแทนคุณ</p>
+    </div>
 
-  <div class="features-grid reveal-stagger">
     <article class="feat-card f7 new">
-      <div class="new-badge">ใหม่</div>
-      <div class="feat-icon"><svg><use href="#i-split"/></svg></div>
-      <h3>หารบิลกับเพื่อน</h3>
+      <div class="top">
+        <div class="feat-icon"><svg><use href="#i-split"/></svg></div>
+        <h3>หารบิลกับเพื่อน <span class="new-badge">ใหม่</span></h3>
+      </div>
       <p>ออกเงินไปก่อนทั้งก้อน แล้วค่อยแตะ <b>หารบิล</b> ที่รายการนั้น — ยอดในรายการจะเหลือแค่ส่วนของคุณจริง ๆ ที่เหลือกลายเป็นยอดที่เพื่อนค้างไว้ ไม่ปนกับรายจ่ายส่วนตัว <b>เพื่อนไม่ต้องโหลดแอป ไม่ต้องสมัคร</b></p>
       <div class="split-points">
         <span><svg><use href="#i-chat"/></svg> พิมพ์บอกเป็นประโยค “หารกัน 4 คน แต่บอสไม่ได้กินของหวาน” แล้ว AI แบ่งยอดให้</span>
@@ -1600,229 +1237,242 @@
         <span><svg><use href="#i-users"/></svg> รวมหลายบิลของทริปเดียว พร้อมแผนโอนคืนที่โอนน้อยครั้งที่สุด</span>
       </div>
     </article>
-    <article class="feat-card f1">
-      <div class="feat-icon"><svg><use href="#i-cpu"/></svg></div>
-      <h3>AI จัดหมวดหมู่ให้เอง</h3>
-      <p>พิมพ์ "ข้าวมันไก่ 50" — AI รู้เลยว่าเป็นค่าอาหาร ไม่ต้องเลือกหมวดเอง เข้าใจชื่อร้าน · เมนู · บริการในไทย</p>
-    </article>
-    <article class="feat-card f2">
-      <div class="feat-icon"><svg><use href="#i-scan"/></svg></div>
-      <h3>สแกนสลิปอัตโนมัติ</h3>
-      <p>โอนผ่าน PromptPay หรือแอปธนาคาร แล้วแคปสลิปไว้ — Budgy ตรวจพบจากแกลเลอรีให้เอง ดึงร้าน เลขอ้างอิง ยอดเงิน แค่กดยืนยัน</p>
-    </article>
-    <article class="feat-card f3">
-      <div class="feat-icon"><svg><use href="#i-receipt"/></svg></div>
-      <h3>สแกนใบเสร็จ</h3>
-      <p>ถ่ายรูปใบเสร็จเดียว — AI ดึงร้าน รายการ และราคาให้ครบ ใช้เวลาไม่ถึง 5 วินาที</p>
-    </article>
-    <article class="feat-card f4">
-      <div class="feat-icon"><svg><use href="#i-chat"/></svg></div>
-      <h3>AI ผู้ช่วยตอบทุกคำถาม</h3>
-      <p>"เดือนนี้ใช้กับร้านอาหารไปกี่บาท?" ถามภาษาไทย Budgy ตอบทันที พร้อมวิเคราะห์</p>
-    </article>
-    <article class="feat-card f5">
-      <div class="feat-icon"><svg><use href="#i-briefcase"/></svg></div>
-      <h3>Net Worth ทั้งชีวิตในที่เดียว</h3>
-      <p>บัญชีธนาคาร · กองทุน · หุ้น · ทองคำ · บ้าน · พร้อมหนี้สินและบัตรเครดิต — เห็นยอดสุทธิจริงว่าคุณรวยขึ้นไหม ไม่ใช่แค่รายจ่ายรายเดือน</p>
-    </article>
-    <article class="feat-card f6">
-      <div class="feat-icon"><svg><use href="#i-bank"/></svg></div>
-      <h3>นำเข้า Statement PDF</h3>
-      <p>ดาวน์โหลด PDF จากแอปธนาคาร → ลากเข้า Budgy → AI ดึงทุกธุรกรรมให้ในไม่กี่วินาที ไม่ต้องบันทึกย้อนหลังด้วยมือเป็นชั่วโมง</p>
-    </article>
-  </div>
 
-  <div class="more-features reveal">
-    <div class="more-label">และอีกมากมาย</div>
-    <div class="pills">
-      <span class="pill"><svg><use href="#i-chart"/></svg> ตั้งงบประมาณ</span>
-      <span class="pill"><svg><use href="#i-target"/></svg> เป้าหมายการออม</span>
-      <span class="pill"><svg><use href="#i-trending"/></svg> วางแผนการเงินระยะยาว</span>
-      <span class="pill"><svg><use href="#i-users"/></svg> ค่าใช้จ่ายกลุ่ม</span>
-      <span class="pill"><svg><use href="#i-calendar"/></svg> มุมมองปฏิทิน</span>
-      <span class="pill"><svg><use href="#i-trending"/></svg> วิเคราะห์การใช้จ่าย</span>
-      <span class="pill"><svg><use href="#i-repeat"/></svg> รายการเกิดประจำ</span>
-      <span class="pill"><svg><use href="#i-search"/></svg> ค้นหา</span>
-      <span class="pill"><svg><use href="#i-globe"/></svg> 14 สกุลเงิน</span>
+    <div class="feat-list">
+      <article class="feat-item f1">
+        <div class="feat-icon"><svg><use href="#i-cpu"/></svg></div>
+        <div><h3>AI จัดหมวดหมู่ให้เอง</h3><p>พิมพ์ "ข้าวมันไก่ 50" — AI รู้เลยว่าเป็นค่าอาหาร ไม่ต้องเลือกหมวดเอง เข้าใจชื่อร้าน เมนู และบริการในไทย</p></div>
+      </article>
+      <article class="feat-item f4">
+        <div class="feat-icon"><svg><use href="#i-chat"/></svg></div>
+        <div><h3>AI ผู้ช่วยตอบทุกคำถาม</h3><p>"เดือนนี้ใช้กับร้านอาหารไปกี่บาท?" ถามภาษาไทย Budgy ตอบทันที พร้อมวิเคราะห์</p></div>
+      </article>
+      <article class="feat-item f6">
+        <div class="feat-icon"><svg><use href="#i-bank"/></svg></div>
+        <div><h3>นำเข้า Statement PDF</h3><p>ดาวน์โหลด PDF จากแอปธนาคาร แล้วส่งเข้า Budgy — AI ดึงทุกธุรกรรมให้ในไม่กี่วินาที ไม่ต้องบันทึกย้อนหลังด้วยมือเป็นชั่วโมง</p></div>
+      </article>
+      <article class="feat-item f3">
+        <div class="feat-icon"><svg><use href="#i-receipt"/></svg></div>
+        <div><h3>สแกนใบเสร็จ</h3><p>ถ่ายรูปใบเสร็จเดียว — AI ดึงร้าน รายการ และราคาให้ครบ ใช้เวลาไม่ถึง 5 วินาที</p></div>
+      </article>
+      <article class="feat-item f5">
+        <div class="feat-icon"><svg><use href="#i-briefcase"/></svg></div>
+        <div><h3>Net Worth ทั้งชีวิตในที่เดียว</h3><p>บัญชีธนาคาร กองทุน หุ้น ทองคำ บ้าน พร้อมหนี้สินและบัตรเครดิต — เห็นยอดสุทธิจริงว่าคุณรวยขึ้นไหม ไม่ใช่แค่รายจ่ายรายเดือน</p></div>
+      </article>
+      <article class="feat-item f2">
+        <div class="feat-icon" style="--c1:#0F766E;--c2:#0369A1"><svg><use href="#i-chart"/></svg></div>
+        <div><h3>ตั้งงบ ตั้งเป้าออม</h3><p>ตั้งงบรายเดือนแยกตามหมวด เห็นทันทีว่าเหลือเท่าไร และตั้งเป้าออมเงินพร้อมดูความคืบหน้าในหน้าเดียว</p></div>
+      </article>
+    </div>
+
+    <div class="more-features">
+      <div class="more-label">และอีกมากมาย</div>
+      <div class="pills">
+        <span class="pill"><svg><use href="#i-trending"/></svg> วางแผนการเงินระยะยาว</span>
+        <span class="pill"><svg><use href="#i-users"/></svg> ค่าใช้จ่ายกลุ่ม</span>
+        <span class="pill"><svg><use href="#i-calendar"/></svg> มุมมองปฏิทิน</span>
+        <span class="pill"><svg><use href="#i-trending"/></svg> วิเคราะห์การใช้จ่าย</span>
+        <span class="pill"><svg><use href="#i-repeat"/></svg> รายการเกิดประจำ</span>
+        <span class="pill"><svg><use href="#i-search"/></svg> ค้นหา</span>
+        <span class="pill"><svg><use href="#i-globe"/></svg> 14 สกุลเงิน</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISES -->
+<section class="promises trust">
+  <div class="wrap">
+    <h2 class="section-title">AI ช่วยคิด คุณเป็นคนตัดสินใจ</h2>
+    <p class="section-desc">สามเรื่องที่ Budgy ยึดไว้ ไม่ว่าคุณจะใช้ฟรีหรือ Premium</p>
+    <div class="trust-grid">
+      <div class="pillar cloud">
+        <div class="pillar-icon"><svg><use href="#i-cloud"/></svg></div>
+        <h4>เปลี่ยนเครื่อง ไม่ต้องเริ่มใหม่</h4>
+        <p>Login เดิม ข้อมูลครบ — รายการ งบ เป้าหมาย ตามคุณไปทุกเครื่อง ทั้ง iPhone, Android และ LINE</p>
+        <div class="micro"><svg><use href="#i-sync"/></svg> Sync อัตโนมัติ ทุกครั้ง</div>
+      </div>
+      <div class="pillar ai">
+        <div class="pillar-icon"><svg><use href="#i-wand"/></svg></div>
+        <h4>AI แนะนำ คุณตัดสินใจ</h4>
+        <p>AI จัดหมวด วิเคราะห์ ทำงานเบื้องหลังให้ — แต่ทุกการบันทึก ทุกหมวด ทุกงบ คุณปรับเอง แก้ ลบได้ตลอด</p>
+        <div class="micro"><svg><use href="#i-cpu"/></svg> ฉลาดให้ ไม่ก้าวก่าย</div>
+      </div>
+      <div class="pillar priv">
+        <div class="pillar-icon"><svg><use href="#i-shield"/></svg></div>
+        <h4>ข้อมูลของคุณ เป็นของคุณ</h4>
+        <p>ดูได้ทั้งหมด ส่งออก CSV เก็บไว้เอง ลบบัญชีเองได้ทุกเมื่อ — ทุกอย่างอยู่ในมือคุณ</p>
+        <div class="micro"><svg><use href="#i-export"/></svg> ดูได้ ส่งออกได้ ลบเองได้</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- LINE -->
-<section class="line-section reveal">
-  <div class="line-badge-top">
-    <svg width="14" height="14"><use href="#i-line"/></svg>
-    LINE
-  </div>
-  <h2>ใช้ผ่าน LINE ได้เลย</h2>
-  <p>แค่พิมพ์ "ข้าวกลางวัน 150 บาท" ใน LINE — Budgy บันทึก จัดหมวด สรุปยอดให้ทันที ไม่ต้องเปิดแอป</p>
-
-  <div style="display:flex;gap:32px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:8px;">
-    <a href="https://lin.ee/P3z4Rbr" class="line-btn">
-      <span>เพิ่มเพื่อน Budgy บน LINE</span>
-      <svg><use href="#i-arrow-right"/></svg>
-    </a>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-      <img src="assets/line-qr.png" alt="LINE QR code สำหรับเพิ่มเพื่อน Budgy" width="140" height="140" style="background:white;border-radius:14px;padding:8px;box-shadow:0 4px 16px rgba(0,0,0,0.1);">
-      <span style="font-size:13px;color:rgba(255,255,255,0.85);font-weight:500;">หรือสแกน QR</span>
+<section class="section line-section">
+  <div class="wrap">
+    <div class="panel">
+      <div>
+        <div class="line-badge-top"><svg><use href="#i-line"/></svg> LINE Official Account</div>
+        <h2>จดผ่าน LINE ได้เลย<br>ไม่ต้องเปิดแอป</h2>
+        <p>แค่พิมพ์ "ข้าวกลางวัน 150 บาท" ใน LINE — Budgy บันทึก จัดหมวด สรุปยอดให้ทันที ไม่ต้องเปิดแอป</p>
+        <div class="line-actions">
+          <a href="https://lin.ee/P3z4Rbr" class="line-btn"><svg><use href="#i-line"/></svg><span>เพิ่มเพื่อน Budgy บน LINE</span></a>
+          <div class="line-qr">
+            <img src="assets/line-qr.png" alt="LINE QR code สำหรับเพิ่มเพื่อน Budgy" width="92" height="92">
+            <span>หรือสแกน QR</span>
+          </div>
+        </div>
+      </div>
+      <div class="chat" aria-hidden="true">
+        <div class="chat-head"><img src="assets/budgy-logo-nav.png" alt=""><b>Budgy</b></div>
+        <div class="bubble me">ข้าวกลางวัน 150</div>
+        <div class="bubble bot">บันทึกแล้ว: อาหารและเครื่องดื่ม <b>฿150</b></div>
+        <div class="bubble me">grab กลับบ้าน 180</div>
+        <div class="bubble bot">บันทึกแล้ว: เดินทาง <b>฿180</b></div>
+        <div class="bubble me">วันนี้ใช้ไปเท่าไหร่</div>
+        <div class="bubble bot">วันนี้ใช้ไป <b>฿330</b> จาก 2 รายการ</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="reveal">
-    <div class="section-label">ราคา</div>
-    <h2 class="section-title">เลือกแพ็กเกจที่เหมาะกับคุณ</h2>
-    <p class="section-desc">เริ่มใช้ฟรี อัพเกรดเมื่อพร้อม</p>
-    <p class="section-desc" style="font-size:13px;margin-top:-10px;">ราคาอ้างอิงจาก App Store — บน Google Play อาจต่างกันเล็กน้อย ยอดที่เรียกเก็บจริงจะแสดงในแอปก่อนยืนยันการสมัครเสมอ</p>
-    <div class="currency-toggle" id="currencyToggle" role="tablist" aria-label="Currency">
-      <span class="slider"></span>
-      <button data-currency="THB" role="tab">THB ฿</button>
-      <button data-currency="USD" role="tab">USD $</button>
+<section class="section pricing" id="pricing">
+  <div class="wrap">
+    <div class="pricing-head">
+      <h2 class="section-title">เริ่มฟรี อัปเกรดเมื่อพร้อม</h2>
+      <p class="section-desc">ใช้ฟรีได้ตลอดไป หรือปลดล็อกทุกอย่างด้วย Premium</p>
+      <p class="fine">ราคาอ้างอิงจาก App Store — บน Google Play อาจต่างกันเล็กน้อย ยอดที่เรียกเก็บจริงจะแสดงในแอปก่อนยืนยันการสมัครเสมอ</p>
+      <div class="currency-toggle" id="currencyToggle" role="tablist" aria-label="Currency">
+        <span class="slider"></span>
+        <button data-currency="THB" role="tab">THB ฿</button>
+        <button data-currency="USD" role="tab">USD $</button>
+      </div>
     </div>
-  </div>
 
-  <div class="price-grid reveal-stagger">
-    <article class="price-card tier-free">
-      <div class="tier-mark"><svg><use href="#i-leaf"/></svg></div>
-      <h3>Free</h3>
-      <div class="tier-desc">เริ่มต้นจัดการเงิน</div>
-      <div class="price-amt"><span class="amt" data-thb="฿0" data-usd="$0">฿0</span> <small>/เดือน</small></div>
-      <div class="price-yearly" style="font-size:12px;color:var(--ink-mute);margin-top:-8px"
-           data-thb="ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน"
-           data-usd="ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน">ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน</div>
-      <a href="#download" class="price-cta">เริ่มต้นฟรี</a>
-      <ul>
-        <li><svg><use href="#i-check"/></svg> AI 30 ครั้ง/เดือน</li>
-        <li><svg><use href="#i-check"/></svg> งบประมาณ 5 รายการ</li>
-        <li><svg><use href="#i-check"/></svg> สแกนใบเสร็จ 5 ครั้ง</li>
-        <li><svg><use href="#i-check"/></svg> เป้าหมาย 3 รายการ</li>
-        <li><svg><use href="#i-check"/></svg> รายการไม่จำกัด</li>
-        <li><svg><use href="#i-check"/></svg> ใช้บน iOS · Android · LINE</li>
-      </ul>
-    </article>
+    <div class="price-grid">
+      <article class="price-card tier-free">
+        <h3>Free</h3>
+        <div class="tier-desc">เริ่มต้นจัดการเงิน</div>
+        <div class="price-amt"><span class="amt" data-thb="฿0" data-usd="$0">฿0</span> <small>/เดือน</small></div>
+        <div class="price-yearly"
+             data-thb="ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน"
+             data-usd="ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน">ฟรี ใช้ได้ตลอดไป ไม่มีค่าใช้จ่ายซ่อน</div>
+        <a href="#download" class="price-cta">เริ่มต้นฟรี</a>
+        <ul>
+          <li><svg><use href="#i-check"/></svg> รายการไม่จำกัด</li>
+          <li><svg><use href="#i-check"/></svg> AI 30 ครั้ง/เดือน</li>
+          <li><svg><use href="#i-check"/></svg> งบประมาณ 5 รายการ</li>
+          <li><svg><use href="#i-check"/></svg> สแกนใบเสร็จ 5 ครั้ง</li>
+          <li><svg><use href="#i-check"/></svg> เป้าหมาย 3 รายการ</li>
+          <li><svg><use href="#i-check"/></svg> ใช้บน iOS, Android และ LINE</li>
+        </ul>
+      </article>
 
-    <article class="price-card tier-pro">
-      <div class="tier-mark"><svg><use href="#i-wand"/></svg></div>
-      <h3>Pro</h3>
-      <div class="tier-desc">สำหรับคนจริงจัง</div>
-      <div class="price-amt"><span class="amt" data-thb="฿179" data-usd="$4.99">฿179</span> <small>/เดือน</small></div>
-      <div class="price-yearly" style="font-size:12px;color:var(--ink-mute);margin-top:-8px"
-           data-thb="หรือ ฿1,790/ปี (ประหยัด 17%)"
-           data-usd="หรือ $49.99/ปี (ประหยัด 17%)">หรือ ฿1,790/ปี (ประหยัด 17%)</div>
-      <a href="#download" class="price-cta">เลือก Pro</a>
-      <ul>
-        <li><svg><use href="#i-check"/></svg> AI 100 ครั้ง/เดือน</li>
-        <li><svg><use href="#i-check"/></svg> งบประมาณ 10 รายการ</li>
-        <li><svg><use href="#i-check"/></svg> สแกนใบเสร็จ 20 ครั้ง</li>
-        <li><svg><use href="#i-check"/></svg> วิเคราะห์ขั้นสูง</li>
-        <li><svg><use href="#i-check"/></svg> กลุ่ม 5 กลุ่ม (10 คน)</li>
-        <li><svg><use href="#i-check"/></svg> เป้าหมาย 10 รายการ</li>
-      </ul>
-    </article>
-
-    <article class="price-card premium popular">
-      <div class="price-badge">ยอดนิยม</div>
-      <div class="tier-mark"><svg><use href="#i-trending"/></svg></div>
-      <h3>Premium</h3>
-      <div class="tier-desc">ไม่จำกัดทุกอย่าง</div>
-      <div class="price-amt"><span class="amt" data-thb="฿349" data-usd="$9.99">฿349</span> <small>/เดือน</small></div>
-      <div class="price-yearly" style="font-size:12px;color:var(--ink-mute);margin-top:-8px"
-           data-thb="หรือ ฿3,490/ปี (ประหยัด 17%)"
-           data-usd="หรือ $99.99/ปี (ประหยัด 17%)">หรือ ฿3,490/ปี (ประหยัด 17%)</div>
-      <a href="#download" class="price-cta">เลือก Premium</a>
-      <ul>
-        <li><svg><use href="#i-check"/></svg> ไม่จำกัดทุกฟีเจอร์</li>
-        <li><svg><use href="#i-check"/></svg> วางแผนการเงินเต็มรูปแบบ</li>
-        <li><svg><use href="#i-check"/></svg> AI Avatar ส่วนตัว</li>
-        <li><svg><use href="#i-check"/></svg> Priority Support</li>
-        <li><svg><use href="#i-check"/></svg> Export CSV ไม่จำกัด</li>
-        <li><svg><use href="#i-check"/></svg> AI Icons สั่งสร้างเอง</li>
-      </ul>
-    </article>
+      <article class="price-card premium">
+        <div class="price-badge">บัญชีใหม่ลองฟรี 14 วัน</div>
+        <h3>Premium</h3>
+        <div class="tier-desc">ไม่จำกัดทุกอย่าง</div>
+        <div class="price-amt"><span class="amt" data-thb="฿349" data-usd="$9.99">฿349</span> <small>/เดือน</small></div>
+        <div class="price-yearly"
+             data-thb="หรือ ฿3,490/ปี (ประหยัด 17%)"
+             data-usd="หรือ $99.99/ปี (ประหยัด 17%)">หรือ ฿3,490/ปี (ประหยัด 17%)</div>
+        <a href="#download" class="price-cta">เลือก Premium</a>
+        <ul>
+          <li><svg><use href="#i-check"/></svg> ไม่จำกัดทุกฟีเจอร์</li>
+          <li><svg><use href="#i-check"/></svg> สแกนสลิปและนำเข้า Statement</li>
+          <li><svg><use href="#i-check"/></svg> วางแผนการเงินเต็มรูปแบบ</li>
+          <li><svg><use href="#i-check"/></svg> AI Icons สั่งสร้างเอง</li>
+          <li><svg><use href="#i-check"/></svg> Export CSV ไม่จำกัด</li>
+          <li><svg><use href="#i-check"/></svg> Priority Support</li>
+        </ul>
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="reveal" style="max-width:840px;margin:0 auto;padding:80px 24px 40px;">
-  <h2 class="section-title" style="margin-bottom:32px;">คำถามที่พบบ่อย</h2>
+<section class="section" id="faq">
+  <div class="wrap">
+  <h2 class="section-title">คำถามที่พบบ่อย</h2>
 
-  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+  <details>
+    <summary>
       Budgy ใช้ฟรีได้ตลอดไปจริงไหม?
-      <span style="color:var(--purple-d);font-size:20px;">+</span>
+      <span>+</span>
     </summary>
-    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">ใช้ได้ตลอดไป มีโควต้ารายเดือนใจดีให้ครบทุกฟีเจอร์ — บันทึกรายจ่ายไม่จำกัด ตั้งงบ ตั้งเป้าออม วิเคราะห์การใช้จ่าย ใช้ AI ในระดับฟรี ส่วน Premium ปลดล็อกใช้แบบไม่จำกัด ทั้ง AI สแกนสลิป นำเข้า Statement และฟีเจอร์ขั้นสูง</p>
+    <p>ใช้ได้ตลอดไป มีโควต้ารายเดือนใจดีให้ครบทุกฟีเจอร์ — บันทึกรายจ่ายไม่จำกัด ตั้งงบ ตั้งเป้าออม วิเคราะห์การใช้จ่าย ใช้ AI ในระดับฟรี ส่วน Premium ปลดล็อกใช้แบบไม่จำกัด ทั้ง AI สแกนสลิป นำเข้า Statement และฟีเจอร์ขั้นสูง</p>
   </details>
 
-  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+  <details>
+    <summary>
       AI จัดหมวดหมู่ทำงานยังไง? แม่นแค่ไหน?
-      <span style="color:var(--purple-d);font-size:20px;">+</span>
+      <span>+</span>
     </summary>
-    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">พิมพ์รายจ่ายเป็นภาษาธรรมชาติ เช่น "ค่ากาแฟ 60" หรือ "ข้าวมันไก่ 50" — Budgy AI ใช้ Gemini วิเคราะห์ข้อความและจัดหมวดให้ ถ้าคุณแก้หมวด AI จะเรียนรู้และจัดให้ถูกขึ้นในครั้งต่อไป รองรับภาษาไทยและอังกฤษ</p>
+    <p>พิมพ์รายจ่ายเป็นภาษาธรรมชาติ เช่น "ค่ากาแฟ 60" หรือ "ข้าวมันไก่ 50" — Budgy AI ใช้ Gemini วิเคราะห์ข้อความและจัดหมวดให้ ถ้าคุณแก้หมวด AI จะเรียนรู้และจัดให้ถูกขึ้นในครั้งต่อไป รองรับภาษาไทยและอังกฤษ</p>
   </details>
 
-  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+  <details>
+    <summary>
       สแกนสลิปจากธนาคารไหนได้บ้าง?
-      <span style="color:var(--purple-d);font-size:20px;">+</span>
+      <span>+</span>
     </summary>
-    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">สแกนสลิปจาก mobile banking ได้ทุกธนาคารหลักของไทย: SCB, Kasikorn, Krungsri, Bangkok Bank, KTB, TTB, GSB และอื่นๆ รวมถึงสลิป PromptPay เพียงถ่ายรูปหรือเลือกจากแกลเลอรี — Budgy ตรวจเจอและลงรายการให้อัตโนมัติ</p>
+    <p>สแกนสลิปจาก mobile banking ได้ทุกธนาคารหลักของไทย: SCB, Kasikorn, Krungsri, Bangkok Bank, KTB, TTB, GSB และอื่นๆ รวมถึงสลิป PromptPay เพียงถ่ายรูปหรือเลือกจากแกลเลอรี — Budgy ตรวจเจอและลงรายการให้อัตโนมัติ</p>
   </details>
 
-  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+  <details>
+    <summary>
       ข้อมูลปลอดภัยไหม? Budgy เก็บข้อมูลอะไรบ้าง?
-      <span style="color:var(--purple-d);font-size:20px;">+</span>
+      <span>+</span>
     </summary>
-    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">ข้อมูลทั้งหมดเข้ารหัสทั้งระหว่างส่ง (TLS) และเก็บ (AES-256 บน RDS/S3) ไม่มีโฆษณา ไม่ขายข้อมูล Budgy ไม่ได้เชื่อมกับบัญชีธนาคารคุณโดยตรง — ใช้แค่ภาพสลิปหรือ PDF statement ที่คุณเลือกอัปโหลดเอง อ่าน <a href="/privacy.html" style="color:var(--purple-d);">นโยบายความเป็นส่วนตัว</a></p>
+    <p>ข้อมูลทั้งหมดเข้ารหัสทั้งระหว่างส่ง (TLS) และเก็บ (AES-256 บน RDS/S3) ไม่มีโฆษณา ไม่ขายข้อมูล Budgy ไม่ได้เชื่อมกับบัญชีธนาคารคุณโดยตรง — ใช้แค่ภาพสลิปหรือ PDF statement ที่คุณเลือกอัปโหลดเอง อ่าน <a href="/privacy.html">นโยบายความเป็นส่วนตัว</a></p>
   </details>
 
-  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+  <details>
+    <summary>
       ใช้ Budgy ร่วมกับครอบครัว/แฟนได้ไหม?
-      <span style="color:var(--purple-d);font-size:20px;">+</span>
+      <span>+</span>
     </summary>
-    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">ได้ Budgy มีฟีเจอร์ "กลุ่ม" สำหรับแชร์งบและรายการกับครอบครัว แฟน หรือเพื่อน เห็นใครจ่ายอะไร ตั้งงบรวม และดูภาพรวมทั้งกลุ่มได้</p>
+    <p>ได้ Budgy มีฟีเจอร์ "กลุ่ม" สำหรับแชร์งบและรายการกับครอบครัว แฟน หรือเพื่อน เห็นใครจ่ายอะไร ตั้งงบรวม และดูภาพรวมทั้งกลุ่มได้</p>
   </details>
 
-  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+  <details>
+    <summary>
       หารบิลกับเพื่อนได้ไหม? เพื่อนต้องโหลดแอปด้วยหรือเปล่า?
-      <span style="color:var(--purple-d);font-size:20px;">+</span>
+      <span>+</span>
     </summary>
-    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">ได้ — เปิดรายจ่ายที่คุณออกเงินไปทั้งก้อน แตะ “หารบิล” แล้วเลือกวิธีหาร (เท่ากัน · ตามหุ้น · ระบุเอง) หรือพิมพ์บอกเป็นประโยคแล้วให้ AI แบ่งยอดให้ ยอดในรายการเดิมจะลดเหลือเฉพาะส่วนของคุณ ส่วนที่เหลือกลายเป็นยอดที่เพื่อนค้างไว้ เพื่อนไม่ต้องโหลดแอปและไม่ต้องสมัคร — ส่งการ์ดสรุปยอดให้ทางแชต แนบ QR พร้อมเพย์ได้ หรือส่งลิงก์ที่เพื่อนเปิดดูได้โดยไม่ต้องมีบัญชี (อ่านอย่างเดียว และยกเลิกลิงก์ได้ทุกเมื่อ)</p>
+    <p>ได้ — เปิดรายจ่ายที่คุณออกเงินไปทั้งก้อน แตะ “หารบิล” แล้วเลือกวิธีหาร (เท่ากัน · ตามหุ้น · ระบุเอง) หรือพิมพ์บอกเป็นประโยคแล้วให้ AI แบ่งยอดให้ ยอดในรายการเดิมจะลดเหลือเฉพาะส่วนของคุณ ส่วนที่เหลือกลายเป็นยอดที่เพื่อนค้างไว้ เพื่อนไม่ต้องโหลดแอปและไม่ต้องสมัคร — ส่งการ์ดสรุปยอดให้ทางแชต แนบ QR พร้อมเพย์ได้ หรือส่งลิงก์ที่เพื่อนเปิดดูได้โดยไม่ต้องมีบัญชี (อ่านอย่างเดียว และยกเลิกลิงก์ได้ทุกเมื่อ)</p>
   </details>
 
-  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+  <details>
+    <summary>
       Budgy ใช้บน LINE ได้ด้วยไหม?
-      <span style="color:var(--purple-d);font-size:20px;">+</span>
+      <span>+</span>
     </summary>
-    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">ได้ 2 แบบ — <strong>ใช้งานผ่าน LINE โดยตรง</strong> เพียงเพิ่มเพื่อน Budgy OA แล้วพิมพ์ “ข้าวกลางวัน 150” ระบบจะบันทึก จัดหมวด และตอบยอดสรุปกลับมาให้ในแชต แก้หรือลบรายการและถามยอดใช้จ่ายได้เช่นกัน โดยไม่ต้องเปิดแอป (ส่วนการตั้งงบ เป้าหมาย และกลุ่ม ต้องทำในแอป) และ <strong>ใช้ LINE Login</strong> เข้าสู่ระบบในแอป iOS/Android ได้ด้วย ไม่ต้องจำรหัสผ่านใหม่</p>
+    <p>ได้ 2 แบบ — <strong>ใช้งานผ่าน LINE โดยตรง</strong> เพียงเพิ่มเพื่อน Budgy OA แล้วพิมพ์ “ข้าวกลางวัน 150” ระบบจะบันทึก จัดหมวด และตอบยอดสรุปกลับมาให้ในแชต แก้หรือลบรายการและถามยอดใช้จ่ายได้เช่นกัน โดยไม่ต้องเปิดแอป (ส่วนการตั้งงบ เป้าหมาย และกลุ่ม ต้องทำในแอป) และ <strong>ใช้ LINE Login</strong> เข้าสู่ระบบในแอป iOS/Android ได้ด้วย ไม่ต้องจำรหัสผ่านใหม่</p>
   </details>
 
-  <details style="background:white;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;">
-    <summary style="cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+  <details>
+    <summary>
       ย้ายข้อมูลจากแอปอื่นมา Budgy ได้ไหม?
-      <span style="color:var(--purple-d);font-size:20px;">+</span>
+      <span>+</span>
     </summary>
-    <p style="margin:14px 0 0;color:var(--ink-soft);line-height:1.7;">นำเข้า PDF statement จากธนาคารโดยตรงได้ ส่วน CSV จากแอปอื่น (Money Lover, Spendee ฯลฯ) — ติดต่อทีมงานผ่าน <a href="https://www.facebook.com/BudgyApp" style="color:var(--purple-d);">Facebook</a> เราพร้อมช่วยย้ายข้อมูลให้</p>
+    <p>นำเข้า PDF statement จากธนาคารโดยตรงได้ ส่วน CSV จากแอปอื่น (Money Lover, Spendee ฯลฯ) — ติดต่อทีมงานผ่าน <a href="https://www.facebook.com/BudgyApp">Facebook</a> เราพร้อมช่วยย้ายข้อมูลให้</p>
   </details>
+  </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-final reveal">
+<section class="cta-final">
   <h2>เริ่มจัดการเงินวันนี้</h2>
   <p>ดาวน์โหลด Budgy ฟรี แล้วลองบันทึกรายจ่ายแรกของคุณ</p>
-  <div class="hero-buttons" style="justify-content:center">
-    <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn" style="background:white;color:var(--ink)" aria-label="Download Budgy on the App Store">
+  <div class="hero-buttons">
+    <a href="https://apps.apple.com/app/budgy/id6756961804" class="store-btn" aria-label="Download Budgy on the App Store">
       <svg><use href="#i-apple"/></svg>
-      <div><small>Download on</small><strong>App Store</strong></div>
+      <div><small>Download on the</small><strong>App Store</strong></div>
     </a>
-    <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn" style="background:white;color:var(--ink)" aria-label="Get Budgy on Google Play">
+    <a href="https://play.google.com/store/apps/details?id=io.budgy.mobile" class="store-btn" aria-label="Get Budgy on Google Play">
       <svg><use href="#i-play"/></svg>
       <div><small>Get it on</small><strong>Google Play</strong></div>
     </a>
@@ -1843,17 +1493,6 @@
 
 <script src="assets/site-logic.js?v=20260906b"></script>
 <script>
-  // ── Reveal-on-scroll ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => observer.observe(el));
-
   // ── Nav blur intensify on scroll ──
   const nav = document.getElementById('nav');
   const progressBar = document.getElementById('scrollProgress');
@@ -1883,50 +1522,18 @@
     if (target) spyObserver.observe(target);
   });
 
-  // ── Counter animation for stats ──
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.target);
-        const suffix = el.dataset.suffix || '';
-        if (reduceMotion) {
-          el.textContent = target + suffix;
-          counterObserver.unobserve(el);
-          return;
-        }
-        // Animation will run — reset to 0 so user sees the count-up
-        el.textContent = '0' + suffix;
-        const duration = 1600;
-        const start = performance.now();
-        function update(now) {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(target * eased) + suffix;
-          if (progress < 1) requestAnimationFrame(update);
-        }
-        requestAnimationFrame(update);
-        counterObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-number').forEach((el) => counterObserver.observe(el));
 
-  // ── 3D phone tilt on mouse ──
-  const phoneWrap = document.getElementById('phoneWrap');
-  const phone = document.getElementById('phone');
-  if (phoneWrap && phone && window.matchMedia('(min-width: 880px)').matches) {
-    phoneWrap.addEventListener('mousemove', (e) => {
-      const rect = phoneWrap.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      phone.style.transform = `rotateY(${x * 12}deg) rotateX(${-y * 8}deg) translateZ(0)`;
-    });
-    phoneWrap.addEventListener('mouseleave', () => {
-      phone.style.transform = 'rotateY(0) rotateX(0)';
-    });
+  // ── Slip stack: fans out into ledger rows once, when it scrolls into view ──
+  const slipStage = document.getElementById('slipStage');
+  if (slipStage) {
+    if (reduceMotion || !('IntersectionObserver' in window)) slipStage.classList.add('play');
+    else {
+      const slipObs = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { slipStage.classList.add('play'); slipObs.disconnect(); }
+      }, { threshold: 0.45 });
+      slipObs.observe(slipStage);
+    }
   }
 
   // ── Hero demo: the page types for you until you type for yourself ──

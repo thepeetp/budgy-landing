@@ -341,7 +341,6 @@ img { max-width: 100%; }
   white-space: nowrap;
 }
 .tier.free { background: rgba(20, 184, 166, 0.13); color: var(--teal-d); }
-.tier.pro { background: rgba(168, 85, 247, 0.13); color: var(--purple-d); }
 .tier.premium { background: rgba(245, 166, 35, 0.16); color: #B45309; }
 
 /* Callouts */

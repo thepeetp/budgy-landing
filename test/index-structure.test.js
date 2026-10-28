@@ -53,3 +53,21 @@ test('FAQ open-state CSS exists', () => {
   assert.match(html, /#faq details\[open\] summary span\s*\{[^}]*rotate\(45deg\)/s);
   assert.match(html, /#faq details\[open\] > p\s*\{[^}]*animation/s);
 });
+
+test('the Pro tier is gone from the site', () => {
+  // Removed at the user's request on 2026-10-28: the app's paywall sells Premium
+  // only (mobile paywall_screen.dart), so the site lists Free and Premium.
+  const guide = fs.readFileSync(path.join(__dirname, '..', 'guide', 'index.html'), 'utf8');
+  for (const [name, text] of [['index.html', html], ['guide/index.html', guide]]) {
+    const m = text.match(/\bPro\b|฿179|฿1,790|\$4\.99|\$49\.99|tier-pro/);
+    assert.equal(m, null, m && `${name}: "${m[0]}" at offset ${m.index}`);
+  }
+  const offers = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]).offers;
+  assert.deepEqual(offers.map((o) => o.name), ['Free', 'Premium']);
+});
+
+test('the slip stack hook exists', () => {
+  assert.ok(html.includes('id="slipStage"'), 'missing id="slipStage"');
+  assert.equal((html.match(/class="slip s\d"/g) || []).length, 3, 'expected three slips');
+  assert.equal((html.match(/class="ledger-row"/g) || []).length, 3, 'one ledger row per slip');
+});
