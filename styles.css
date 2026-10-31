@@ -54,6 +54,11 @@ h1 {
     font-size: 0.9em;
 }
 
+.last-updated a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
 .intro {
     background-color: var(--background-subtle);
     padding: 24px;

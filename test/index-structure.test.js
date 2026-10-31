@@ -71,3 +71,11 @@ test('the slip stack hook exists', () => {
   assert.equal((html.match(/class="slip s\d"/g) || []).length, 3, 'expected three slips');
   assert.equal((html.match(/class="ledger-row"/g) || []).length, 3, 'one ledger row per slip');
 });
+
+test('every phone showcase screenshot exists on disk', () => {
+  const srcs = [...html.matchAll(/<img class="phone-img[^>]*src="([^"]+)"/g)].map((m) => m[1]);
+  assert.ok(srcs.length >= 8, `expected the showcase screens, got ${srcs.length}`);
+  for (const src of srcs) {
+    assert.ok(fs.existsSync(path.join(__dirname, '..', src)), `missing showcase image: ${src}`);
+  }
+});

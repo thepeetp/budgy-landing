@@ -169,7 +169,7 @@
         "name": "ข้อมูลปลอดภัยไหม? Budgy เก็บข้อมูลอะไรบ้าง?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ข้อมูลทั้งหมดเข้ารหัสทั้งระหว่างส่ง (TLS) และเก็บ (AES-256 บน RDS/S3) ไม่มีโฆษณา ไม่ขายข้อมูล Budgy ไม่ได้เชื่อมกับบัญชีธนาคารคุณโดยตรง — ใช้แค่ภาพสลิปหรือ PDF statement ที่คุณเลือกอัปโหลดเอง"
+          "text": "ข้อมูลเข้ารหัสทั้งระหว่างส่ง (TLS) และขณะเก็บบนเซิร์ฟเวอร์ (AES-256 บน RDS/S3) Budgy ไม่ขายข้อมูลส่วนบุคคล และไม่ได้เชื่อมกับบัญชีธนาคารคุณโดยตรง — ใช้แค่ภาพสลิปหรือ PDF statement ที่คุณเลือกอัปโหลดเอง ฟีเจอร์ AI ส่งข้อมูลที่ต้องใช้ไปยัง Google Gemini หลังคุณยอมรับ และปิดได้ในแอป"
         }
       },
       {
@@ -1122,21 +1122,21 @@
       <div class="phone-stage" id="phoneWrap">
         <div class="phone" id="phone">
           <div class="phone-screen" id="phoneRotator">
-            <img class="phone-img active" src="assets/screens/th-01-home.png" alt="หน้าแรก Budgy">
+            <img class="phone-img active" src="assets/screens/th-08-slip-scan.png" alt="สแกนสลิปอัตโนมัติ">
             <img class="phone-img" src="assets/screens/th-02-ai-chat.png" alt="ผู้ช่วย AI" loading="lazy">
-            <img class="phone-img" src="assets/screens/th-03-analytics.png" alt="วิเคราะห์การใช้จ่าย" loading="lazy">
-            <img class="phone-img" src="assets/screens/th-04-budgets.png" alt="งบประมาณ" loading="lazy">
-            <img class="phone-img" src="assets/screens/th-05-calendar.png" alt="ปฏิทิน" loading="lazy">
-            <img class="phone-img" src="assets/screens/th-06-ai-icons.png" alt="ไอคอนหมวดหมู่ AI" loading="lazy">
-            <img class="phone-img" src="assets/screens/th-07-groups.png" alt="กลุ่มค่าใช้จ่าย" loading="lazy">
-            <img class="phone-img" src="assets/screens/th-08-slip-scan.png" alt="สแกนสลิปอัตโนมัติ" loading="lazy">
-            <img class="phone-img" src="assets/screens/th-09-statement.png" alt="นำเข้า Statement PDF" loading="lazy">
             <img class="phone-img" src="assets/screens/th-10-split-bill.png" alt="หารบิลกับเพื่อน" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-04-budgets.png" alt="งบประมาณ" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-01-home.png" alt="หน้าแรก Budgy" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-11-goals.png" alt="เป้าหมายการออม" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-12-net-worth.png" alt="ภาพรวมการเงินและมูลค่าสุทธิ" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-09-statement.png" alt="นำเข้า Statement PDF" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-03-analytics.png" alt="วิเคราะห์การใช้จ่าย" loading="lazy">
+            <img class="phone-img" src="assets/screens/th-05-calendar.png" alt="ปฏิทิน" loading="lazy">
           </div>
         </div>
       </div>
       <div class="phone-nav">
-        <div class="phone-caption" id="phoneCaption">หน้าแรก Budgy</div>
+        <div class="phone-caption" id="phoneCaption">สแกนสลิปอัตโนมัติ</div>
         <div class="phone-dots" id="phoneDots" role="tablist" aria-label="เลือกหน้าจอตัวอย่าง"></div>
       </div>
     </div>
@@ -1431,7 +1431,7 @@
       ข้อมูลปลอดภัยไหม? Budgy เก็บข้อมูลอะไรบ้าง?
       <span>+</span>
     </summary>
-    <p>ข้อมูลทั้งหมดเข้ารหัสทั้งระหว่างส่ง (TLS) และเก็บ (AES-256 บน RDS/S3) ไม่มีโฆษณา ไม่ขายข้อมูล Budgy ไม่ได้เชื่อมกับบัญชีธนาคารคุณโดยตรง — ใช้แค่ภาพสลิปหรือ PDF statement ที่คุณเลือกอัปโหลดเอง อ่าน <a href="/privacy.html">นโยบายความเป็นส่วนตัว</a></p>
+    <p>ข้อมูลเข้ารหัสทั้งระหว่างส่ง (TLS) และขณะเก็บบนเซิร์ฟเวอร์ (AES-256 บน RDS/S3) Budgy ไม่ขายข้อมูลส่วนบุคคล และไม่ได้เชื่อมกับบัญชีธนาคารคุณโดยตรง — ใช้แค่ภาพสลิปหรือ PDF statement ที่คุณเลือกอัปโหลดเอง ฟีเจอร์ AI ส่งข้อมูลที่ต้องใช้ไปยัง Google Gemini หลังคุณยอมรับ และปิดได้ในแอป อ่าน <a href="/privacy.html">นโยบายความเป็นส่วนตัว</a></p>
   </details>
 
   <details>
