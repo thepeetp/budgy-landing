@@ -12,7 +12,7 @@
     <div class="container">
         <div class="header">
             <h1>Privacy Policy</h1>
-            <p class="last-updated">Last updated: 31 October 2026</p>
+            <p class="last-updated">Last updated: 8 November 2026</p>
             <p class="last-updated"><a href="privacy-th.html" hreflang="th" lang="th">ภาษาไทย</a></p>
         </div>
 
@@ -56,22 +56,32 @@
             </div>
 
             <div class="section">
-                <h2>3. AI features and Google Gemini</h2>
-                <p>Budgy's AI features run on Google Gemini. At the date above, Google is the only AI provider Budgy uses.</p>
+                <h2>3. AI features, Google Gemini and OpenAI</h2>
+                <p>Budgy's AI features run on Google Gemini. The one exception is the icons Budgy draws automatically for entries you save, which go to OpenAI first and to Gemini if OpenAI cannot answer (see OpenAI and automatic icons below). At the date above, Google and OpenAI are the only AI providers Budgy uses.</p>
                 <p><strong>What is sent to Gemini</strong></p>
                 <ul>
                     <li>The AI assistant (in the app and in our LINE Official Account): the message you write, earlier messages of the conversation, photos you attach and, so that it can answer, the records of yours that the question needs: amounts, dates, categories, item names, budgets, goals, debts, assets, the tax figures you saved, group and friend names, profile details such as birth date and financial goals, and the notes it has kept about you.</li>
                     <li>Scanning: the photo of a receipt or transfer slip, or the pages or text of a bank statement, and for slips the recipient's name read from the slip with your category list. Slips and statements show names and account numbers.</li>
                     <li>Tax documents: the file you upload in Profile, Tax (a PDF or photo of a ภ.ง.ด.90/91, a 50 ทวิ or proof of paying tax). Gemini receives the whole document, which shows your name, address and national ID number as well as income and tax. Budgy asks it for the figures only and rebuilds the reply from a fixed list of numeric fields, so the name, address and ID number are not passed on to the app, saved or logged. The file is not kept, and nothing is saved until you check the figures and confirm.</li>
-                    <li>Categories and icons: the name and amount of entries you save without a category, and item names used to pick or draw an icon.</li>
+                    <li>Categories and icons: the name and amount of entries you save without a category, and item names, with their category, used to pick or draw an icon.</li>
                     <li>Insights and coach: summaries of your spending (amounts, categories, dates, item names, budget and goal progress) to write Home insights, forecasts, goal tips and the weekly coach profile; and finished conversations, to pick out lasting personal notes.</li>
                     <li>Quality review: samples of AI conversations.</li>
                 </ul>
                 <p>Budgy does not put your email address, password or sign-in tokens in AI requests.</p>
                 <p><strong>How Google handles it</strong></p>
                 <p>Budgy uses Google's paid Gemini API. Google's published terms for paid use (ai.google.dev/gemini-api/terms, read on 29 October 2026) say that Google does not use prompts or responses to improve its products, logs them for a limited time to detect abuse, and may store or cache them in any country where Google or its agents have facilities. Google can change its terms.</p>
+                <p><strong>OpenAI and automatic icons</strong></p>
+                <p>When you save an entry without an icon (quick add, the assistant, a scanned slip, an imported statement or a recurring entry) and Budgy holds no icon for that item yet, Budgy asks OpenAI to draw one. OpenAI processes the request on Budgy's behalf.</p>
+                <ul>
+                    <li>What is sent: Budgy's fixed drawing instructions and a short description of the item, which is the entry's name. A name that is not in English letters is first turned into a short English phrase by Gemini (for example, bottle of cooking oil), which is given the entry's category to choose the right meaning, and that phrase is sent. If that step fails, or the name is already in English letters, the name is sent as you wrote it.</li>
+                    <li>What is not sent: Budgy adds no photo, amount, date, account detail, email address or user ID to the request. Names that look like a person's name (for example starting with นาย, นางสาว, Mr or Ms) or like an ID, a transfer reference or a date are not drawn automatically, and Budgy draws no more than about 10 new icons a day for one account this way. If you type a person's name or other personal details as an entry's name, those words are in the request.</li>
+                    <li>If OpenAI cannot answer: the same description is sent to Gemini instead. If neither can, the entry keeps its category icon.</li>
+                    <li>Gemini only: icons you ask for yourself in the icon picker (generate, regenerate or personalise), icons for assets and debts, and any other icon request the app waits on are never sent to OpenAI.</li>
+                </ul>
+                <p><strong>How OpenAI handles it</strong></p>
+                <p>OpenAI's published API data page (developers.openai.com/api/docs/guides/your-data, read on 8 November 2026) says that data sent to the OpenAI API is not used to train or improve OpenAI models unless the customer explicitly opts in to share it, and that abuse monitoring logs, which can hold prompts and responses, are kept by default for up to 30 days, or longer where the law requires or where it is reasonably necessary to protect its services or others from harm. OpenAI's Services Agreement (cdn.openai.com/osa/openai-services-agreement.pdf, version 010126, read on 8 November 2026) says OpenAI will use customer content only as necessary to provide the service, comply with law, enforce its policies and prevent abuse, and will not use it to develop or improve the service unless the customer explicitly agrees. OpenAI may process data in other countries and can change its terms.</p>
                 <p><strong>Your choice</strong></p>
-                <p>The app asks before AI features start, and you can change your mind at any time in Profile, Help &amp; Support, AI data sharing. Turning AI off stops the assistant and the receipt, slip, statement and tax document reading in the app from sending your data to Gemini. It does not stop two kinds of background processing on our servers: suggesting categories and icons for entries you save, and writing insights and the coach profile from your records. The list above shows what they send. The switch does not apply to messages you send to our LINE Official Account: the first message creates a Budgy account linked to your LINE ID, and the welcome message points you to this policy before anything else is processed.</p>
+                <p>The app asks before AI features start, and you can change your mind at any time in Profile, Help &amp; Support, AI data sharing. Turning AI off stops the assistant and the receipt, slip, statement and tax document reading in the app from sending your data to Gemini. It does not stop two kinds of background processing on our servers: suggesting categories and drawing icons for entries you save (icons go to OpenAI and Gemini as described above), and writing insights and the coach profile from your records. The list above shows what they send. In quick add you can choose an entry's icon yourself in the icon picker before you save: Budgy then sends nothing to draw one. It sends nothing either when an icon for that item already exists. Entries from the assistant, slips, statements and recurring entries have no such step, and no switch turns automatic icon drawing off. The switch does not apply to messages you send to our LINE Official Account: the first message creates a Budgy account linked to your LINE ID, and the welcome message points you to this policy before anything else is processed.</p>
                 <p>AI answers can be wrong. See the Terms of Service.</p>
             </div>
 
@@ -79,6 +89,7 @@
                 <h2>4. Who receives your data</h2>
                 <ul>
                     <li>Google: Gemini (section 3), Firebase Authentication, Cloud Messaging for push notifications, Crashlytics, Performance Monitoring and Analytics, and Google Sign-In.</li>
+                    <li>OpenAI: the short item description used to draw an icon automatically (section 3).</li>
                     <li>Amazon Web Services: our servers, database and file storage, in Singapore.</li>
                     <li>Grafana Labs: monitoring of server logs and performance.</li>
                     <li>AppsFlyer: install attribution and a few events (sign-in method, first slip scan, first entry, finishing onboarding, importing a statement, starting a trial or subscribing with the amount and currency). It may pass install and purchase events to the ad platform that ran a campaign.</li>
@@ -113,7 +124,7 @@
 
             <div class="section">
                 <h2>6. Transfers outside Thailand</h2>
-                <p>Budgy's servers, database and file storage are in Singapore. Google, AppsFlyer, Grafana Labs, Sentry, Apple, Meta, LINE and GitHub may process data in other countries, and Google says its Gemini API may store or cache data in any country where it has facilities. The PDPA (section 28) allows a transfer abroad where the destination has adequate protection or an exception applies, such as your consent. When you turn on AI features you consent to the transfers described in section 3.</p>
+                <p>Budgy's servers, database and file storage are in Singapore. Google, OpenAI, AppsFlyer, Grafana Labs, Sentry, Apple, Meta, LINE and GitHub may process data in other countries, and Google says its Gemini API may store or cache data in any country where it has facilities. OpenAI's services agreement for customers outside the EEA and Switzerland is with OpenAI OpCo, LLC and is governed by the law of California. The PDPA (section 28) allows a transfer abroad where the destination has adequate protection or an exception applies, such as your consent. When you turn on AI features you consent to the transfers described in section 3 for those features. Drawing icons automatically (section 3) also runs when AI data sharing is off.</p>
             </div>
 
             <div class="section">
