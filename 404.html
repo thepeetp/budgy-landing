@@ -7,8 +7,9 @@
   <style>
     body { margin: 0; padding: 0; background: #F8FAFC; }
   </style>
+  <script src="/assets/invite-link.js"></script>
   <script>
-    // GitHub Pages SPA fallback for /ref/:code paths.
+    // GitHub Pages SPA fallback for /ref/:code and /invite/group/:token paths.
     // When GitHub Pages returns 404 for /ref/ABCXYZ12, it serves this file.
     // We detect the /ref/{code} pattern and rewrite to /ref/?code={code}
     // so ref/index.html can read the code from the query param.
@@ -17,6 +18,14 @@
       var path = window.location.pathname;
       var search = window.location.search;
       var segments = path.split('/').filter(Boolean);
+
+      // A group invite link the app did not open (not installed, or opened inside an in-app
+      // browser): show the invite page, which offers the ways in (thepeetp/budgy#1524).
+      var invite = window.BudgyInvite && window.BudgyInvite.fallbackLocation(path, search);
+      if (invite) {
+        window.location.replace(invite);
+        return;
+      }
 
       // Match /ref/{8-char code}
       if (segments.length === 2 && segments[0] === 'ref') {
